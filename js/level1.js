@@ -29,7 +29,7 @@ const canvas = document.querySelector('canvas');
 
     const enemies = [];
     let count = 3;
-    let hearts = 10;
+    let hearts = 2;
     let coins = 100;
 
     function spawnEnemy(count = 3){
@@ -39,7 +39,8 @@ const canvas = document.querySelector('canvas');
         }
     }
     spawnEnemy(count);
-    const buildings = [];
+    
+    const defenders = [];
     let activeTile = undefined;
 
     function animate() {
@@ -107,7 +108,7 @@ const canvas = document.querySelector('canvas');
                 gameOverPopup.innerHTML = `
                     <h1>Game Over</h1>
                     <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
-                    <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer; onclick="window.location.href = 'index.html'"">Home</button>
+                    <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
                 `;
                 canvas.parentNode.appendChild(gameOverPopup);
             }
@@ -124,22 +125,22 @@ const canvas = document.querySelector('canvas');
             placementTile.update();
         });
 
-        buildings.forEach(building => {
-            building.update();
-            building.target = null;
+        defenders.forEach(defender => {
+            defender.update();
+            defender.target = null;
 
             const validTargets = enemies.filter(enemy => {
-                const xDistance = enemy.center.x - building.center.x;
-                const yDistance = enemy.center.y - building.center.y;
+                const xDistance = enemy.center.x - defender.center.x;
+                const yDistance = enemy.center.y - defender.center.y;
                 const distance = Math.hypot(xDistance, yDistance);
-                return distance < enemy.radius + building.radius;
+                return distance < enemy.radius + defender.radius;
 
             });
-            building.target = validTargets[0];
+            defender.target = validTargets[0];
 
-            if(building.target !== null){
-                for(let i = building.projectiles.length - 1; i >= 0; i--){
-                    const projectile = building.projectiles[i];
+            if(defender.target !== null){
+                for(let i = defender.projectiles.length - 1; i >= 0; i--){
+                    const projectile = defender.projectiles[i];
                     projectile.update();
 
                     if (projectile.target) {
@@ -159,7 +160,7 @@ const canvas = document.querySelector('canvas');
                             }
                         }
                         
-                        building.projectiles.splice(i,1);
+                        defender.projectiles.splice(i,1);
                     }
                     
                     
@@ -179,7 +180,7 @@ const canvas = document.querySelector('canvas');
         belowIndex = placementTilesArr.findIndex(tile => tile.position.x === activeTile.position.x && tile.position.y === activeTile.position.y+32);
         if(belowIndex != -1){
             if(placementTilesArr[belowIndex].occupied === false && activeTile && !activeTile.occupied && coins >= 50){
-                buildings.push(new Building({position: {x: activeTile.position.x, y: activeTile.position.y}}));
+                defenders.push(new Defenders({position: {x: activeTile.position.x, y: activeTile.position.y}}));
                 activeTile.occupied = true; 
                 placementTilesArr[belowIndex].occupied = true;
                 coins -= 50;

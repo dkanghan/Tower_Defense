@@ -9,6 +9,14 @@
   module.exports = data;
  }})("towerdefense1",
 { "compressionlevel":-1,
+ "editorsettings":
+    {
+     "export":
+        {
+         "format":"js",
+         "target":"towerdefense1.js"
+        }
+    },
  "height":20,
  "infinite":false,
  "layers":[
