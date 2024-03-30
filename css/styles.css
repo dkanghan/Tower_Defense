@@ -1,0 +1,94 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: wheat;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+p {
+    margin-bottom: 50px;
+}
+
+canvas {
+    border: 2px solid black; /* Just for visualization, you can remove this */
+    position: absolute;
+    width: 1280px;
+    height: 760px;
+    top: 0;
+    left: 0;
+}
+
+#container {
+    background-size: cover; /* Adjust the background size as needed */
+    overflow: hidden;
+    color: rgb(7, 7, 7);
+}
+
+#content {
+    max-width: 80%; /* Limit the maximum width of the content */
+    padding: 20px; /* Add padding to the content */
+}
+
+#play-button,
+#manual-button,
+.level-button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#play-button:hover,
+#manual-button:hover,
+.level-button:hover {
+    background-color: #45a049;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+}
+
+.popup-content {
+    background-color: white;
+    border-radius: 5px;
+    width: 60%;
+    margin: 100px auto;
+    padding: 20px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/phaser@v3.80.1/dist/phaser.min.js"></script>
+    <title>Phaser Game Homepage</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Add CSS styles here */
+        #buttonContainer {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #play-button,
+        .level-button {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        
+        <div id="content">
+            <h1>Welcome to Tower Defense</h1>
+            <p>Click Play to Start Playing.</p>
+            <button id="play-button">Play</button>
+            <div id="buttonContainer" style="display: none;">
+                <button class="level-button" data-level="1">Level 1</button>
+                <button class="level-button" data-level="2">Level 2</button>
+                <button class="level-button" data-level="3">Level 3</button>
+            </div>
+            <button id="manual-button">User Manual</button>
+        </div>
+    </div>
+
+    <div id="manualPopup" class="popup">
+        <div class="popup-content">
+            <span class="close">&times;</span>
+            <h2>User Manual</h2>
+            <p>Instructions for playing the game go here...</p>
+        </div>
+    </div>
+
+    <script>
+        // Function to toggle the display of the popup
+        function togglePopup() {
+            var popup = document.getElementById('manualPopup');
+            popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Event listener for the "Play" button
+        document.getElementById('play-button').addEventListener('click', function() {
+            document.getElementById('play-button').style.display = 'none';
+            // Show the level buttons container
+            document.getElementById('buttonContainer').style.display = 'flex';
+
+        });
+
+        // Event listener for level buttons
+        document.getElementById('buttonContainer').addEventListener('click', function(event) {
+            if (event.target.classList.contains('level-button')) {
+                var level = event.target.dataset.level;
+                window.location.href = 'level' + level + '.html';
+            }
+        });
+
+        // Event listener for the "User Manual" button
+        document.getElementById('manual-button').addEventListener('click', function() {
+            // Show the user manual popup when the button is clicked
+            togglePopup();
+        });
+
+        // Close the popup when the close button is clicked
+        document.getElementsByClassName('close')[0].addEventListener('click', function() {
+            togglePopup();
+        });
+
+        // Close the popup when clicking outside of it
+        window.onclick = function(event) {
+            var popup = document.getElementById('manualPopup');
+            if (event.target === popup) {
+                togglePopup();
+            }
+        };
+    </script>
+
+</body>
+</html>
