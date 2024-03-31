@@ -14,6 +14,8 @@ class Orc_1 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 1.5;
+    this.type = "Orc_1";
     console.log("Orc_1 created");
   }
 
@@ -36,7 +38,7 @@ class Orc_2 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 200;
+    this.health = 150;
     this.image = new Image();
     this.image.src = "assets/attackers/Orcs/ORK2/WALK_000.png";
     this.frameIndex = 0;
@@ -45,6 +47,8 @@ class Orc_2 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 2;
+    this.type = "Orc_2";
   }
 
   update() {
@@ -66,7 +70,7 @@ class Orc_3 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 300;
+    this.health = 200;
     this.image = new Image();
     this.image.src = "assets/attackers/Orcs/ORK3/WALK_000.png";
     this.frameIndex = 0;
@@ -75,6 +79,8 @@ class Orc_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 1.5;
+    this.type = "Orc_3";
   }
 
   update() {
@@ -105,6 +111,7 @@ class Knight_1 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.type = "Knight_1";
   }
 
   update() {
@@ -126,7 +133,7 @@ class Knight_2 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 200;
+    this.health = 150;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT2/_WALK_000.png";
     this.frameIndex = 0;
@@ -135,6 +142,7 @@ class Knight_2 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.type = "Knight_2";
   }
 
   update() {
@@ -156,7 +164,7 @@ class Knight_3 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 300;
+    this.health = 250;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT3/_WALK_000.png";
     this.frameIndex = 0;
@@ -165,6 +173,7 @@ class Knight_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.type = "Knight_3";
   }
 
   update() {

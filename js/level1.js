@@ -27,22 +27,86 @@ placementTiles12D.forEach((row, y) => {
   });
 });
 
+console.log(placementTilesArr);
 const enemies = [];
-let count = 3;
-let hearts = 2;
+let wave = 1;
+let hearts = 10;
 let coins = 100;
 
-function spawnEnemy(count = 3) {
+function spawnEnemy(wave = 1) {
+  let count = wave * 3;
   for (let i = 0; i < count; i++) {
     const xOff = i * 150;
-    enemies.push(
-      new Knight_1({
-        position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
-      })
-    );
+    if (wave === 1) {
+      enemies.push(
+        new Orc_1({
+          position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+        })
+      );
+    } else if (wave === 2) {
+      if (i < 3) {
+        enemies.push(
+          new Orc_1({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      } else {
+        enemies.push(
+          new Orc_2({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      }
+    } else if (wave === 3) {
+      if (i < 3) {
+        enemies.push(
+          new Orc_1({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      } else if (i < 6) {
+        enemies.push(
+          new Orc_2({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      } else {
+        enemies.push(
+          new Orc_3({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      }
+    } else if (wave === 4) {
+      if (i < 2) {
+        enemies.push(
+          new Orc_1({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      } else if (i < 5) {
+        enemies.push(
+          new Orc_2({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      } else {
+        enemies.push(
+          new Orc_3({
+            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+          })
+        );
+      }
+    } else if (wave === 5) {
+      enemies.push(
+        new Orc_3({
+          position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+        })
+      );
+    }
   }
 }
-spawnEnemy(count);
+spawnEnemy(wave);
 
 const defenders = [];
 let activeTile = undefined;
@@ -92,108 +156,6 @@ function animate() {
   c.fillText(": " + hearts, canvas.width - 80, 60);
   c.strokeText(": " + hearts, canvas.width - 80, 60);
 
-  // Add three buttons at the bottom of the canvas
-  //   const button1 = document.createElement("button");
-  //   button1.innerHTML =
-  //     '<img id="Elf_1" src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="Button 1" width="128" height="128">';
-  //   button1.style.position = "absolute";
-  //   button1.id = "Elf_1";
-  //   button1.style.left = `${canvas.width / 2 - 300}px`;
-  //   button1.style.top = `${canvas.height + 30}px`;
-  //   button1.style.border = "none";
-  //   button1.style.background = "transparent";
-  //   button1.style.cursor = "pointer";
-  //   button1.addEventListener("mouseover", () => {
-  //     button1.style.opacity = "0.7";
-  //   });
-  //   button1.addEventListener("mouseout", () => {
-  //     button1.style.opacity = "1";
-  //   });
-  //   button1.addEventListener("click", () => {
-  //     clicked_button_id = "Elf_1";
-  //   });
-  //   canvas.parentNode.appendChild(button1);
-
-  //   const button2 = document.createElement("button");
-  //   button2.innerHTML =
-  //     '<img id="Elf_3" src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt="Button 2" width="128" height="128">';
-  //   button2.style.position = "absolute";
-  //   button2.id = "Elf_3";
-  //   button2.style.left = `${canvas.width / 2 - 150}px`;
-  //   button2.style.top = `${canvas.height + 30}px`;
-  //   button2.style.border = "none";
-  //   button2.style.background = "transparent";
-  //   button2.style.cursor = "pointer";
-  //   button2.addEventListener("mouseover", () => {
-  //     button2.style.opacity = "0.7";
-  //   });
-  //   button2.addEventListener("mouseout", () => {
-  //     button2.style.opacity = "1";
-  //   });
-  //   button1.addEventListener("click", () => {
-  //     clicked_button_id = "Elf_3";
-  //   });
-  //   canvas.parentNode.appendChild(button2);
-
-  //   const button3 = document.createElement("button");
-  //   button3.innerHTML =
-  //     '<img id="Fairy_1" src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="Button 3" width="128" height="128">';
-  //   button3.style.position = "absolute";
-  //   button3.style.left = `${canvas.width / 2}px`;
-  //   button3.id = "Fairy_1";
-  //   button3.style.top = `${canvas.height + 30}px`;
-  //   button3.style.border = "none";
-  //   button3.style.background = "transparent";
-  //   button3.style.cursor = "pointer";
-  //   button3.addEventListener("mouseover", () => {
-  //     button3.style.opacity = "0.7";
-  //   });
-  //   button3.addEventListener("mouseout", () => {
-  //     button3.style.opacity = "1";
-  //   });
-  //   button1.addEventListener("click", () => {
-  //     clicked_button_id = "Fairy_1";
-  //   });
-  //   canvas.parentNode.appendChild(button3);
-
-  //   const text1 = document.createElement("p");
-  //   text1.innerHTML = "$ 150";
-  //   text1.style.position = "absolute";
-  //   text1.style.left = `${canvas.width / 2 - 250}px`;
-  //   text1.style.top = `${canvas.height + 170}px`;
-  //   text1.style.color = "black";
-  //   text1.style.fontFamily = "Arial, sans-serif";
-  //   text1.style.fontSize = "16px";
-  //   text1.style.textAlign = "center"; // Add this line to center align the text
-  //   text1.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  //   text1.style.padding = "10px"; // Add this line to add padding
-  //   canvas.parentNode.appendChild(text1);
-
-  //   const text2 = document.createElement("p");
-  //   text2.innerHTML = "$ 150";
-  //   text2.style.position = "absolute";
-  //   text2.style.left = `${canvas.width / 2 - 125}px`;
-  //   text2.style.top = `${canvas.height + 170}px`;
-  //   text2.style.color = "black";
-  //   text2.style.fontFamily = "Arial, sans-serif";
-  //   text2.style.fontSize = "16px";
-  //   text2.style.textAlign = "center"; // Add this line to center align the text
-  //   text2.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  //   text2.style.padding = "10px"; // Add this line to add padding
-  //   canvas.parentNode.appendChild(text2);
-
-  //   const text3 = document.createElement("p");
-  //   text3.innerHTML = "$ 150";
-  //   text3.style.position = "absolute";
-  //   text3.style.left = `${canvas.width / 2 + 50}px`;
-  //   text3.style.top = `${canvas.height + 170}px`;
-  //   text3.style.color = "black";
-  //   text3.style.fontFamily = "Arial, sans-serif";
-  //   text3.style.fontSize = "16px";
-  //   text3.style.textAlign = "center"; // Add this line to center align the text
-  //   text3.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  //   text3.style.padding = "10px"; // Add this line to add padding
-  //   canvas.parentNode.appendChild(text3);
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
@@ -230,8 +192,35 @@ function animate() {
   }
 
   if (enemies.length === 0) {
-    count += 3;
-    spawnEnemy(count);
+    if(wave < 6){
+      wave++;
+      spawnEnemy(wave);
+    }
+    else{
+    const congratulationsPopup = document.createElement("div");
+    congratulationsPopup.classList.add("congratulations-popup");
+    congratulationsPopup.style.position = "absolute";
+    congratulationsPopup.style.top = canvas.height / 2 + "px";
+    congratulationsPopup.style.left = canvas.width / 2 + "px";
+    congratulationsPopup.style.transform = "translate(-50%, -50%)";
+    congratulationsPopup.style.fontSize = "48px";
+    congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
+    congratulationsPopup.style.color = "white";
+    congratulationsPopup.style.webkitTextStroke = "1px black";
+    congratulationsPopup.style.alignItems = "center";
+    congratulationsPopup.style.textAlign = "center";
+    congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+    congratulationsPopup.style.padding = "20px";
+    congratulationsPopup.innerHTML = `
+      <h1>Congratulations!</h1>
+      <p>You have cleared the level.</p>
+      <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level2.html'"">Next Level</button>
+      <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+    `;
+    canvas.parentNode.appendChild(congratulationsPopup);
+    }
+
+    
   }
 
   placementTilesArr.forEach((placementTile) => {
@@ -262,13 +251,29 @@ function animate() {
 
           //when projectile hits enemy
           if (distance < projectile.target.radius + projectile.radius) {
-            projectile.target.health -= 50;
+            if(defender.type === "Elf_1"){
+              projectile.target.health -= 50;
+            }
+            else if(defender.type === "Elf_3"){
+              projectile.target.health -= 75;
+            }
+            else if(defender.type === "Fairy_1"){
+              projectile.target.health -= 100;
+            }
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
-              enemies.splice(index, 1);
               if (coins < 940) {
-                coins += 10;
+                if(enemies[index].type === "Orc_1"){
+                  coins += 10;
+                }
+                else if(enemies[index].type === "Orc_2"){
+                  coins += 20;
+                }
+                else if(enemies[index].type === "Orc_3"){
+                  coins += 30;
+                }
               }
+              enemies.splice(index, 1);
             }
 
             defender.projectiles.splice(i, 1);
@@ -284,21 +289,30 @@ const mouse = {
   y: undefined,
 };
 
+
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
   clicked_button_id = event.target.id;
   //   console.log("clicked button is ", clicked_button_id);
 });
 
+let belowIndex;
+let currentIndex;
 canvas.addEventListener("click", () => {
   belowIndex = placementTilesArr.findIndex(
     (tile) =>
       tile.position.x === activeTile.position.x &&
       tile.position.y === activeTile.position.y + 32
   );
+  currentIndex = placementTilesArr.findIndex(
+    (tile) =>
+      tile.position.x === activeTile.position.x &&
+      tile.position.y === activeTile.position.y
+  );
+
   if (belowIndex != -1) {
     if (
-      placementTilesArr[belowIndex].occupied === false &&
+      placementTilesArr[belowIndex].occupied === false && placementTilesArr[belowIndex+1].occupied === false && placementTilesArr[currentIndex+1].occupied === false &&
       activeTile &&
       !activeTile.occupied &&
       coins >= 50
@@ -308,14 +322,21 @@ canvas.addEventListener("click", () => {
         newDefender = new Elf_1({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
+        coins -= 50;
       } else if (clicked_button_id === "Elf_3") {
+        if(coins >= 100){
         newDefender = new Elf_3({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
+        coins -= 100;
+      }
       } else if (clicked_button_id === "Fairy_1") {
-        newDefender = new Fairy_1({
-          position: { x: activeTile.position.x, y: activeTile.position.y },
-        });
+        if (coins >= 150) {
+          newDefender = new Fairy_1({
+            position: { x: activeTile.position.x, y: activeTile.position.y },
+          });
+          coins -= 150;
+        }
       } else {
         // Handle unknown button id
         console.log("Unknown button id:", clicked_button_id);
@@ -328,7 +349,8 @@ canvas.addEventListener("click", () => {
       // Update other necessary variables
       activeTile.occupied = true;
       placementTilesArr[belowIndex].occupied = true;
-      coins -= 50;
+      placementTilesArr[belowIndex+1].occupied = true;
+      placementTilesArr[currentIndex+1].occupied = true;
     }
   }
 });

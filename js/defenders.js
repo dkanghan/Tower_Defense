@@ -22,6 +22,7 @@ class Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 5;
+    this.type = "Elf_1";
   }
   draw() {
     c.drawImage(
@@ -35,22 +36,8 @@ class Defenders {
   update() {
     this.draw();
 
-    // if (!this.target) {
-    //   return;
-    // }
-
-    // this.elapsedTime += 1 / 60;
-    // if (this.elapsedTime >= this.animationSpeed) {
-    //   this.frameIndex++;
-    //   this.elapsedTime = 0;
-    // }
-    // if (this.frameIndex >= this.frameLimit) {
-    //   this.frameIndex = 1;
-    // }
-    // this.image.src = `assets/defenders/ELf/Elf_01__ATTACK_00${this.frameIndex}.png`;
-
     this.frames++;
-    if (this.frames % 100 === 0) {
+    if (this.frames % 100 === 0 && this.target) {
       this.projectiles.push(
         new Projectile(
           { position: { x: this.center.x, y: this.center.y } },

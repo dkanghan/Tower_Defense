@@ -23,6 +23,7 @@ class Elf_1 extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 5;
+    this.type = "Elf_1";
   }
 
   update() {
@@ -69,6 +70,7 @@ class Elf_3 extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 6;
+    this.type = "Elf_3";
   }
 
   update() {
@@ -115,6 +117,7 @@ class Fairy_1 extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 6;
+    this.type = "Fairy_1";
   }
 
   update() {
@@ -161,6 +164,7 @@ class Fairy_2 extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 5;
+    this.type = "Fairy_2";
   }
 
   update() {
@@ -207,6 +211,7 @@ class Fairy_3 extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 5;
+    this.type = "Fairy_3";
   }
 
   update() {
@@ -253,6 +258,7 @@ class Warrior extends Defenders {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.frameLimit = 8;
+    this.type = "Warrior";
   }
 
   update() {
