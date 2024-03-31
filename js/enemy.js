@@ -29,6 +29,7 @@ class Enemy {
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
     this.type = "Orc_1";
+    this.initialhealth = 100;
   }
 
   draw() {
@@ -36,7 +37,7 @@ class Enemy {
     c.drawImage(
       this.image,
       this.position.x,
-      this.position.y,
+      this.position.y-20,
       this.width,
       this.height
     );
@@ -50,7 +51,7 @@ class Enemy {
     c.fillRect(
       this.position.x,
       this.position.y - 30,
-      (this.width * this.health) / 100,
+      (this.width * this.health) / this.initialhealth,
       10
     );
   }

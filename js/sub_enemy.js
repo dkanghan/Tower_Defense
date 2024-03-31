@@ -6,6 +6,7 @@ class Orc_1 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 100;
+    this.initialhealth = 100;
     this.image = new Image();
     this.image.src = "assets/attackers/Orcs/ORK1/WALK_000.png";
     this.frameIndex = 0;
@@ -39,6 +40,7 @@ class Orc_2 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 150;
+    this.initialhealth = 150;
     this.image = new Image();
     this.image.src = "assets/attackers/Orcs/ORK2/WALK_000.png";
     this.frameIndex = 0;
@@ -71,6 +73,7 @@ class Orc_3 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 200;
+    this.initialhealth = 200;
     this.image = new Image();
     this.image.src = "assets/attackers/Orcs/ORK3/WALK_000.png";
     this.frameIndex = 0;
@@ -103,6 +106,7 @@ class Knight_1 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 100;
+    this.initialhealth = 100;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT1/_WALK_000.png";
     this.frameIndex = 0;
@@ -134,6 +138,7 @@ class Knight_2 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 150;
+    this.initialhealth = 150;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT2/_WALK_000.png";
     this.frameIndex = 0;
@@ -165,6 +170,7 @@ class Knight_3 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 250;
+    this.initialhealth = 250;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT3/_WALK_000.png";
     this.frameIndex = 0;

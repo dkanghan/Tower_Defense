@@ -33,6 +33,8 @@ let wave = 1;
 let hearts = 10;
 let coins = 100;
 
+
+const waypoints = waypoints1;
 function spawnEnemy(wave = 1) {
   let count = wave * 3;
   for (let i = 0; i < count; i++) {
@@ -318,19 +320,19 @@ canvas.addEventListener("click", () => {
       coins >= 50
     ) {
       let newDefender;
-      if (clicked_button_id === "Elf_1") {
+      if (clicked_button_id === "Warrior") {
         newDefender = new Elf_1({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
         coins -= 50;
-      } else if (clicked_button_id === "Elf_3") {
+      } else if (clicked_button_id === "Fairy_2") {
         if(coins >= 100){
         newDefender = new Elf_3({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
         coins -= 100;
       }
-      } else if (clicked_button_id === "Fairy_1") {
+      } else if (clicked_button_id === "Fairy_3") {
         if (coins >= 150) {
           newDefender = new Fairy_1({
             position: { x: activeTile.position.x, y: activeTile.position.y },

@@ -6,13 +6,13 @@ class placementTiles{
         this.occupied = false;
     }
 
-    draw(){
-        c.fillStyle = this.color;
-        c.fillRect(this.position.x, this.position.y, this.size, this.size);
-    }
+    // draw(){
+    //     c.fillStyle = this.color;
+    //     c.fillRect(this.position.x, this.position.y, this.size, this.size);
+    // }
 
     update(){
-        this.draw();
+        // this.draw();
 
         if(mouse.x > this.position.x && mouse.x < this.position.x + this.size
             && mouse.y > this.position.y && mouse.y < this.position.y + this.size){
@@ -20,6 +20,7 @@ class placementTiles{
         }
         else{
             this.color = 'rgba(0, 255, 0, 0.2)';
+            
         }
        
     }
