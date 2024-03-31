@@ -291,7 +291,6 @@ html_image.addEventListener("click", (event) => {
 });
 
 canvas.addEventListener("click", () => {
-  console.log("clicked button is ", clicked_button_id);
   belowIndex = placementTilesArr.findIndex(
     (tile) =>
       tile.position.x === activeTile.position.x &&
