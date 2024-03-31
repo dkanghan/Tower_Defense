@@ -93,95 +93,107 @@ function animate() {
   c.strokeText(": " + hearts, canvas.width - 80, 60);
 
   // Add three buttons at the bottom of the canvas
-  const button1 = document.createElement("button");
-  button1.innerHTML =
-    '<img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="Button 1" width="128" height="128">';
-  button1.style.position = "absolute";
-  button1.style.left = `${canvas.width / 2 - 300}px`;
-  button1.style.top = `${canvas.height + 30}px`;
-  button1.style.border = "none";
-  button1.style.background = "transparent";
-  button1.style.cursor = "pointer";
-  button1.addEventListener("mouseover", () => {
-    button1.style.opacity = "0.7";
-  });
-  button1.addEventListener("mouseout", () => {
-    button1.style.opacity = "1";
-  });
-  canvas.parentNode.appendChild(button1);
+  //   const button1 = document.createElement("button");
+  //   button1.innerHTML =
+  //     '<img id="Elf_1" src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="Button 1" width="128" height="128">';
+  //   button1.style.position = "absolute";
+  //   button1.id = "Elf_1";
+  //   button1.style.left = `${canvas.width / 2 - 300}px`;
+  //   button1.style.top = `${canvas.height + 30}px`;
+  //   button1.style.border = "none";
+  //   button1.style.background = "transparent";
+  //   button1.style.cursor = "pointer";
+  //   button1.addEventListener("mouseover", () => {
+  //     button1.style.opacity = "0.7";
+  //   });
+  //   button1.addEventListener("mouseout", () => {
+  //     button1.style.opacity = "1";
+  //   });
+  //   button1.addEventListener("click", () => {
+  //     clicked_button_id = "Elf_1";
+  //   });
+  //   canvas.parentNode.appendChild(button1);
 
-  const button2 = document.createElement("button");
-  button2.innerHTML =
-    '<img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt="Button 2" width="128" height="128">';
-  button2.style.position = "absolute";
-  button2.style.left = `${canvas.width / 2 - 150}px`;
-  button2.style.top = `${canvas.height + 30}px`;
-  button2.style.border = "none";
-  button2.style.background = "transparent";
-  button2.style.cursor = "pointer";
-  button2.addEventListener("mouseover", () => {
-    button2.style.opacity = "0.7";
-  });
-  button2.addEventListener("mouseout", () => {
-    button2.style.opacity = "1";
-  });
-  canvas.parentNode.appendChild(button2);
+  //   const button2 = document.createElement("button");
+  //   button2.innerHTML =
+  //     '<img id="Elf_3" src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt="Button 2" width="128" height="128">';
+  //   button2.style.position = "absolute";
+  //   button2.id = "Elf_3";
+  //   button2.style.left = `${canvas.width / 2 - 150}px`;
+  //   button2.style.top = `${canvas.height + 30}px`;
+  //   button2.style.border = "none";
+  //   button2.style.background = "transparent";
+  //   button2.style.cursor = "pointer";
+  //   button2.addEventListener("mouseover", () => {
+  //     button2.style.opacity = "0.7";
+  //   });
+  //   button2.addEventListener("mouseout", () => {
+  //     button2.style.opacity = "1";
+  //   });
+  //   button1.addEventListener("click", () => {
+  //     clicked_button_id = "Elf_3";
+  //   });
+  //   canvas.parentNode.appendChild(button2);
 
-  const button3 = document.createElement("button");
-  button3.innerHTML =
-    '<img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="Button 3" width="128" height="128">';
-  button3.style.position = "absolute";
-  button3.style.left = `${canvas.width / 2}px`;
-  button3.style.top = `${canvas.height + 30}px`;
-  button3.style.border = "none";
-  button3.style.background = "transparent";
-  button3.style.cursor = "pointer";
-  button3.addEventListener("mouseover", () => {
-    button3.style.opacity = "0.7";
-  });
-  button3.addEventListener("mouseout", () => {
-    button3.style.opacity = "1";
-  });
-  canvas.parentNode.appendChild(button3);
+  //   const button3 = document.createElement("button");
+  //   button3.innerHTML =
+  //     '<img id="Fairy_1" src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="Button 3" width="128" height="128">';
+  //   button3.style.position = "absolute";
+  //   button3.style.left = `${canvas.width / 2}px`;
+  //   button3.id = "Fairy_1";
+  //   button3.style.top = `${canvas.height + 30}px`;
+  //   button3.style.border = "none";
+  //   button3.style.background = "transparent";
+  //   button3.style.cursor = "pointer";
+  //   button3.addEventListener("mouseover", () => {
+  //     button3.style.opacity = "0.7";
+  //   });
+  //   button3.addEventListener("mouseout", () => {
+  //     button3.style.opacity = "1";
+  //   });
+  //   button1.addEventListener("click", () => {
+  //     clicked_button_id = "Fairy_1";
+  //   });
+  //   canvas.parentNode.appendChild(button3);
 
-  const text1 = document.createElement("p");
-  text1.innerHTML = "$ 150";
-  text1.style.position = "absolute";
-  text1.style.left = `${canvas.width / 2 - 250}px`;
-  text1.style.top = `${canvas.height + 170}px`;
-  text1.style.color = "black";
-  text1.style.fontFamily = "Arial, sans-serif";
-  text1.style.fontSize = "16px";
-  text1.style.textAlign = "center"; // Add this line to center align the text
-  text1.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  text1.style.padding = "10px"; // Add this line to add padding
-  canvas.parentNode.appendChild(text1);
+  //   const text1 = document.createElement("p");
+  //   text1.innerHTML = "$ 150";
+  //   text1.style.position = "absolute";
+  //   text1.style.left = `${canvas.width / 2 - 250}px`;
+  //   text1.style.top = `${canvas.height + 170}px`;
+  //   text1.style.color = "black";
+  //   text1.style.fontFamily = "Arial, sans-serif";
+  //   text1.style.fontSize = "16px";
+  //   text1.style.textAlign = "center"; // Add this line to center align the text
+  //   text1.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
+  //   text1.style.padding = "10px"; // Add this line to add padding
+  //   canvas.parentNode.appendChild(text1);
 
-  const text2 = document.createElement("p");
-  text2.innerHTML = "$ 150";
-  text2.style.position = "absolute";
-  text2.style.left = `${canvas.width / 2 - 125}px`;
-  text2.style.top = `${canvas.height + 170}px`;
-  text2.style.color = "black";
-  text2.style.fontFamily = "Arial, sans-serif";
-  text2.style.fontSize = "16px";
-  text2.style.textAlign = "center"; // Add this line to center align the text
-  text2.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  text2.style.padding = "10px"; // Add this line to add padding
-  canvas.parentNode.appendChild(text2);
+  //   const text2 = document.createElement("p");
+  //   text2.innerHTML = "$ 150";
+  //   text2.style.position = "absolute";
+  //   text2.style.left = `${canvas.width / 2 - 125}px`;
+  //   text2.style.top = `${canvas.height + 170}px`;
+  //   text2.style.color = "black";
+  //   text2.style.fontFamily = "Arial, sans-serif";
+  //   text2.style.fontSize = "16px";
+  //   text2.style.textAlign = "center"; // Add this line to center align the text
+  //   text2.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
+  //   text2.style.padding = "10px"; // Add this line to add padding
+  //   canvas.parentNode.appendChild(text2);
 
-  const text3 = document.createElement("p");
-  text3.innerHTML = "$ 150";
-  text3.style.position = "absolute";
-  text3.style.left = `${canvas.width / 2 + 50}px`;
-  text3.style.top = `${canvas.height + 170}px`;
-  text3.style.color = "black";
-  text3.style.fontFamily = "Arial, sans-serif";
-  text3.style.fontSize = "16px";
-  text3.style.textAlign = "center"; // Add this line to center align the text
-  text3.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
-  text3.style.padding = "10px"; // Add this line to add padding
-  canvas.parentNode.appendChild(text3);
+  //   const text3 = document.createElement("p");
+  //   text3.innerHTML = "$ 150";
+  //   text3.style.position = "absolute";
+  //   text3.style.left = `${canvas.width / 2 + 50}px`;
+  //   text3.style.top = `${canvas.height + 170}px`;
+  //   text3.style.color = "black";
+  //   text3.style.fontFamily = "Arial, sans-serif";
+  //   text3.style.fontSize = "16px";
+  //   text3.style.textAlign = "center"; // Add this line to center align the text
+  //   text3.style.background = "rgba(255, 255, 255, 0.5)"; // Add this line to set the background color
+  //   text3.style.padding = "10px"; // Add this line to add padding
+  //   canvas.parentNode.appendChild(text3);
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i];
@@ -272,7 +284,14 @@ const mouse = {
   y: undefined,
 };
 
+const html_image = document.querySelector(".def_button");
+html_image.addEventListener("click", (event) => {
+  clicked_button_id = event.target.id;
+  //   console.log("clicked button is ", clicked_button_id);
+});
+
 canvas.addEventListener("click", () => {
+  console.log("clicked button is ", clicked_button_id);
   belowIndex = placementTilesArr.findIndex(
     (tile) =>
       tile.position.x === activeTile.position.x &&
@@ -285,11 +304,29 @@ canvas.addEventListener("click", () => {
       !activeTile.occupied &&
       coins >= 50
     ) {
-      defenders.push(
-        new Defenders({
+      let newDefender;
+      if (clicked_button_id === "Elf_1") {
+        newDefender = new Elf_1({
           position: { x: activeTile.position.x, y: activeTile.position.y },
-        })
-      );
+        });
+      } else if (clicked_button_id === "Elf_3") {
+        newDefender = new Elf_3({
+          position: { x: activeTile.position.x, y: activeTile.position.y },
+        });
+      } else if (clicked_button_id === "Fairy_1") {
+        newDefender = new Fairy_1({
+          position: { x: activeTile.position.x, y: activeTile.position.y },
+        });
+      } else {
+        // Handle unknown button id
+        console.log("Unknown button id:", clicked_button_id);
+        return; // Exit the function if id is unknown
+      }
+
+      // Push the newly created defender into the defenders array
+      defenders.push(newDefender);
+
+      // Update other necessary variables
       activeTile.occupied = true;
       placementTilesArr[belowIndex].occupied = true;
       coins -= 50;
