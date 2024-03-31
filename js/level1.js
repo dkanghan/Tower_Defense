@@ -50,6 +50,7 @@ const canvas = document.querySelector('canvas');
         c.fillStyle = 'rgba(255, 255, 255, 0.2)';
         c.fillRect(canvas.width - 250, 10, 240, 70);
 
+        // Draw a heart symbol
         c.fillStyle = 'red';
         c.strokeStyle = 'black';
         c.lineWidth = 2;
@@ -57,6 +58,7 @@ const canvas = document.querySelector('canvas');
         c.strokeText('\u2665', canvas.width - 120 , 60);
         c.fillText('\u2665', canvas.width - 120, 60);
 
+        // Draw a yellow circle
         c.fillStyle = 'yellow';
         c.font = '32px Arial';
         c.beginPath();
@@ -66,20 +68,113 @@ const canvas = document.querySelector('canvas');
         c.strokeStyle = 'black';
         c.lineWidth = 2;
         c.stroke();
+
+        // Draw a dollar sign
         c.fillStyle = 'black';
         c.font = '20px Arial';
         const dollarSignWidth = c.measureText('\u0024').width;
         const dollarSignX = canvas.width - 235 - dollarSignWidth / 2;
         c.fillText('\u0024', dollarSignX, 53);
+        
+        // Draw the number of coins
         c.fillStyle = 'white';
         c.font = '32px Alfa Slab One';
         c.fillText( ': ' + coins, canvas.width - 210, 60);
         c.strokeText(': ' + coins, canvas.width - 210, 60);
 
+        // Draw the number of hearts
         c.fillStyle = 'white';
         c.font = '32px Alfa Slab One';
         c.fillText( ': ' + hearts, canvas.width - 80, 60);
         c.strokeText(': ' + hearts, canvas.width - 80, 60);
+
+        // Add three buttons at the bottom of the canvas
+        const button1 = document.createElement('button');
+        button1.innerHTML = '<img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="Button 1" width="128" height="128">';
+        button1.style.position = 'absolute';
+        button1.style.left = `${canvas.width / 2 - 300}px`;
+        button1.style.top = `${canvas.height + 30}px`;
+        button1.style.border = 'none';
+        button1.style.background = 'transparent';
+        button1.style.cursor = 'pointer';
+        button1.addEventListener('mouseover', () => {
+            button1.style.opacity = '0.7';
+        });
+        button1.addEventListener('mouseout', () => {
+            button1.style.opacity = '1';
+        });
+        canvas.parentNode.appendChild(button1);
+
+        const button2 = document.createElement('button');
+        button2.innerHTML = '<img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt="Button 2" width="128" height="128">';
+        button2.style.position = 'absolute';
+        button2.style.left = `${canvas.width / 2 - 150}px`;
+        button2.style.top = `${canvas.height + 30}px`;
+        button2.style.border = 'none';
+        button2.style.background = 'transparent';
+        button2.style.cursor = 'pointer';
+        button2.addEventListener('mouseover', () => {
+            button2.style.opacity = '0.7';
+        });
+        button2.addEventListener('mouseout', () => {
+            button2.style.opacity = '1';
+        });
+        canvas.parentNode.appendChild(button2);
+
+        const button3 = document.createElement('button');
+        button3.innerHTML = '<img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="Button 3" width="128" height="128">';
+        button3.style.position = 'absolute';
+        button3.style.left = `${canvas.width / 2}px`;
+        button3.style.top = `${canvas.height + 30}px`;
+        button3.style.border = 'none';
+        button3.style.background = 'transparent';
+        button3.style.cursor = 'pointer';
+        button3.addEventListener('mouseover', () => {
+            button3.style.opacity = '0.7';
+        });
+        button3.addEventListener('mouseout', () => {
+            button3.style.opacity = '1';
+        });
+        canvas.parentNode.appendChild(button3);
+
+        const text1 = document.createElement('p');
+        text1.innerHTML = '$ 150';
+        text1.style.position = 'absolute';
+        text1.style.left = `${canvas.width / 2 - 250}px`;
+        text1.style.top = `${canvas.height + 170}px`;
+        text1.style.color = 'black';
+        text1.style.fontFamily = 'Arial, sans-serif';
+        text1.style.fontSize = '16px';
+        text1.style.textAlign = 'center'; // Add this line to center align the text
+        text1.style.background = 'rgba(255, 255, 255, 0.5)'; // Add this line to set the background color
+        text1.style.padding = '10px'; // Add this line to add padding
+        canvas.parentNode.appendChild(text1);
+
+        const text2 = document.createElement('p');
+        text2.innerHTML = '$ 150';
+        text2.style.position = 'absolute';
+        text2.style.left = `${canvas.width / 2 - 125}px`;
+        text2.style.top = `${canvas.height + 170}px`;
+        text2.style.color = 'black';
+        text2.style.fontFamily = 'Arial, sans-serif';
+        text2.style.fontSize = '16px';
+        text2.style.textAlign = 'center'; // Add this line to center align the text
+        text2.style.background = 'rgba(255, 255, 255, 0.5)'; // Add this line to set the background color
+        text2.style.padding = '10px'; // Add this line to add padding
+        canvas.parentNode.appendChild(text2);
+
+        const text3 = document.createElement('p');
+        text3.innerHTML = '$ 150';
+        text3.style.position = 'absolute';
+        text3.style.left = `${canvas.width / 2 + 50}px`;
+        text3.style.top = `${canvas.height + 170}px`;
+        text3.style.color = 'black';
+        text3.style.fontFamily = 'Arial, sans-serif';
+        text3.style.fontSize = '16px';
+        text3.style.textAlign = 'center'; // Add this line to center align the text
+        text3.style.background = 'rgba(255, 255, 255, 0.5)'; // Add this line to set the background color
+        text3.style.padding = '10px'; // Add this line to add padding
+        canvas.parentNode.appendChild(text3);
 
         for (let i = enemies.length-1 ; i >= 0;i--) {
             const enemy = enemies[i];

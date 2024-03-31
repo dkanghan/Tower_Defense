@@ -1,7 +1,7 @@
 class Enemy{
     constructor({position = {x: 0, y: 0}}){
         this.position = position;
-        this.speed = 2;
+        this.speed = 3;
         this.width = 75;
         this.height = 75;
         this.center = {x: this.position.x + this.width/2, y: this.position.y + this.height/2};
