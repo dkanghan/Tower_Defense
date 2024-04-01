@@ -237,6 +237,8 @@ function animate() {
     pauseButton.style.margin = "10px";
     pauseButton.style.cursor = "pointer";
     pauseButton.style.borderRadius = "5px";
+    pauseButton.style.position = "absolute";
+    pauseButton.style.top = "10px";
     pauseButton.addEventListener("click", () => {
       if (animId) {
         cancelAnimationFrame(animId);
