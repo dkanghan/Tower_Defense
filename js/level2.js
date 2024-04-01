@@ -216,8 +216,8 @@ function animate() {
   // Draw the wave number
   c.fillStyle = "white";
   c.font = "32px Alfa Slab One";
-  c.fillText("Wave: " + wave, 30, 60);
-  c.strokeText("Wave: " + wave, 30, 60);
+  c.fillText("Wave: " + wave, 90, 60);
+  c.strokeText("Wave: " + wave, 90, 60);
 
   // Add a pause button if it doesn't exist
   if (!document.getElementById("pauseButton")) {
