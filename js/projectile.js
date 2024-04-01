@@ -7,13 +7,23 @@ class Projectile {
   // Input: An object with a position property and a target property.
   // Expected Output: None.
   //------------------------------------------------------------------------------------------------
-  constructor({ position = { x: 0, y: 0 } }, target) {
+  constructor({ position = { x: 0, y: 0 } }, target,imagesrc = "assets/Laser/01.png") {
     this.position = position;
     this.velocity = { x: 0, y: 0 };
     this.target = target;
     this.radius = 10;
     this.image = new Image();
-    this.image.src = "assets/Laser/01.png";
+    this.image.src = imagesrc;
+    this.angle = 0;
+
+    if(imagesrc == "assets/arrows/Warrior_Arrow.png" || imagesrc == "assets/arrows/ELF_Arrow.png"){
+    this.image.width = 60; 
+    this.image.height = 30; 
+    }
+    else{
+      this.image.width = 30; 
+      this.image.height = 30; 
+    }
   }
 
   //------------------------------------------------------------------------------------------------
@@ -23,7 +33,7 @@ class Projectile {
   // Description: Draws the Projectile object on the canvas.
   //------------------------------------------------------------------------------------------------
   draw() {
-    c.drawImage(this.image, this.position.x, this.position.y);
+      c.drawImage(this.image, this.position.x, this.position.y, this.image.width, this.image.height);
   }
 
   //------------------------------------------------------------------------------------------------

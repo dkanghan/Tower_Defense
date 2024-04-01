@@ -519,4 +519,8 @@ window.addEventListener("mousemove", (e) => {
   }
 });
 
-animate();
+try {
+  animate();
+} catch (error) {
+  console.error("An error occurred while running the animation:", error);
+}

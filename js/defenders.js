@@ -36,6 +36,7 @@ class Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 5;
     this.type = "Elf_1";
+    this.imagesrc = "assets/Laser/01.png";
   }
 
   //------------------------------------------------------------------------------------------------
@@ -69,8 +70,8 @@ class Defenders {
     if (this.frames % 100 === 0 && this.target) {
       this.projectiles.push(
         new Projectile(
-          { position: { x: this.center.x, y: this.center.y } },
-          this.target
+          { position: { x: this.center.x, y: this.center.y }},
+          this.target,this.imagesrc
         )
       );
     }

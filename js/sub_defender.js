@@ -42,6 +42,7 @@ class Elf_1 extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 5;
     this.type = "Elf_1";
+    this.imagesrc = "assets/arrows/ELF_Arrow.png";
   }
 
   //------------------------------------------------------------------------------------------------
@@ -348,6 +349,7 @@ class Warrior extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 8;
     this.type = "Warrior";
+    this.imagesrc = "assets/arrows/Warrior_Arrow.png";
   }
 
   //------------------------------------------------------------------------------------------------
