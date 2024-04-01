@@ -213,6 +213,51 @@ function animate() {
   c.fillText(": " + hearts, canvas.width - 80, 60);
   c.strokeText(": " + hearts, canvas.width - 80, 60);
 
+  // Draw the wave number
+  c.fillStyle = "white";
+  c.font = "32px Alfa Slab One";
+  c.fillText("Wave: " + wave, 30, 60);
+  c.strokeText("Wave: " + wave, 30, 60);
+
+  // Add a pause button if it doesn't exist
+  if (!document.getElementById("pauseButton")) {
+    const pauseButton = document.createElement("button");
+    pauseButton.id = "pauseButton";
+    pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+    <rect x="6" y="4" width="4" height="16"></rect>
+    <rect x="14" y="4" width="4" height="16"></rect>
+    </svg>`;
+    pauseButton.style.backgroundColor = "#f1c40f";
+    pauseButton.style.color = "white";
+    pauseButton.style.border = "none";
+    pauseButton.style.padding = "10px 20px";
+    pauseButton.style.textAlign = "center";
+    pauseButton.style.textDecoration = "none";
+    pauseButton.style.display = "inline-block";
+    pauseButton.style.margin = "10px";
+    pauseButton.style.cursor = "pointer";
+    pauseButton.style.borderRadius = "5px";
+    pauseButton.addEventListener("click", () => {
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+        pauseButton.style.backgroundColor = "#4CAF50";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
+        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+        </svg>`;
+      } else {
+        animId = requestAnimationFrame(animate);
+        pauseButton.style.backgroundColor = "#f1c40f";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+        <rect x="6" y="4" width="4" height="16"></rect>
+        <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>`;
+      }
+    });
+    pauseButton.style.borderRadius = "5px"; // round edges
+    canvas.parentNode.appendChild(pauseButton);
+  }
+
   for (let i = enemies.length - 1; i >= 0; i--) {
     // Loop through the enemies array and update each enemy
     const enemy = enemies[i];
