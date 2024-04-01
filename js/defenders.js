@@ -7,13 +7,12 @@
 //------------------------------------------------------------------------------------------------
 class Defenders {
   //------------------------------------------------------------------------------------------------
-    //Defenders class
-    // Inputs: position
-    // Expected Output: None
-    // Description: Constructor function for the Defenders class. Initializes the properties of a defender object.
+  //Defenders class
+  // Inputs: position
+  // Expected Output: None
+  // Description: Constructor function for the Defenders class. Initializes the properties of a defender object.
   //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
-
     this.position = position;
     this.size = 32;
     this.width = this.size * 2;

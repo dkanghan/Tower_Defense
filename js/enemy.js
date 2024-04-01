@@ -8,10 +8,10 @@
 
 class Enemy {
   //------------------------------------------------------------------------------------------------
-    //Enemy class
-    // Inputs: position
-    // Expected Output: None
-    // Description: Constructor function for the Enemy class. Initializes the properties of a Enemy object.
+  //Enemy class
+  // Inputs: position
+  // Expected Output: None
+  // Description: Constructor function for the Enemy class. Initializes the properties of a Enemy object.
   //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position;

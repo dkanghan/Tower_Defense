@@ -68,13 +68,19 @@ function spawnEnemy(wave = 1) {
       if (i < 3) {
         enemies.push(
           new Orc_1({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       } else {
         enemies.push(
           new Orc_2({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       }
@@ -82,19 +88,28 @@ function spawnEnemy(wave = 1) {
       if (i < 3) {
         enemies.push(
           new Orc_1({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       } else if (i < 6) {
         enemies.push(
           new Orc_2({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       } else {
         enemies.push(
           new Orc_3({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       }
@@ -102,19 +117,28 @@ function spawnEnemy(wave = 1) {
       if (i < 2) {
         enemies.push(
           new Orc_1({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       } else if (i < 5) {
         enemies.push(
           new Orc_2({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       } else {
         enemies.push(
           new Orc_3({
-            position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
+            position: {
+              x: 2.5 * waypoints[0].x - xOff,
+              y: 2.3 * waypoints[0].y,
+            },
           })
         );
       }
@@ -185,7 +209,6 @@ function animate() {
   c.fillText(": " + hearts, canvas.width - 80, 60);
   c.strokeText(": " + hearts, canvas.width - 80, 60);
 
-
   for (let i = enemies.length - 1; i >= 0; i--) {
     // Loop through the enemies array and update each enemy
     const enemy = enemies[i];
@@ -229,41 +252,38 @@ function animate() {
   }
 
   // Check if all enemies have been defeated
-  
+
   if (enemies.length === 0) {
     // If all enemies have been defeated, spawn the next wave
-    if(wave < 6){
+    if (wave < 6) {
       wave++;
       spawnEnemy(wave);
-    }
-    else{
+    } else {
       // Stop the animation loop
       //If all waves are cleared, display the congratulations popup
-    cancelAnimationFrame(animId);
-    const congratulationsPopup = document.createElement("div");
-    congratulationsPopup.classList.add("congratulations-popup");
-    congratulationsPopup.style.position = "absolute";
-    congratulationsPopup.style.top = canvas.height / 2 + "px";
-    congratulationsPopup.style.left = canvas.width / 2 + "px";
-    congratulationsPopup.style.transform = "translate(-50%, -50%)";
-    congratulationsPopup.style.fontSize = "48px";
-    congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
-    congratulationsPopup.style.color = "white";
-    congratulationsPopup.style.webkitTextStroke = "1px black";
-    congratulationsPopup.style.alignItems = "center";
-    congratulationsPopup.style.textAlign = "center";
-    congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-    congratulationsPopup.style.padding = "20px";
-    congratulationsPopup.innerHTML = `
+      cancelAnimationFrame(animId);
+      const congratulationsPopup = document.createElement("div");
+      congratulationsPopup.classList.add("congratulations-popup");
+      congratulationsPopup.style.position = "absolute";
+      congratulationsPopup.style.top = canvas.height / 2 + "px";
+      congratulationsPopup.style.left = canvas.width / 2 + "px";
+      congratulationsPopup.style.transform = "translate(-50%, -50%)";
+      congratulationsPopup.style.fontSize = "48px";
+      congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
+      congratulationsPopup.style.color = "white";
+      congratulationsPopup.style.webkitTextStroke = "1px black";
+      congratulationsPopup.style.alignItems = "center";
+      congratulationsPopup.style.textAlign = "center";
+      congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      congratulationsPopup.style.padding = "20px";
+      congratulationsPopup.innerHTML = `
       <h1>Congratulations!</h1>
       <p>You have cleared the level.</p>
       <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './level2.html'"">Next Level</button>
       <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
     `;
-    canvas.parentNode.appendChild(congratulationsPopup);
+      canvas.parentNode.appendChild(congratulationsPopup);
     }
-
-    
   }
 
   //update the placement tiles
@@ -271,7 +291,6 @@ function animate() {
     placementTile.update();
   });
 
-  
   defenders.forEach((defender) => {
     // Loop through the defenders array and update each defender
     defender.update();
@@ -309,25 +328,21 @@ function animate() {
 
           //when projectile hits enemy
           if (distance < projectile.target.radius + projectile.radius) {
-            if(defender.type === "Elf_1"){
+            if (defender.type === "Elf_1") {
               projectile.target.health -= 50;
-            }
-            else if(defender.type === "Elf_3"){
+            } else if (defender.type === "Elf_3") {
               projectile.target.health -= 75;
-            }
-            else if(defender.type === "Fairy_1"){
+            } else if (defender.type === "Fairy_1") {
               projectile.target.health -= 100;
             }
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
               if (coins < 980) {
-                if(enemies[index].type === "Orc_1"){
+                if (enemies[index].type === "Orc_1") {
                   coins += 10;
-                }
-                else if(enemies[index].type === "Orc_2"){
+                } else if (enemies[index].type === "Orc_2") {
                   coins += 20;
-                }
-                else if(enemies[index].type === "Orc_3"){
+                } else if (enemies[index].type === "Orc_3") {
                   coins += 30;
                 }
               }
@@ -347,7 +362,6 @@ const mouse = {
   x: undefined,
   y: undefined,
 };
-
 
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
@@ -387,7 +401,9 @@ canvas.addEventListener("click", () => {
   if (belowIndex != -1) {
     // if tile below is not occupied, check if the tile to the right of the active tile and below tile is not occupied
     if (
-      placementTilesArr[belowIndex].occupied === false && placementTilesArr[belowIndex+1].occupied === false && placementTilesArr[currentIndex+1].occupied === false &&
+      placementTilesArr[belowIndex].occupied === false &&
+      placementTilesArr[belowIndex + 1].occupied === false &&
+      placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
       !activeTile.occupied &&
       coins >= 50
@@ -399,12 +415,12 @@ canvas.addEventListener("click", () => {
         });
         coins -= 50;
       } else if (clicked_button_id === "Elf_3") {
-        if(coins >= 100){
-        newDefender = new Elf_3({
-          position: { x: activeTile.position.x, y: activeTile.position.y },
-        });
-        coins -= 100;
-      }
+        if (coins >= 100) {
+          newDefender = new Elf_3({
+            position: { x: activeTile.position.x, y: activeTile.position.y },
+          });
+          coins -= 100;
+        }
       } else if (clicked_button_id === "Fairy_1") {
         if (coins >= 150) {
           newDefender = new Fairy_1({
@@ -415,7 +431,7 @@ canvas.addEventListener("click", () => {
       } else {
         // Handle unknown button id
         console.log("Unknown button id:", clicked_button_id);
-        return; 
+        return;
       }
 
       // Push the newly created defender into the defenders array
@@ -424,8 +440,8 @@ canvas.addEventListener("click", () => {
       // Update other necessary variables
       activeTile.occupied = true;
       placementTilesArr[belowIndex].occupied = true;
-      placementTilesArr[belowIndex+1].occupied = true;
-      placementTilesArr[currentIndex+1].occupied = true;
+      placementTilesArr[belowIndex + 1].occupied = true;
+      placementTilesArr[currentIndex + 1].occupied = true;
     }
   }
 });
