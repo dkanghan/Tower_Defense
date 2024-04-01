@@ -215,7 +215,7 @@ function spawnEnemy(wave = 1) {
       congratulationsPopup.innerHTML = `
         <h1>Congratulations!</h1>
         <p>You have cleared the level.</p>
-        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level2.html'"">Next Level</button>
+        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level1.html'">Level 1</button>
         <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);

@@ -216,7 +216,7 @@ function animate() {
     congratulationsPopup.innerHTML = `
       <h1>Congratulations!</h1>
       <p>You have cleared the level.</p>
-      <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level2.html'"">Next Level</button>
+      <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './level2.html'"">Next Level</button>
       <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
     `;
     canvas.parentNode.appendChild(congratulationsPopup);
@@ -320,19 +320,19 @@ canvas.addEventListener("click", () => {
       coins >= 50
     ) {
       let newDefender;
-      if (clicked_button_id === "Warrior") {
+      if (clicked_button_id === "Elf_1") {
         newDefender = new Elf_1({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
         coins -= 50;
-      } else if (clicked_button_id === "Fairy_2") {
+      } else if (clicked_button_id === "Elf_3") {
         if(coins >= 100){
         newDefender = new Elf_3({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
         coins -= 100;
       }
-      } else if (clicked_button_id === "Fairy_3") {
+      } else if (clicked_button_id === "Fairy_1") {
         if (coins >= 150) {
           newDefender = new Fairy_1({
             position: { x: activeTile.position.x, y: activeTile.position.y },

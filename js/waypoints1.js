@@ -1,3 +1,6 @@
+//waypoints1.js
+
+// Description: Waypoints for the first level of the game.
 const waypoints1 = [
     {
      "x":-80,
@@ -28,6 +31,7 @@ const waypoints1 = [
      "y":330
     }]
 
+// Description: Waypoints for the second level of the game.
 const waypoints2 = [
  
     {

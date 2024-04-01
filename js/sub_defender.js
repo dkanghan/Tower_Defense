@@ -1,4 +1,22 @@
+//------------------------------------------------------------------------------------------------
+// sub_defender.js
+// Dependencies: projectile.js
+// Description: This file contains the properties and methods for the defenders in the game.
+//------------------------------------------------------------------------------------------------
+
+//------------------------------------------------------------------------------------------------
+// Class representing Elf_1 defender
+// Description: Represents a specific type of defender called Elf_1
+// Expected input: An object with optional position properties
+// Expected output: An instance of Elf_1 defender
+//------------------------------------------------------------------------------------------------
 class Elf_1 extends Defenders {
+  //------------------------------------------------------------------------------------------------
+  //Elf_1 class
+  // Inputs: position
+  // Expected Output: None
+  // Description: Constructor function for the Elf_1 class. Initializes the properties of a Elf_1 object.
+  //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
 
@@ -26,6 +44,13 @@ class Elf_1 extends Defenders {
     this.type = "Elf_1";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Elf_1 defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 
@@ -45,7 +70,19 @@ class Elf_1 extends Defenders {
   }
 }
 
+//------------------------------------------------------------------------------------------------
+// Class representing Elf_3 defender
+// Description: Represents a specific type of defender called Elf_3
+// Expected input: An object with optional position properties
+// Expected output: An instance of Elf_3 defender
+//------------------------------------------------------------------------------------------------
 class Elf_3 extends Defenders {
+  //------------------------------------------------------------------------------------------------
+  //Elf_3 class
+  // Inputs: position
+  // Expected Output: None
+  // Description: Constructor function for the Elf_3 class. Initializes the properties of a Elf_3 object.
+  //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
 
@@ -73,6 +110,13 @@ class Elf_3 extends Defenders {
     this.type = "Elf_3";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Elf_3 defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 
@@ -92,6 +136,12 @@ class Elf_3 extends Defenders {
   }
 }
 
+//------------------------------------------------------------------------------------------------
+// Class representing Fairy_1 defender
+// Description: Represents a specific type of defender called Fairy_1
+// Expected input: An object with optional position properties
+// Expected output: An instance of Fairy_1 defender
+//------------------------------------------------------------------------------------------------
 class Fairy_1 extends Defenders {
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
@@ -120,6 +170,13 @@ class Fairy_1 extends Defenders {
     this.type = "Fairy_1";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Fairy_1 defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 
@@ -139,6 +196,12 @@ class Fairy_1 extends Defenders {
   }
 }
 
+//------------------------------------------------------------------------------------------------
+// Class representing Fairy_2 defender
+// Description: Represents a specific type of defender called Fairy_2
+// Expected input: An object with optional position properties
+// Expected output: An instance of Fairy_2 defender
+//------------------------------------------------------------------------------------------------
 class Fairy_2 extends Defenders {
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
@@ -167,6 +230,13 @@ class Fairy_2 extends Defenders {
     this.type = "Fairy_2";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Fairy_2 defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 
@@ -186,6 +256,12 @@ class Fairy_2 extends Defenders {
   }
 }
 
+//------------------------------------------------------------------------------------------------
+// Class representing Fairy_3 defender
+// Description: Represents a specific type of defender called Fairy_3
+// Expected input: An object with optional position properties
+// Expected output: An instance of Fairy_3 defender
+//------------------------------------------------------------------------------------------------
 class Fairy_3 extends Defenders {
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
@@ -214,6 +290,13 @@ class Fairy_3 extends Defenders {
     this.type = "Fairy_3";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Fairy_3 defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 
@@ -233,6 +316,12 @@ class Fairy_3 extends Defenders {
   }
 }
 
+//------------------------------------------------------------------------------------------------
+// Class representing Warrior defender
+// Description: Represents a specific type of defender called Warrior
+// Expected input: An object with optional position properties
+// Expected output: An instance of Warrior defender
+//------------------------------------------------------------------------------------------------
 class Warrior extends Defenders {
   constructor({ position = { x: 0, y: 0 } }) {
     super({ position });
@@ -261,6 +350,13 @@ class Warrior extends Defenders {
     this.type = "Warrior";
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Method to update the Warrior defender
+  // Description: Updates the state of the defender
+  // Expected input: None
+  // Expected output: None
+  //------------------------------------------------------------------------------------------------
   update() {
     super.update();
 

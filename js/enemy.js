@@ -1,27 +1,32 @@
+//------------------------------------------------------------------------------------------------
+// Class: Enemy
+// Dependencies: None
+// Description: This class contains the properties and methods for the enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: None
+//------------------------------------------------------------------------------------------------
+
 class Enemy {
+  //------------------------------------------------------------------------------------------------
+    //Enemy class
+    // Inputs: position
+    // Expected Output: None
+    // Description: Constructor function for the Enemy class. Initializes the properties of a Enemy object.
+  //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
-    // Enemy position
     this.position = position;
-    // Enemy speed
-    this.speed = 3; //--------------------------
-    // Enemy dimensions
+    this.speed = 3;
     this.width = 75;
     this.height = 75;
-    // Enemy center point
     this.center = {
       x: this.position.x + this.width / 2,
       y: this.position.y + this.height / 2,
     };
-    // Waypoint index
     this.wpIndex = 0;
-    // Enemy radius
     this.radius = 50;
-    // Enemy health
-    this.health = 100; //---------------------------
-    // Enemy image
+    this.health = 100;
     this.image = new Image();
-    this.image.src = "assets/attackers/Orcs/ORK1/WALK_000.png"; //--------------------
-    // Animation properties
+    this.image.src = "assets/attackers/Orcs/ORK1/WALK_000.png";
     this.frameIndex = 0;
     this.frames = 7;
     this.frameWidth = 100;
@@ -32,21 +37,24 @@ class Enemy {
     this.initialhealth = 100;
   }
 
+  //------------------------------------------------------------------------------------------------
+  // draw()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Draws the Enemy object on the canvas.
+  //------------------------------------------------------------------------------------------------
   draw() {
-    // Draw enemy image
     c.drawImage(
       this.image,
       this.position.x,
-      this.position.y-20,
+      this.position.y - 20,
       this.width,
       this.height
     );
 
-    // Draw enemy health bar background
     c.fillStyle = "red";
     c.fillRect(this.position.x, this.position.y - 30, this.width, 10);
 
-    // Draw enemy health bar
     c.fillStyle = "green";
     c.fillRect(
       this.position.x,
@@ -56,10 +64,19 @@ class Enemy {
     );
   }
 
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Enemy object.
+  //  - Draws the Enemy object on the canvas.
+  //  - Updates the position of the Enemy object.
+  //  - Updates the center of the Enemy object.
+  //  - Updates the Enemy object's waypoint index.
+  //------------------------------------------------------------------------------------------------
   update() {
     this.draw();
 
-    // Calculate movement towards the next waypoint
     const waypoint = waypoints[this.wpIndex];
     const yDistance = 2.3 * waypoint.y - this.position.y;
     const xDistance = 2.5 * waypoint.x - this.position.x;
@@ -67,7 +84,6 @@ class Enemy {
     this.position.x += Math.cos(angle) * this.speed;
     this.position.y += Math.sin(angle) * this.speed;
 
-    // Check if enemy has reached the next waypoint
     if (
       Math.abs(Math.round(this.position.x) - Math.round(2.5 * waypoint.x)) <
         Math.abs(Math.cos(angle) * this.speed) &&
@@ -78,7 +94,6 @@ class Enemy {
       this.wpIndex++;
     }
 
-    // Update enemy center point
     this.center = {
       x: this.position.x + this.width / 2,
       y: this.position.y + this.height / 2,

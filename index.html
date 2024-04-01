@@ -4,21 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/phaser@v3.80.1/dist/phaser.min.js"></script>
-    <title>Phaser Game Homepage</title>
+    <title>Soldier Defense</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
         /* Add CSS styles here */
-        #buttonContainer {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 20px;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
         }
 
-        #play-button,
-        .level-button {
-            margin: 5px 0;
+        #container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+
+
     </style>
 </head>
 <body>
@@ -26,13 +31,12 @@
     <div id="container">
         
         <div id="content">
-            <h1>Welcome to Tower Defense</h1>
+            <h1>Welcome to Soldier Defense</h1>
             <p>Click Play to Start Playing.</p>
             <button id="play-button">Play</button>
             <div id="buttonContainer" style="display: none;">
                 <button class="level-button" data-level="1">Level 1</button>
                 <button class="level-button" data-level="2">Level 2</button>
-                <button class="level-button" data-level="3">Level 3</button>
             </div>
             <button id="manual-button">User Manual</button>
         </div>
@@ -42,9 +46,125 @@
         <div class="popup-content">
             <span class="close">&times;</span>
             <h2>User Manual</h2>
-            <p>Instructions for playing the game go here...</p>
-        </div>h
+            <p>Click on the Play button to start playing the game. You can select a level from the list of levels available.</p>
+            <p>Enemies will appear on the left side of the screen and move towards the right side. You can place defenders on the screen to attack the enemies.</p>
+            <p>Defenders will attack the enemies automatically when they are in range. You can place defenders by clicking on the defender icons at the bottom of the screen and then clicking on the desired location on the screen.</p>
+            <p>Defenders have different attack powers and costs. You can view the details of the enemies and defenders in the Enemies and Defenders tabs below.</p>
+            <p>Defend your base and defeat all the enemies to win the game!</p>
+            <h3>Enemies and Defenders</h3>
+            <div class="tab">
+                <button class="tablinks" onclick="openTab(event, 'enemies')">Enemies</button>
+                <button class="tablinks" onclick="openTab(event, 'defenders')">Defenders</button>
+            </div>
+
+            <div>&nbsp;</div>
+            <div id="enemies" class="tabcontent" style="display: none;">
+                <h3>Enemies</h3>
+                <table class="center-align">
+                    <thead>
+                        <tr>
+                            <th>Enemies</th>
+                            <th>Health</th>
+                            <th>Amount Gained</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/attackers/Orcs/ORK1/WALK_000.png" alt=""  width="50" height="50"></td>
+                            <td>100</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Orcs/ORK2/WALK_000.png" alt=""  width="50" height="50"></td>
+                            <td>150</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Orcs/ORK3/WALK_000.png" alt=""  width="50" height="50"></td>
+                            <td>200</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>100</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Knight/KNIGHT2/_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>150</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Knight/KNIGHT3/_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>200</td>
+                            <td>30</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="defenders" class="tabcontent" style="display: none;">
+                <h3>Defenders</h3>
+                <table class="center-align">
+                    <thead>
+                        <tr>
+                            <th>Defenders</th>
+                            <th>Attack Power</th>
+                            <th>Cost</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt=""  width="50" height="50"></td>
+                            <td>50</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt=""  width="50" height="50"></td>
+                            <td>75</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt=""  width="50" height="50"></td>
+                            <td>100</td>
+                            <td>150</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" alt="" width="50" height="50"></td>
+                            <td>50</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" alt="" width="50" height="50"></td>
+                            <td>75</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" alt="" width="50" height="50"></td>
+                            <td>100</td>
+                            <td>150</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
     </div>
+
+    <script>
+        function openTab(event, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tabcontent");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName("tablinks");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.className += " active";
+        }
+    </script>
 
     <script>
         // Function to toggle the display of the popup

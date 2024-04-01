@@ -1,5 +1,19 @@
+//------------------------------------------------------------------------------------------------
+// Class: Defenders
+// Dependencies: projectile.js
+// Description: This class contains the properties and methods for the defenders in the game.
+// Expected Inputs: position
+// Expected Outputs: None
+//------------------------------------------------------------------------------------------------
 class Defenders {
+  //------------------------------------------------------------------------------------------------
+    //Defenders class
+    // Inputs: position
+    // Expected Output: None
+    // Description: Constructor function for the Defenders class. Initializes the properties of a defender object.
+  //------------------------------------------------------------------------------------------------
   constructor({ position = { x: 0, y: 0 } }) {
+
     this.position = position;
     this.size = 32;
     this.width = this.size * 2;
@@ -24,6 +38,13 @@ class Defenders {
     this.frameLimit = 5;
     this.type = "Elf_1";
   }
+
+  //------------------------------------------------------------------------------------------------
+  // draw()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Draws the defender object on the canvas.
+  //------------------------------------------------------------------------------------------------
   draw() {
     c.drawImage(
       this.image,
@@ -33,6 +54,15 @@ class Defenders {
       this.height
     );
   }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the defender object.
+  //     - Draws the defender object on the canvas.
+  //     - Creates a new projectile object every 100 frames.
+  //------------------------------------------------------------------------------------------------
   update() {
     this.draw();
 
