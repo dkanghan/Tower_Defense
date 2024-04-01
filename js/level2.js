@@ -1,17 +1,27 @@
+//level2.js
+// Description: Main JavaScript file for the second level of the game.
+
+// Define the canvas and context
 const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
+// Set the canvas dimensions
 canvas.width = 1280;
 canvas.height = 760;
+
+// Draw a white background
 c.fillStyle = "rgba(255, 255, 255, 0.5)";
 c.fillRect(0, 0, canvas.width, canvas.height);
 
+// Load the level 2 map
 const image = new Image();
 image.onload = function () {
   c.drawImage(image, 0, 0, canvas.width, canvas.height);
 };
 image.src = "assets/Level2/level2map.png";
 
+// Define the placement tiles
+// set the placement tiles on the canvas
 const placementTiles12D = [];
 for (let i = 0; i < placementTiles2.length; i += 40) {
   placementTiles12D.push(placementTiles2.slice(i, i + 40));
@@ -27,13 +37,23 @@ placementTiles12D.forEach((row, y) => {
   });
 });
 
+
+// Create enemies array to store the enemies
+// initialize the wave, waypoints, hearts, and coins
 const enemies = [];
 let wave = 1;
 let hearts = 10;
 let coins = 100;
-
 let waypoints = waypoints2;
 
+
+// ---------------------------------------------------------
+// Function: spawnEnemy
+// Description: Spawns enemies based on the wave number.
+// Expected Inputs: wave
+// Expected Outputs: None
+// Calls: new Knight_1, new Knight_2, new Knight_3
+// ---------------------------------------------------------
 function spawnEnemy(wave = 1) {
     let count = wave * 3;
     for (let i = 0; i < count; i++) {
@@ -109,13 +129,21 @@ function spawnEnemy(wave = 1) {
   }
   spawnEnemy(wave);
   
+  // Define the defenders array and activeTile variable
   const defenders = [];
   let activeTile = undefined;
   
+//---------------------------------------------------------
+// Function: animate
+// Description: Main animation loop for the game.
+// Expected Inputs: None
+// Expected Outputs: None
+//---------------------------------------------------------
   function animate() {
+    // start the animation loop
     animId = requestAnimationFrame(animate);
     c.drawImage(image, 0, 0, canvas.width, canvas.height);
-  
+
     c.fillStyle = "rgba(255, 255, 255, 0.2)";
     c.fillRect(canvas.width - 250, 10, 240, 70);
   
@@ -159,15 +187,21 @@ function spawnEnemy(wave = 1) {
   
   
     for (let i = enemies.length - 1; i >= 0; i--) {
+      // Loop through the enemies array and update each enemy
       const enemy = enemies[i];
       enemy.update();
   
       if (enemy.position.x > canvas.width - enemy.width) {
+        //Check if the enemy has reached the end of the path
+        //Remove the enemy from the enemies array
+        //Decrement the hearts variable
         enemies.splice(i, 1);
         hearts--;
         if (hearts === 0) {
+          //stop the animation loop if the hearts reach 0
           cancelAnimationFrame(animId);
   
+          //Display the game over popup
           const gameOverPopup = document.createElement("div");
           gameOverPopup.classList.add("game-over-popup");
           gameOverPopup.style.position = "absolute";
@@ -193,11 +227,15 @@ function spawnEnemy(wave = 1) {
     }
   
     if (enemies.length === 0) {
+      //Check if all enemies have been defeated, then spawn the next wave
       if(wave < 6){
         wave++;
         spawnEnemy(wave);
       }
       else{
+        //stop the animation loop 
+        //Display the congratulations popup if all waves have been cleared
+      cancelAnimationFrame(animId);
       const congratulationsPopup = document.createElement("div");
       congratulationsPopup.classList.add("congratulations-popup");
       congratulationsPopup.style.position = "absolute";
@@ -224,33 +262,47 @@ function spawnEnemy(wave = 1) {
       
     }
   
+    //update the placement tiles
     placementTilesArr.forEach((placementTile) => {
       placementTile.update();
     });
   
     defenders.forEach((defender) => {
+      // Loop through the defenders array and update each defender
       defender.update();
       defender.target = null;
   
+      // Loop through the enemies array and check if the defender is in range of an enemy
       const validTargets = enemies.filter((enemy) => {
         const xDistance = enemy.center.x - defender.center.x;
         const yDistance = enemy.center.y - defender.center.y;
         const distance = Math.hypot(xDistance, yDistance);
         return distance < enemy.radius + defender.radius;
       });
+
+      // Set the target of the defender to the first enemy in range
       defender.target = validTargets[0];
   
+      // Loop through the defender's projectiles array and update each projectile
       if (defender.target !== null) {
         for (let i = defender.projectiles.length - 1; i >= 0; i--) {
           const projectile = defender.projectiles[i];
           projectile.update();
   
+
+          // Check if the projectile has hit the target
+          // If the projectile hits the target, reduce the target's health
+          // If the target's health is less than or equal to 0, remove the target from the enemies array
+          // Remove the projectile from the defender's projectiles array
+          // Add coins to the player's total
+          // If the player's total coins is less than 980, add coins based on the enemy type
+          // Remove the target from the enemies array
+          // Remove the projectile from the defender's projectiles array
           if (projectile.target) {
             const xDistance = projectile.target.center.x - projectile.position.x;
             const yDistance = projectile.target.center.y - projectile.position.y;
             const distance = Math.hypot(xDistance, yDistance);
-  
-            //when projectile hits enemy
+
             if (distance < projectile.target.radius + projectile.radius) {
               if(defender.type === "Warrior"){
                 projectile.target.health -= 50;
@@ -285,20 +337,36 @@ function spawnEnemy(wave = 1) {
     });
   }
   
+  // Define the mouse object
   const mouse = {
     x: undefined,
     y: undefined,
   };
   
-  
+  // Define the clicked_button_id variable
   const html_image = document.querySelector(".def_button");
   html_image.addEventListener("click", (event) => {
+    // Get the id of the clicked button
     clicked_button_id = event.target.id;
-    //   console.log("clicked button is ", clicked_button_id);
+  
   });
   
+// Define the belowIndex and currentIndex variables
   let belowIndex;
   let currentIndex;
+
+  // Add an event listener to the canvas
+  // When the canvas is clicked, check if the active tile is occupied
+  // If the active tile is not occupied, check if the tile below the active tile is not occupied
+  // If the tile below the active tile is not occupied, create a new defender based on the clicked button id
+  // Push the newly created defender into the defenders array
+  // Update the occupied property of the active tile and the tile below the active tile
+  // Update the player's coins based on the cost of the defender
+  // Update the belowIndex and currentIndex variables
+  // Calls : placementTilesArr.findIndex()
+  //        - newDefender = new Elf_1()
+  //        - newDefender = new Elf_3()
+  //        - newDefender = new Fairy_1()
   canvas.addEventListener("click", () => {
     belowIndex = placementTilesArr.findIndex(
       (tile) =>
@@ -312,6 +380,7 @@ function spawnEnemy(wave = 1) {
     );
   
     if (belowIndex != -1) {
+      // if tile below is not occupied, check if the tile to the right of the active tile and below tile is not occupied
       if (
         placementTilesArr[belowIndex].occupied === false && placementTilesArr[belowIndex+1].occupied === false && placementTilesArr[currentIndex+1].occupied === false &&
         activeTile &&
@@ -341,7 +410,7 @@ function spawnEnemy(wave = 1) {
         } else {
           // Handle unknown button id
           console.log("Unknown button id:", clicked_button_id);
-          return; // Exit the function if id is unknown
+          return; 
         }
   
         // Push the newly created defender into the defenders array
@@ -356,6 +425,11 @@ function spawnEnemy(wave = 1) {
     }
   });
   
+  // Add an event listener to the window
+  // When the mouse is moved, update the mouse x and y coordinates
+  // Set the active tile to null
+  // Loop through the placement tiles array and check if the mouse is hovering over a tile
+  // If the mouse is hovering over a tile, set the active tile to that tile
   window.addEventListener("mousemove", (e) => {
     mouse.x = e.clientX;
     mouse.y = e.clientY;
