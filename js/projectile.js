@@ -31,9 +31,22 @@ class Projectile {
   // Inputs: None
   // Expected Output: None
   // Description: Draws the Projectile object on the canvas.
+  //        - If the target is to the left of the defender, the projectile is flipped horizontally. 
   //------------------------------------------------------------------------------------------------
   draw() {
-      c.drawImage(this.image, this.position.x, this.position.y, this.image.width, this.image.height);
+    if (this.target.center.x < this.position.x) {
+      this.angle = Math.PI;
+      c.save();
+      c.translate(this.position.x, this.position.y);
+      c.scale(-1, 1); 
+      c.drawImage(this.image, -this.image.width / 2, -this.image.height / 2, this.image.width, this.image.height);
+      c.restore();
+    } else {
+      c.save();
+      c.translate(this.position.x, this.position.y);
+      c.drawImage(this.image, -this.image.width / 2, -this.image.height / 2, this.image.width, this.image.height);
+      c.restore();
+    }
   }
 
   //------------------------------------------------------------------------------------------------
@@ -54,5 +67,7 @@ class Projectile {
     this.velocity.y = Math.sin(angle) * 5;
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
+
+
   }
 }

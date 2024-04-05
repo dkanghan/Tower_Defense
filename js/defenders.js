@@ -44,15 +44,32 @@ class Defenders {
   // Inputs: None
   // Expected Output: None
   // Description: Draws the defender object on the canvas.
+  //            - If the target is to the left of the defender, the defender is flipped horizontally.
   //------------------------------------------------------------------------------------------------
   draw() {
-    c.drawImage(
+
+    if (this.target && this.target.position.x < this.position.x) {
+      c.save();
+      c.scale(-1, 1);
+      c.drawImage(
+      this.image,
+      -(this.position.x + this.width),
+      this.position.y,
+      this.width,
+      this.height
+      );
+      c.restore();
+    }else {
+      c.drawImage(
       this.image,
       this.position.x,
       this.position.y,
       this.width,
       this.height
-    );
+      );
+    
+    }
+
   }
 
   //------------------------------------------------------------------------------------------------

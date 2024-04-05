@@ -169,6 +169,7 @@ class Fairy_1 extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 6;
     this.type = "Fairy_1";
+    this.imagesrc = "assets/Laser/02.png";
   }
 
   //------------------------------------------------------------------------------------------------
@@ -229,6 +230,7 @@ class Fairy_2 extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 5;
     this.type = "Fairy_2";
+    this.imagesrc = "assets/Laser/06.png";
   }
 
   //------------------------------------------------------------------------------------------------
@@ -289,6 +291,7 @@ class Fairy_3 extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 5;
     this.type = "Fairy_3";
+    this.imagesrc = "assets/Laser/08.png";
   }
 
   //------------------------------------------------------------------------------------------------
