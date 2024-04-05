@@ -164,6 +164,7 @@ class Knight_1 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 1.5;
     this.type = "Knight_1";
   }
 
@@ -209,6 +210,7 @@ class Knight_2 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 2;
     this.type = "Knight_2";
   }
 
@@ -254,6 +256,7 @@ class Knight_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
+    this.speed = 2;
     this.type = "Knight_3";
   }
 

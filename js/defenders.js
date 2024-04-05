@@ -48,6 +48,14 @@ class Defenders {
   //------------------------------------------------------------------------------------------------
   draw() {
 
+    c.beginPath();
+    c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2, false);
+    c.fillStyle = "rgba(255, 0, 0, 0.1)";
+    c.fill();
+    c.lineWidth = 2;
+    c.strokeStyle = "rgba(255, 0, 0, 0.1)";
+    c.stroke();
+
     if (this.target && this.target.position.x < this.position.x) {
       c.save();
       c.scale(-1, 1);
