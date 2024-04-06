@@ -10,6 +10,7 @@ Welcome to the user manual for Defenders of the Forest. This document will guide
 4. [Enemies](#enemies)
 5. [Levels and Progression](#levels-and-progression)
 6. [Gameplay Tips](#gameplay-tips)
+7. [References](#references)
 
 <div style="page-break-after: always;"></div>
 
@@ -124,3 +125,14 @@ Defenders of the Forest consists of two levels, each with multiple waves of enem
 
 - Place defenders strategically to cover the entire path and maximize their effectiveness.
 - Manage your coins wisely and invest in defenders that complement each other.
+
+  <div style="page-break-after: always;"></div>
+
+## **References**
+
+- [Pixel 16 Woods - Free Top Down Pixel Art Asset Pack](https://zedpixel.itch.io/pixel-16-woods-free-top-down-pixelart-asset-pack)
+- [Free 2D Knight Sprite Sheets](https://free-game-assets.itch.io/free-2d-knight-sprite-sheets?download)
+- [Free Tag Bullet Game Assets](https://itch.io/game-assets/free/tag-bullet)
+- [2D Fantasy Elf Free Sprite Sheets](https://craftpix.net/freebies/2d-fantasy-elf-free-sprite-sheets/?num=1&count=70&sq=archer&pos=6)
+- [2D Fantasy Woman Warrior Free Sprite Sheets](https://craftpix.net/freebies/2d-fantasy-woman-warrior-free-sprite-sheets/)
+- [2D Fantasy Fairy Free Character Sprite](https://craftpix.net/freebies/2d-fantasy-fairy-free-character-sprite/)
