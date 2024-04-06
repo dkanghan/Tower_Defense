@@ -456,16 +456,22 @@ canvas.addEventListener("click", () => {
     ) {
       let newDefender;
       if (clicked_button_id === "Warrior") {
+        if (coins >= 50){
         newDefender = new Warrior({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
         coins -= 50;
+        // Push the newly created defender into the defenders array
+      defenders.push(newDefender);
+      }
       } else if (clicked_button_id === "Fairy_2") {
         if (coins >= 100) {
           newDefender = new Fairy_2({
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
           coins -= 100;
+          // Push the newly created defender into the defenders array
+      defenders.push(newDefender);
         }
       } else if (clicked_button_id === "Fairy_3") {
         if (coins >= 150) {
@@ -473,6 +479,8 @@ canvas.addEventListener("click", () => {
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
           coins -= 150;
+          // Push the newly created defender into the defenders array
+      defenders.push(newDefender);
         }
       } else {
         // Handle unknown button id
@@ -480,8 +488,7 @@ canvas.addEventListener("click", () => {
         return;
       }
 
-      // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+      
 
       // Update other necessary variables
       activeTile.occupied = true;
