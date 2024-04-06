@@ -467,7 +467,7 @@ function animate() {
             if (defender.type === "Warrior") {
               projectile.target.health -= 50;
             } else if (defender.type === "Fairy_2") {
-              projectile.target.health -= 75;
+              projectile.target.health -= 80;
             } else if (defender.type === "Fairy_3") {
               projectile.target.health -= 100;
             }

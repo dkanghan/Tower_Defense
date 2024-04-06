@@ -33,9 +33,9 @@ The main objective of the game is for the player to strategically place defender
 
 - We have 3 types of fairies, 2 types of elves and 1 type of human defenders with different amount of attack power and cost.
     - Fairies:
-        - Fairy-1 : attack power 50, cost 50 coins.
-        - Fairy-2 : attack power 100, cost 150 coins.
-        - Fairy-3 : attack power 100, cost 350 coins.
+        - Fairy-1 : attack power 100, cost 150 coins.
+        - Fairy-2 : attack power 100, cost 350 coins.
+        - Fairy-3 : attack power 80, cost 100 coins.
         - Elf Archer : attack power 50, cost 50 coins.
         - Elf Mage : attack power 75, cost 100 coins.
     - Humans:

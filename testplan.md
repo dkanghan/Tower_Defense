@@ -1,16 +1,14 @@
 # Test Plan for Defenders of the forest
 
-### Introduction
+### **Introduction**
 The purpose of this test plan document is to outline the testing approach for the Defenders of the forest application. 
 
 > Test can be performed on major browsers like Chrome and Edge.
 
-## Test Scenarios
+## **Test Scenarios**
 
-### User Interface Testing
-
-
-### Home Page
+### **Home Page**
+-------------------
 
 | Test Item          | Description                                                             | Result           |
 |--------------------|-------------------------------------------------------------------------|------------------|
@@ -18,7 +16,8 @@ The purpose of this test plan document is to outline the testing approach for th
 | User Manual        | Verify that the user manual is loading properly with descriptions on defenders and attackers.  | Successful       |
 | Level Selection    | Verify that the level selection screen is displayed with options to choose levels. | Successful       |
 
-### Game Play
+### **Game Play**
+-------------------
 
 | Test Item          | Description         | Input|Expected Output  | Result           |
 |--------------------|---------------------|------|------------------|------------------|
@@ -29,8 +28,13 @@ The purpose of this test plan document is to outline the testing approach for th
 | Defender Placement | Verify that the player cannot place defenders on top of each other, on the path of the enemies, rocks, or on the trees. | Click on invalid spot | Defender is not placed | Successful |
 | Enemy Movement     | Verify that the enemies move along the path towards the player's base. | Start the game | Enemies move along the path | Successful |
 | Enemy Defeat       | Verify that the player earns coins by defeating enemies. | Defeat an enemy | Coin counter increases | Successful |
+| Pause Game         | Verify that the player can pause the game at any time. | Click on pause button | Game is paused | Successful |
 
-### Progression System
+
+### **Progression System**
+-------------------
+
+
 | Test Item          | Description         | Input|Expected Output  | Result           |
 |--------------------|---------------------|------|------------------|------------------|
 | Level 1            | Progression through level 1 and confirm the player can move to the next level. | Defeat all enemies in level 1 | Move to level 2 | Successful |
@@ -40,7 +44,10 @@ The purpose of this test plan document is to outline the testing approach for th
 | Coin Counter       | Verify that the coin counter displays the player's current coin balance. | Defeat an enemy | Coin counter increases | Successful |
 | Health Counter      | Verify that the player's health decreases when enemies reach the end of the path. | Enemy reaches the end of the path | Player's health decreases | Successful |
 
-### Game Over
+<div style="page-break-after: always;"></div>
+
+### **Game Over**
+-------------------
 
 | Test Item          | Description         | Input|Expected Output  | Result           |
 |--------------------|---------------------|------|------------------|------------------|
