@@ -53,7 +53,7 @@ let waypoints = waypoints2;
 // Calls: new Knight_1, new Knight_2, new Knight_3
 // ---------------------------------------------------------
 function spawnEnemy(wave = 1) {
-  let count = wave * 3;
+  let count = wave * 4;
   for (let i = 0; i < count; i++) {
     const xOff = i * 150;
     if (wave === 1) {
@@ -95,7 +95,7 @@ function spawnEnemy(wave = 1) {
             },
           })
         );
-      } else if (i < 6) {
+      } else  {
         enemies.push(
           new Knight_2({
             position: {
@@ -104,18 +104,9 @@ function spawnEnemy(wave = 1) {
             },
           })
         );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
+      } 
     } else if (wave === 4) {
-      if (i < 2) {
+      if (i < 8) {
         enemies.push(
           new Knight_1({
             position: {
@@ -124,7 +115,7 @@ function spawnEnemy(wave = 1) {
             },
           })
         );
-      } else if (i < 5) {
+      } else if (i < 12) {
         enemies.push(
           new Knight_2({
             position: {
@@ -144,6 +135,104 @@ function spawnEnemy(wave = 1) {
         );
       }
     } else if (wave === 5) {
+      if (i < 4) {
+        enemies.push(
+          new Knight_1({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else if (i < 12) {
+        enemies.push(
+          new Knight_2({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else {
+        enemies.push(
+          new Knight_3({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      }
+    } else if (wave === 6) {
+      if (i < 3) {
+        enemies.push(
+          new Knight_1({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else if (i < 10) {
+        enemies.push(
+          new Knight_2({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else {
+        enemies.push(
+          new Knight_3({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      }
+    } else if (wave === 7) {
+      if (i < 8) {
+        enemies.push(
+          new Knight_2({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else {
+        enemies.push(
+          new Knight_3({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      }
+    } else if (wave === 8) {
+      if (i < 5) {
+        enemies.push(
+          new Knight_2({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      } else {
+        enemies.push(
+          new Knight_3({
+            position: {
+              x: 2.5 * waypoints2[0].x - xOff,
+              y: 2.3 * waypoints2[0].y,
+            },
+          })
+        );
+      }
+    }else {
       enemies.push(
         new Knight_3({
           position: {
@@ -153,6 +242,7 @@ function spawnEnemy(wave = 1) {
         })
       );
     }
+
   }
 }
 spawnEnemy(wave);
@@ -302,7 +392,7 @@ function animate() {
 
   if (enemies.length === 0) {
     //Check if all enemies have been defeated, then spawn the next wave
-    if (wave < 6) {
+    if (wave < 10) {
       wave++;
       spawnEnemy(wave);
     } else {
@@ -326,7 +416,7 @@ function animate() {
       congratulationsPopup.innerHTML = `
         <h1>Congratulations!</h1>
         <p>You have cleared the level.</p>
-        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level1.html'">Level 1</button>
+        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.reload()">Play Again</button>
         <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);
@@ -387,9 +477,9 @@ function animate() {
                 if (enemies[index].type === "Knight_1") {
                   coins += 10;
                 } else if (enemies[index].type === "Knight_2") {
-                  coins += 20;
+                  coins += 15;
                 } else if (enemies[index].type === "Knight_3") {
-                  coins += 30;
+                  coins += 20;
                 }
               }
               enemies.splice(index, 1);
@@ -474,11 +564,11 @@ canvas.addEventListener("click", () => {
       defenders.push(newDefender);
         }
       } else if (clicked_button_id === "Fairy_3") {
-        if (coins >= 150) {
+        if (coins >= 350) {
           newDefender = new Fairy_3({
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
-          coins -= 150;
+          coins -= 350;
           // Push the newly created defender into the defenders array
       defenders.push(newDefender);
         }

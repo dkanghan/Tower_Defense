@@ -411,6 +411,7 @@ const mouse = {
   y: undefined,
 };
 
+clicked_button_id = undefined;
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
@@ -524,7 +525,7 @@ window.addEventListener("mousemove", (e) => {
       activeTile = tile;
       break;
     }
-  }
+}
 });
 
 try {

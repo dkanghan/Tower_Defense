@@ -164,7 +164,7 @@ class Knight_1 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 1.5;
+    this.speed = 3;
     this.type = "Knight_1";
   }
 
@@ -246,8 +246,8 @@ class Knight_3 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 250;
-    this.initialhealth = 250;
+    this.health = 350;
+    this.initialhealth = 300;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT3/_WALK_000.png";
     this.frameIndex = 0;
@@ -256,7 +256,7 @@ class Knight_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 2;
+    this.speed = 2.5;
     this.type = "Knight_3";
   }
 

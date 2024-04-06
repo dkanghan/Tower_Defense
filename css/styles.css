@@ -23,7 +23,7 @@ p {
 }
 
 canvas {
-    border: 2px solid black; /* Just for visualization, you can remove this */
+    border: 2px solid black;
     position: absolute;
     width: 1280px;
     height: 760px;
@@ -35,14 +35,14 @@ th, td {
 }
 
 #container {
-    background-size: cover; /* Adjust the background size as needed */
+    background-size: cover; 
     overflow: hidden;
     color: rgb(7, 7, 7);
 }
 
 #content {
-    max-width: 80%; /* Limit the maximum width of the content */
-    padding: 20px; /* Add padding to the content */
+    max-width: 80%; 
+    padding: 20px;
 }
 
 #manual-button,

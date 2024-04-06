@@ -35,41 +35,66 @@ The main objective of the game is for the player to strategically place defender
     - Fairies:
         - Fairy-1 : attack power 50, cost 50 coins.
         - Fairy-2 : attack power 100, cost 150 coins.
-        - Fairy-3 : attack power 100, cost 150 coins.
-    - Elves:
+        - Fairy-3 : attack power 100, cost 350 coins.
         - Elf Archer : attack power 50, cost 50 coins.
         - Elf Mage : attack power 75, cost 100 coins.
     - Humans:
         - Human Archer : attack power 50, cost 50 coins.
 
-- Level 1:
-    - Enemies: Orcs
-        - Number of Enemies: increases with multiple of 3.
-    - Defenders:
-        - Elf Archer
-        - Elf Mage
-        - Fairy-3
+- Enemies:
+    - Orcs
+        - Orc-1 : 
+            - gives 10 coins on defeat.
+            - health 100
+            - speed 1.5
+        - Orc-2 : 
+            - gives 20 coins on defeat.
+            - health 150
+            - speed 2
+        - Orc-3 : 
+            - gives 30 coins on defeat.
+            - health 200
+            - speed 1.5
+    - Knights
+        - Knight-1 : 
+            - gives 10 coins on defeat.
+            - health 100
+            - speed 3
+        - Knight-2 : 
+            - gives 15 coins on defeat.
+            - health 150
+            - speed 2
+        - Knight-3 : 
+            - gives 20 coins on defeat.
+            - health 350
+            - speed 2.5
 
-- Level 2:
-    - Enemies: Knights
-    - Number of Enemies: increases with multiple of 4.
-    - Defenders:
-        - Fairy-1
-        - Fairy-2
-        - Human Archer
+- All the defenders have same range of attack for now.
+
 
 ## Levels and Progression
 
 ### Level Structure
 - The game consists of two levels, each with a different map layout and enemy waves. Players progress through the levels by successfully defending against waves of enemies.
-    - Level 1: Summer Forest
+    - Level 1:
         - Number of waves: 5
         - Enemies: Orcs
-        - Number of Enemies: increases with multiple of 3.
-    - Level 2: Winter Forest
+            - Number of Enemies: increases with multiple of 3.
+        - Defenders:
+            - Elf Archer
+            - Elf Mage
+            - Fairy-3
+
+    - Level 2:
         - Number of waves: 10
         - Enemies: Knights
         - Number of Enemies: increases with multiple of 4.
+        - Defenders:
+            - Fairy-1
+            - Fairy-2
+            - Human Archer
+-  Player can earn coins by defeating enemies and use them to add other stronger defenders.
+-  Initially player will have 100 coins to start with for both the levels.
 
 #### Level 1: Summer Forest
 - The first level of the game is set in the Summer Forest, where the player must defend against waves of Orcs. The level consists of 5 waves, with the number of enemies increasing with a multiple of 3 for each wave. The player can use Elf Archer, Elf Mage, and Fairy-3 defenders to defend against the Orcs.
@@ -84,8 +109,8 @@ The main objective of the game is for the player to strategically place defender
 >Note : Both the maps would further include details like trees, rocks, etc. to make it more visually appealing and prevent player from adding defenders everywhere.
 
 ### Progression System
-- As players defeat enemies, they earn coins as a reward. These coins can be used to unlock and upgrade stronger elves and fairies, providing the player with more powerful defenders to use in subsequent levels.
-
+- As players defeat enemies, they earn coins as a reward. These coins can be used to unlock stronger elves and fairies, providing the player with more powerful defenders to use in subsequent levels.
+- Player can move to next level only after successfully defending against all waves of enemies in the current level.
 
 &nbsp;
 
@@ -100,7 +125,23 @@ The main objective of the game is for the player to strategically place defender
 - The game features a wave counter that displays the current wave number.
 - The game features a health bar that displays the player's remaining health.
 
+## Game Play
+- The player will start with 100 coins.
+- The player will start with 10 health points.
+- The player can place defenders on the map by clicking on the defender they want to have on the map.
+- The player can place defenders on empty spots on the map, defenders cannot be placed on top of each other, on the path of the enemies, rocks, or on the trees.
+- The player can earn coins by defeating enemies.
+- The player can unlock stronger defenders by using the coins earned.
+- The player can move to the next level after successfully defending against all waves of enemies in the current level.
+
 ## End Game
+
+### Game Over : 
+- Each enemy that reaches the end of the path will reduce the player's health by 1.
+- The game ends when the player's health reaches 0.
+- The player can restart the game or exit the game if this happens.
+
+### Game Win :
 - The game ends when the player successfully defends against all waves of enemies in both levels.
 - Player can restart the game or exit the game.
 
