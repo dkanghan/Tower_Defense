@@ -18,6 +18,12 @@ Welcome to the user manual for Defenders of the Forest. This document will guide
 
 Defenders of the Forest is a tower defense game where you must strategically place defenders to protect the forest from invading enemies. The game consists of two levels, each with multiple waves of enemies that increase in difficulty. Your goal is to defend the forest and prevent the enemies from reaching your base.
 
+- Game Starts with a welcome screen where you can select the level to play.
+- Once you select the level, you will be taken to the game screen where you can place defenders on the map.
+- Each Level starts with 100 coins that you can use to add defenders and 10 lives.
+
+<div style="page-break-after: always;"></div>
+
 ## **How to Play**
 
 To play Defenders of the Forest, follow these steps:
@@ -29,6 +35,9 @@ To play Defenders of the Forest, follow these steps:
 5. Earn coins by defeating enemies and use them to add more defenders.
 6. Enemies will move along the path towards your base. Defeat them before they reach the end.
 7. Progress through the waves of enemies and complete the level to move to the next one.
+
+
+
 
 <div style="page-break-after: always;"></div>
 
