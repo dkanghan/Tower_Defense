@@ -416,7 +416,7 @@ function animate() {
       congratulationsPopup.innerHTML = `
         <h1>Congratulations!</h1>
         <p>You have cleared the level.</p>
-        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.reload()">Play Again</button>
+        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level3.html'"">Next Level</button>
         <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);

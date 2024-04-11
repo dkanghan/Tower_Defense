@@ -1,0 +1,56 @@
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Workbench:SCAN@-17&display=swap"
+  rel="stylesheet" />
+<style>
+  body {
+    background-color: beige;
+
+    height: 100vh;
+    margin: 0;
+  }
+
+  canvas {
+    background-color: beige;
+  }
+
+  .hidden {
+    display: none;
+
+  }
+
+  .def_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1300px;
+  }
+
+  .def_button img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+</style>
+<canvas></canvas>
+<div class="hidden">
+  <img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" id="knight_1"></img>
+</div>
+<div class="def_button">
+  <img id="Warrior" src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #352c05;">50</p>
+  <img id="Fairy_2" src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #034d5a;">100</p>
+  <img id="Fairy_3" src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #1d6607;">350</p>
+</div>
+<script src="js/waypoints1.js"></script>
+<script src="js/placement.js"></script>
+<script src="js/placementTile1.js"></script>
+<script src="js/defenders.js"></script>
+<script src="js/projectile.js"></script>
+<script src="js/enemy.js"></script>
+<script src="js/sub_enemy.js"></script>
+<script src="js/sub_defender.js"></script>
+<script src="js/level3.js"></script>

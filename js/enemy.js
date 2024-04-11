@@ -35,6 +35,7 @@ class Enemy {
     this.elapsedTime = 0;
     this.type = "Orc_1";
     this.initialhealth = 100;
+    this.waypoints = waypoints;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -76,8 +77,7 @@ class Enemy {
   //------------------------------------------------------------------------------------------------
   update() {
     this.draw();
-
-    const waypoint = waypoints[this.wpIndex];
+    const waypoint = this.waypoints[this.wpIndex];
     const yDistance = 2.3 * waypoint.y - this.position.y;
     const xDistance = 2.5 * waypoint.x - this.position.x;
     const angle = Math.atan2(yDistance, xDistance);
@@ -89,7 +89,7 @@ class Enemy {
         Math.abs(Math.cos(angle) * this.speed) &&
       Math.abs(Math.round(this.position.y) - Math.round(2.3 * waypoint.y)) <
         Math.abs(Math.sin(angle) * this.speed) &&
-      this.wpIndex < waypoints.length - 1
+      this.wpIndex < this.waypoints.length - 1
     ) {
       this.wpIndex++;
     }

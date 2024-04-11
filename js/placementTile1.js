@@ -15,6 +15,14 @@ class placementTiles {
     this.occupied = false;
   }
 
+  draw() {
+    c.fillStyle = this.color;
+    c.fillRect(this.position.x, this.position.y, this.size, this.size);
+  }
+
+
+
+
   //------------------------------------------------------------------------------------------------
   //update()
   // Input: None.
@@ -22,6 +30,7 @@ class placementTiles {
   // Description: Updates the color property of the placementTiles object based on the mouse hover.
   //------------------------------------------------------------------------------------------------
   update() {
+    this.draw();
     if (
       mouse.x > this.position.x &&
       mouse.x < this.position.x + this.size &&

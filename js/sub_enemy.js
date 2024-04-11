@@ -247,7 +247,7 @@ class Knight_3 extends Enemy {
     this.wpIndex = 0;
     this.radius = 50;
     this.health = 350;
-    this.initialhealth = 300;
+    this.initialhealth = 350;
     this.image = new Image();
     this.image.src = "assets/attackers/Knight/KNIGHT3/_WALK_000.png";
     this.frameIndex = 0;
