@@ -465,7 +465,12 @@ canvas.addEventListener("click", () => {
           });
           coins -= 50;
           // Push the newly created defender into the defenders array
-        defenders.push(newDefender);
+          defenders.push(newDefender);
+              // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
         }
         
       } else if (clicked_button_id === "Elf_3") {
@@ -475,7 +480,12 @@ canvas.addEventListener("click", () => {
           });
           coins -= 100;
           // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+          defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
         }
       } else if (clicked_button_id === "Fairy_1") {
         if (coins >= 150) {
@@ -484,21 +494,18 @@ canvas.addEventListener("click", () => {
           });
           coins -= 150;
           // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+          defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
         }
       } else {
         // Handle unknown button id
         console.log("Unknown button id:", clicked_button_id);
         return;
       }
-
-      
-
-      // Update other necessary variables
-      activeTile.occupied = true;
-      placementTilesArr[belowIndex].occupied = true;
-      placementTilesArr[belowIndex + 1].occupied = true;
-      placementTilesArr[currentIndex + 1].occupied = true;
     }
   }
 });

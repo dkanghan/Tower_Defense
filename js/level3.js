@@ -54,202 +54,29 @@ let waypoints = waypoint31;
 // Expected Outputs: None
 // Calls: new Knight_1, new Knight_2, new Knight_3
 // ---------------------------------------------------------
+
 function spawnEnemy(wave = 1) {
-    let count = wave * 4;
-    
-    for (let i = 0; i < count; i++) {
-        waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
-        console
-      const xOff = i * 150;
-      if (wave === 1) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else if (wave === 2) {
-        if (i < 3) {
-          enemies.push(
-            new Knight_1({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      } else if (wave === 3) {
-        if (i < 3) {
-          enemies.push(
-            new Knight_1({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else  {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } 
-      } else if (wave === 4) {
-        if (i < 8) {
-          enemies.push(
-            new Knight_1({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else if (i < 12) {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_3({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      } else if (wave === 5) {
-        if (i < 4) {
-          enemies.push(
-            new Knight_1({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else if (i < 12) {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_3({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      } else if (wave === 6) {
-        if (i < 3) {
-          enemies.push(
-            new Knight_1({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else if (i < 10) {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_3({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      } else if (wave === 7) {
-        if (i < 8) {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_3({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      } else if (wave === 8) {
-        if (i < 5) {
-          enemies.push(
-            new Knight_2({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        } else {
-          enemies.push(
-            new Knight_3({
-              position: {
-                x: 2.5 * waypoints[0].x - xOff,
-                y: 2.3 * waypoints[0].y,
-              },
-            })
-          );
-        }
-      }else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      }
+  let count = wave * 4;
+  const knightTypes = [Knight_1, Knight_2, Knight_3];
   
-    }
+  for (let i = 0; i < count; i++) {
+      waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
+      let knightTypeIndex = 0;
+      if (wave >= 2) {
+          if (i >= 3) knightTypeIndex = 1;
+          if (wave >= 4 && i >= 8) knightTypeIndex = 2;
+          if (wave >= 5 && i >= 12) knightTypeIndex = 2;
+          if (wave >= 6 && i >= 10) knightTypeIndex = 2;
+          if (wave >= 7 && i >= 8) knightTypeIndex = 1;
+          if (wave >= 8 && i >= 5) knightTypeIndex = 2;
+      }
+      
+      const knightType = knightTypes[knightTypeIndex];
+      const xOff = i * 150;
+      const knightPosition = { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y };
+      enemies.push(new knightType({ position: knightPosition }));
   }
+}
   spawnEnemy(wave);
   
   // Define the defenders array and activeTile variable
@@ -421,7 +248,7 @@ function spawnEnemy(wave = 1) {
         congratulationsPopup.innerHTML = `
           <h1>Congratulations!</h1>
           <p>You have cleared the level.</p>
-          <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level4.html'"">Play Again</button>
+          <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level4.html'"">Next Level</button>
           <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
         `;
         canvas.parentNode.appendChild(congratulationsPopup);
@@ -557,7 +384,12 @@ function spawnEnemy(wave = 1) {
           });
           coins -= 50;
           // Push the newly created defender into the defenders array
-        defenders.push(newDefender);
+          defenders.push(newDefender);
+          // Update other necessary variables
+          activeTile.occupied = true;
+          placementTilesArr[belowIndex].occupied = true;
+          placementTilesArr[belowIndex + 1].occupied = true;
+          placementTilesArr[currentIndex + 1].occupied = true;
         }
         } else if (clicked_button_id === "Fairy_2") {
           if (coins >= 100) {
@@ -566,7 +398,12 @@ function spawnEnemy(wave = 1) {
             });
             coins -= 100;
             // Push the newly created defender into the defenders array
-        defenders.push(newDefender);
+            defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
           }
         } else if (clicked_button_id === "Fairy_3") {
           if (coins >= 350) {
@@ -575,21 +412,19 @@ function spawnEnemy(wave = 1) {
             });
             coins -= 350;
             // Push the newly created defender into the defenders array
-        defenders.push(newDefender);
+            defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
           }
         } else {
           // Handle unknown button id
           console.log("Unknown button id:", clicked_button_id);
           return;
         }
-  
-        
-  
-        // Update other necessary variables
-        activeTile.occupied = true;
-        placementTilesArr[belowIndex].occupied = true;
-        placementTilesArr[belowIndex + 1].occupied = true;
-        placementTilesArr[currentIndex + 1].occupied = true;
+
       }
     }
   });

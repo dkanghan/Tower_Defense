@@ -550,9 +550,14 @@ canvas.addEventListener("click", () => {
         newDefender = new Warrior({
           position: { x: activeTile.position.x, y: activeTile.position.y },
         });
-        coins -= 50;
-        // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+            coins -= 50;
+            // Push the newly created defender into the defenders array
+            defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
       }
       } else if (clicked_button_id === "Fairy_2") {
         if (coins >= 100) {
@@ -560,8 +565,13 @@ canvas.addEventListener("click", () => {
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
           coins -= 100;
-          // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+            // Push the newly created defender into the defenders array
+            defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
         }
       } else if (clicked_button_id === "Fairy_3") {
         if (coins >= 350) {
@@ -569,8 +579,13 @@ canvas.addEventListener("click", () => {
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
           coins -= 350;
-          // Push the newly created defender into the defenders array
-      defenders.push(newDefender);
+            // Push the newly created defender into the defenders array
+            defenders.push(newDefender);
+            // Update other necessary variables
+            activeTile.occupied = true;
+            placementTilesArr[belowIndex].occupied = true;
+            placementTilesArr[belowIndex + 1].occupied = true;
+            placementTilesArr[currentIndex + 1].occupied = true;
         }
       } else {
         // Handle unknown button id
@@ -578,13 +593,6 @@ canvas.addEventListener("click", () => {
         return;
       }
 
-      
-
-      // Update other necessary variables
-      activeTile.occupied = true;
-      placementTilesArr[belowIndex].occupied = true;
-      placementTilesArr[belowIndex + 1].occupied = true;
-      placementTilesArr[currentIndex + 1].occupied = true;
     }
   }
 });
