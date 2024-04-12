@@ -54,195 +54,23 @@ let waypoints = waypoints2;
 // ---------------------------------------------------------
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
+  const knightTypes = [Knight_1, Knight_2, Knight_3];
+  
   for (let i = 0; i < count; i++) {
-    const xOff = i * 150;
-    if (wave === 1) {
-      enemies.push(
-        new Knight_1({
-          position: {
-            x: 2.5 * waypoints2[0].x - xOff,
-            y: 2.3 * waypoints2[0].y,
-          },
-        })
-      );
-    } else if (wave === 2) {
-      if (i < 3) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
+      let knightTypeIndex = 0;
+      if (wave >= 2) {
+          if (i >= 3) knightTypeIndex = 1;
+          if (wave >= 4 && i >= 8) knightTypeIndex = 2;
+          if (wave >= 5 && i >= 12) knightTypeIndex = 2;
+          if (wave >= 6 && i >= 10) knightTypeIndex = 2;
+          if (wave >= 7 && i >= 8) knightTypeIndex = 1;
+          if (wave >= 8 && i >= 5) knightTypeIndex = 2;
       }
-    } else if (wave === 3) {
-      if (i < 3) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else  {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } 
-    } else if (wave === 4) {
-      if (i < 8) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else if (i < 12) {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 5) {
-      if (i < 4) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else if (i < 12) {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 6) {
-      if (i < 3) {
-        enemies.push(
-          new Knight_1({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else if (i < 10) {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 7) {
-      if (i < 8) {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 8) {
-      if (i < 5) {
-        enemies.push(
-          new Knight_2({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Knight_3({
-            position: {
-              x: 2.5 * waypoints2[0].x - xOff,
-              y: 2.3 * waypoints2[0].y,
-            },
-          })
-        );
-      }
-    }else {
-      enemies.push(
-        new Knight_3({
-          position: {
-            x: 2.5 * waypoints2[0].x - xOff,
-            y: 2.3 * waypoints2[0].y,
-          },
-        })
-      );
-    }
-
+      
+      const knightType = knightTypes[knightTypeIndex];
+      const xOff = i * 150;
+      const knightPosition = { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y };
+      enemies.push(new knightType({ position: knightPosition }));
   }
 }
 spawnEnemy(wave);

@@ -56,101 +56,29 @@ const waypoints = waypoints1;
 // ---------------------------------------------------------
 function spawnEnemy(wave = 1) {
   let count = wave * 3;
+  const orcTypes = [Orc_1, Orc_2, Orc_3];
+  
   for (let i = 0; i < count; i++) {
-    const xOff = i * 150;
-    if (wave === 1) {
-      enemies.push(
-        new Orc_1({
-          position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
-        })
-      );
-    } else if (wave === 2) {
-      if (i < 3) {
-        enemies.push(
-          new Orc_1({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Orc_2({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
+      let orcTypeIndex = 0;
+      
+      if (wave >= 2) {
+          if (i >= 3) orcTypeIndex = 1;
+          if (wave >= 3 && i >= 6) orcTypeIndex = 2;
+          if (wave >= 4 && i >= 5) orcTypeIndex = 2;
       }
-    } else if (wave === 3) {
-      if (i < 3) {
-        enemies.push(
-          new Orc_1({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else if (i < 6) {
-        enemies.push(
-          new Orc_2({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Orc_3({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 4) {
-      if (i < 2) {
-        enemies.push(
-          new Orc_1({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else if (i < 5) {
-        enemies.push(
-          new Orc_2({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      } else {
-        enemies.push(
-          new Orc_3({
-            position: {
-              x: 2.5 * waypoints[0].x - xOff,
-              y: 2.3 * waypoints[0].y,
-            },
-          })
-        );
-      }
-    } else if (wave === 5) {
-      enemies.push(
-        new Orc_3({
-          position: { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y },
-        })
-      );
-    }
+      
+      const orcType = orcTypes[orcTypeIndex];
+      const xOff = i * 150;
+      
+      enemies.push(new orcType({ 
+          position: { 
+              x: 2.5 * waypoints[0].x - xOff, 
+              y: 2.3 * waypoints[0].y 
+          } 
+      }));
   }
 }
+
 spawnEnemy(wave);
 
 // Define the defenders array and active tile
