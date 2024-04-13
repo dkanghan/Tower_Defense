@@ -335,9 +335,32 @@ const mouse = {
 
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
+let previouslyClickedButton = null;
 html_image.addEventListener("click", (event) => {
   // Get the id of the clicked button
   clicked_button_id = event.target.id;
+
+  // Remove border from previously clicked button
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
+
+  // Add border to the clicked button
+  const clicked_button = document.getElementById(clicked_button_id);
+  if (clicked_button) {
+    clicked_button.style.border = "2px solid black";
+    clicked_button.style.borderRadius = "5px";
+  }
+
+  previouslyClickedButton = clicked_button;
+});
+
+const delete_button = document.getElementById("delete");
+delete_button.addEventListener("click", (event) => {
+  clicked_button_id = "delete";
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
 });
 
 // Define the belowIndex and currentIndex variables
@@ -427,7 +450,7 @@ canvas.addEventListener("click", (event) => {
         console.log("Unknown button id:", clicked_button_id);
         return;
       }
-    } else if (activeTile.occupied) {
+    } else if (activeTile.occupied && clicked_button_id === "delete") {
       console.log("in the condition");
       let defenderSelected = false;
       for (let i = 0; i < defenders.length; i++) {
