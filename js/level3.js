@@ -377,8 +377,7 @@ canvas.addEventListener("click", (event) => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied &&
-      coins >= 50
+      !activeTile.occupied 
     ) {
       let newDefender;
       if (clicked_button_id === "Warrior") {
@@ -429,27 +428,28 @@ canvas.addEventListener("click", (event) => {
         return;
       }
     } else if (activeTile.occupied) {
-      console.log("in the condidtion");
+      console.log("in the condition");
+      let defenderSelected = false;
       for (let i = 0; i < defenders.length; i++) {
         const curr_defender = defenders[i];
 
         if (
-          activeTile.position.x >= curr_defender.position.x &&
-          activeTile.position.x <=
-            curr_defender.position.x + curr_defender.width &&
-          activeTile.position.y >= curr_defender.position.y &&
-          activeTile.position.y <=
-            curr_defender.position.y + curr_defender.height
+          mouse.x >= curr_defender.position.x &&
+          mouse.x <= curr_defender.position.x + curr_defender.width &&
+          mouse.y >= curr_defender.position.y &&
+          mouse.y <= curr_defender.position.y + curr_defender.height
         ) {
           defenders.splice(i, 1);
-
-          activeTile.occupied = false;
-          placementTilesArr[belowIndex].occupied = false;
-          placementTilesArr[belowIndex + 1].occupied = false;
-          placementTilesArr[currentIndex + 1].occupied = false;
-
+          defenderSelected = true;
           break;
         }
+      }
+
+      if (defenderSelected) {
+        activeTile.occupied = false;
+        placementTilesArr[belowIndex].occupied = false;
+        placementTilesArr[belowIndex + 1].occupied = false;
+        placementTilesArr[currentIndex + 1].occupied = false;
       }
     }
   }
