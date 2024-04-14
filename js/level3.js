@@ -366,6 +366,8 @@ delete_button.addEventListener("click", (event) => {
 // Define the belowIndex and currentIndex variables
 let belowIndex;
 let currentIndex;
+let defenderIndex;
+let defenderBelowIndex;
 
 // Add an event listener to the canvas
 // When the canvas is clicked, check if the active tile is occupied
@@ -450,32 +452,49 @@ canvas.addEventListener("click", (event) => {
         console.log("Unknown button id:", clicked_button_id);
         return;
       }
-    } else if (activeTile.occupied && clicked_button_id === "delete") {
-      console.log("in the condition");
-      let defenderSelected = false;
-      for (let i = 0; i < defenders.length; i++) {
-        const curr_defender = defenders[i];
+    }  
+  }
 
-        if (
-          mouse.x >= curr_defender.position.x &&
-          mouse.x <= curr_defender.position.x + curr_defender.width &&
-          mouse.y >= curr_defender.position.y &&
-          mouse.y <= curr_defender.position.y + curr_defender.height
-        ) {
-          defenders.splice(i, 1);
-          defenderSelected = true;
-          break;
-        }
-      }
+  if (activeTile.occupied && clicked_button_id === "delete") {
+    console.log("in the condition");
+    let defenderSelected = false;
+    for (let i = 0; i < defenders.length; i++) {
+      const curr_defender = defenders[i];
 
-      if (defenderSelected) {
-        activeTile.occupied = false;
-        placementTilesArr[belowIndex].occupied = false;
-        placementTilesArr[belowIndex + 1].occupied = false;
-        placementTilesArr[currentIndex + 1].occupied = false;
+      if (
+        mouse.x >= curr_defender.position.x &&
+        mouse.x <= curr_defender.position.x + curr_defender.width &&
+        mouse.y >= curr_defender.position.y &&
+        mouse.y <= curr_defender.position.y + curr_defender.height
+      ) {
+
+        defenderIndex = placementTilesArr.findIndex((tile) => {
+          return (
+            tile.position.x === curr_defender.position.x &&
+            tile.position.y === curr_defender.position.y
+          );
+        });
+        defenderBelowIndex = placementTilesArr.findIndex((tile) => {
+          return (
+            tile.position.x === curr_defender.position.x &&
+            tile.position.y === curr_defender.position.y+32
+          );
+        });
+        defenders.splice(i, 1);
+        defenderSelected = true;
+        break;
       }
     }
+
+    if (defenderSelected) {
+      placementTilesArr[defenderIndex].occupied = false;
+      placementTilesArr[defenderIndex + 1].occupied = false;
+      placementTilesArr[defenderBelowIndex + 1].occupied = false;
+      placementTilesArr[defenderBelowIndex].occupied = false;
+    }
   }
+
+
 });
 
 // Add an event listener to the window
