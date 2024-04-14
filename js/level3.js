@@ -41,7 +41,6 @@ let wave = 1;
 let hearts = 10;
 let coins = 350;
 
-
 // let stubwaypoints = [];
 // stubwaypoints.push(waypoint31)
 // stubwaypoints.push(waypoint32)
@@ -58,327 +57,356 @@ let waypoints = waypoint31;
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
   const knightTypes = [Knight_1, Knight_2, Knight_3];
-  
+
   for (let i = 0; i < count; i++) {
-      waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
-      let knightTypeIndex = 0;
-      if (wave >= 2) {
-          if (i >= 3) knightTypeIndex = 1;
-          if (wave >= 4 && i >= 8) knightTypeIndex = 2;
-          if (wave >= 5 && i >= 12) knightTypeIndex = 2;
-          if (wave >= 6 && i >= 10) knightTypeIndex = 2;
-          if (wave >= 7 && i >= 8) knightTypeIndex = 1;
-          if (wave >= 8 && i >= 5) knightTypeIndex = 2;
-      }
-      
-      const knightType = knightTypes[knightTypeIndex];
-      const xOff = i * 150;
-      const knightPosition = { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y };
-      enemies.push(new knightType({ position: knightPosition }));
+    waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
+    let knightTypeIndex = 0;
+    if (wave >= 2) {
+      if (i >= 3) knightTypeIndex = 1;
+      if (wave >= 4 && i >= 8) knightTypeIndex = 2;
+      if (wave >= 5 && i >= 12) knightTypeIndex = 2;
+      if (wave >= 6 && i >= 10) knightTypeIndex = 2;
+      if (wave >= 7 && i >= 8) knightTypeIndex = 1;
+      if (wave >= 8 && i >= 5) knightTypeIndex = 2;
+    }
+
+    const knightType = knightTypes[knightTypeIndex];
+    const xOff = i * 150;
+    const knightPosition = {
+      x: 2.5 * waypoints[0].x - xOff,
+      y: 2.3 * waypoints[0].y,
+    };
+    enemies.push(new knightType({ position: knightPosition }));
   }
 }
-  spawnEnemy(wave);
-  
-  // Define the defenders array and activeTile variable
-  const defenders = [];
-  let activeTile = undefined;
-  
-  //---------------------------------------------------------
-  // Function: animate
-  // Description: Main animation loop for the game.
-  // Expected Inputs: None
-  // Expected Outputs: None
-  //---------------------------------------------------------
-  function animate() {
-    // start the animation loop
-    animId = requestAnimationFrame(animate);
-    c.drawImage(image, 0, 0, canvas.width, canvas.height);
-  
-    c.fillStyle = "rgba(255, 255, 255, 0.2)";
-    c.fillRect(canvas.width - 250, 10, 240, 70);
-  
-    // Draw a heart symbol
-    c.fillStyle = "red";
-    c.strokeStyle = "black";
-    c.lineWidth = 2;
-    c.font = "48px Arial";
-    c.strokeText("\u2665", canvas.width - 120, 60);
-    c.fillText("\u2665", canvas.width - 120, 60);
-  
-    // Draw a yellow circle
-    c.fillStyle = "yellow";
-    c.font = "32px Arial";
-    c.beginPath();
-    c.arc(canvas.width - 235, 45, 20, 0, Math.PI * 2);
-    c.fillStyle = "yellow";
-    c.fill();
-    c.strokeStyle = "black";
-    c.lineWidth = 2;
-    c.stroke();
-  
-    // Draw a dollar sign
-    c.fillStyle = "black";
-    c.font = "20px Arial";
-    const dollarSignWidth = c.measureText("\u0024").width;
-    const dollarSignX = canvas.width - 235 - dollarSignWidth / 2;
-    c.fillText("\u0024", dollarSignX, 53);
-  
-    // Draw the number of coins
-    c.fillStyle = "white";
-    c.font = "32px Alfa Slab One";
-    c.fillText(": " + coins, canvas.width - 210, 60);
-    c.strokeText(": " + coins, canvas.width - 210, 60);
-  
-    // Draw the number of hearts
-    c.fillStyle = "white";
-    c.font = "32px Alfa Slab One";
-    c.fillText(": " + hearts, canvas.width - 80, 60);
-    c.strokeText(": " + hearts, canvas.width - 80, 60);
-  
-    // Draw the wave number
-    c.fillStyle = "white";
-    c.font = "32px Alfa Slab One";
-    c.fillText("Wave: " + wave, 90, 60);
-    c.strokeText("Wave: " + wave, 90, 60);
-  
-    // Add a pause button if it doesn't exist
-    if (!document.getElementById("pauseButton")) {
-      const pauseButton = document.createElement("button");
-      pauseButton.id = "pauseButton";
-      pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+spawnEnemy(wave);
+
+// Define the defenders array and activeTile variable
+const defenders = [];
+let activeTile = undefined;
+
+//---------------------------------------------------------
+// Function: animate
+// Description: Main animation loop for the game.
+// Expected Inputs: None
+// Expected Outputs: None
+//---------------------------------------------------------
+function animate() {
+  // start the animation loop
+  animId = requestAnimationFrame(animate);
+  c.drawImage(image, 0, 0, canvas.width, canvas.height);
+
+  c.fillStyle = "rgba(255, 255, 255, 0.2)";
+  c.fillRect(canvas.width - 250, 10, 240, 70);
+
+  // Draw a heart symbol
+  c.fillStyle = "red";
+  c.strokeStyle = "black";
+  c.lineWidth = 2;
+  c.font = "48px Arial";
+  c.strokeText("\u2665", canvas.width - 120, 60);
+  c.fillText("\u2665", canvas.width - 120, 60);
+
+  // Draw a yellow circle
+  c.fillStyle = "yellow";
+  c.font = "32px Arial";
+  c.beginPath();
+  c.arc(canvas.width - 235, 45, 20, 0, Math.PI * 2);
+  c.fillStyle = "yellow";
+  c.fill();
+  c.strokeStyle = "black";
+  c.lineWidth = 2;
+  c.stroke();
+
+  // Draw a dollar sign
+  c.fillStyle = "black";
+  c.font = "20px Arial";
+  const dollarSignWidth = c.measureText("\u0024").width;
+  const dollarSignX = canvas.width - 235 - dollarSignWidth / 2;
+  c.fillText("\u0024", dollarSignX, 53);
+
+  // Draw the number of coins
+  c.fillStyle = "white";
+  c.font = "32px Alfa Slab One";
+  c.fillText(": " + coins, canvas.width - 210, 60);
+  c.strokeText(": " + coins, canvas.width - 210, 60);
+
+  // Draw the number of hearts
+  c.fillStyle = "white";
+  c.font = "32px Alfa Slab One";
+  c.fillText(": " + hearts, canvas.width - 80, 60);
+  c.strokeText(": " + hearts, canvas.width - 80, 60);
+
+  // Draw the wave number
+  c.fillStyle = "white";
+  c.font = "32px Alfa Slab One";
+  c.fillText("Wave: " + wave, 90, 60);
+  c.strokeText("Wave: " + wave, 90, 60);
+
+  // Add a pause button if it doesn't exist
+  if (!document.getElementById("pauseButton")) {
+    const pauseButton = document.createElement("button");
+    pauseButton.id = "pauseButton";
+    pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
       <rect x="6" y="4" width="4" height="16"></rect>
       <rect x="14" y="4" width="4" height="16"></rect>
       </svg>`;
-      pauseButton.style.backgroundColor = "#f1c40f";
-      pauseButton.style.color = "white";
-      pauseButton.style.border = "none";
-      pauseButton.style.padding = "10px 20px";
-      pauseButton.style.textAlign = "center";
-      pauseButton.style.textDecoration = "none";
-      pauseButton.style.display = "inline-block";
-      pauseButton.style.margin = "10px";
-      pauseButton.style.cursor = "pointer";
-      pauseButton.style.borderRadius = "5px";
-      pauseButton.style.position = "absolute";
-      pauseButton.style.top = "10px";
-      pauseButton.addEventListener("click", () => {
-        if (animId) {
-          cancelAnimationFrame(animId);
-          animId = null;
-          pauseButton.style.backgroundColor = "#4CAF50";
-          pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
+    pauseButton.style.backgroundColor = "#f1c40f";
+    pauseButton.style.color = "white";
+    pauseButton.style.border = "none";
+    pauseButton.style.padding = "10px 20px";
+    pauseButton.style.textAlign = "center";
+    pauseButton.style.textDecoration = "none";
+    pauseButton.style.display = "inline-block";
+    pauseButton.style.margin = "10px";
+    pauseButton.style.cursor = "pointer";
+    pauseButton.style.borderRadius = "5px";
+    pauseButton.style.position = "absolute";
+    pauseButton.style.top = "10px";
+    pauseButton.addEventListener("click", () => {
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+        pauseButton.style.backgroundColor = "#4CAF50";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>`;
-        } else {
-          animId = requestAnimationFrame(animate);
-          pauseButton.style.backgroundColor = "#f1c40f";
-          pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+      } else {
+        animId = requestAnimationFrame(animate);
+        pauseButton.style.backgroundColor = "#f1c40f";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
           <rect x="6" y="4" width="4" height="16"></rect>
           <rect x="14" y="4" width="4" height="16"></rect>
           </svg>`;
-        }
-      });
-      pauseButton.style.borderRadius = "5px"; // round edges
-      canvas.parentNode.appendChild(pauseButton);
-    }
-  
-    for (let i = enemies.length - 1; i >= 0; i--) {
-      // Loop through the enemies array and update each enemy
-      const enemy = enemies[i];
-      enemy.update();
-  
-      if (enemy.position.x > canvas.width - enemy.width) {
-        //Check if the enemy has reached the end of the path
-        //Remove the enemy from the enemies array
-        //Decrement the hearts variable
-        enemies.splice(i, 1);
-        hearts--;
-        if (hearts === 0) {
-          //stop the animation loop if the hearts reach 0
-          cancelAnimationFrame(animId);
-  
-          //Display the game over popup
-          const gameOverPopup = document.createElement("div");
-          gameOverPopup.classList.add("game-over-popup");
-          gameOverPopup.style.position = "absolute";
-          gameOverPopup.style.top = canvas.height / 2 + "px";
-          gameOverPopup.style.left = canvas.width / 2 + "px";
-          gameOverPopup.style.transform = "translate(-50%, -50%)";
-          gameOverPopup.style.fontSize = "48px";
-          gameOverPopup.style.fontFamily = "Alfa Slab One, serif";
-          gameOverPopup.style.color = "white";
-          gameOverPopup.style.webkitTextStroke = "1px black";
-          gameOverPopup.style.alignItems = "center";
-          gameOverPopup.style.textAlign = "center";
-          gameOverPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-          gameOverPopup.style.padding = "20px";
-          gameOverPopup.innerHTML = `
+      }
+    });
+    pauseButton.style.borderRadius = "5px"; // round edges
+    canvas.parentNode.appendChild(pauseButton);
+  }
+
+  for (let i = enemies.length - 1; i >= 0; i--) {
+    // Loop through the enemies array and update each enemy
+    const enemy = enemies[i];
+    enemy.update();
+
+    if (enemy.position.x > canvas.width - enemy.width) {
+      //Check if the enemy has reached the end of the path
+      //Remove the enemy from the enemies array
+      //Decrement the hearts variable
+      enemies.splice(i, 1);
+      hearts--;
+      if (hearts === 0) {
+        //stop the animation loop if the hearts reach 0
+        cancelAnimationFrame(animId);
+
+        //Display the game over popup
+        const gameOverPopup = document.createElement("div");
+        gameOverPopup.classList.add("game-over-popup");
+        gameOverPopup.style.position = "absolute";
+        gameOverPopup.style.top = canvas.height / 2 + "px";
+        gameOverPopup.style.left = canvas.width / 2 + "px";
+        gameOverPopup.style.transform = "translate(-50%, -50%)";
+        gameOverPopup.style.fontSize = "48px";
+        gameOverPopup.style.fontFamily = "Alfa Slab One, serif";
+        gameOverPopup.style.color = "white";
+        gameOverPopup.style.webkitTextStroke = "1px black";
+        gameOverPopup.style.alignItems = "center";
+        gameOverPopup.style.textAlign = "center";
+        gameOverPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+        gameOverPopup.style.padding = "20px";
+        gameOverPopup.innerHTML = `
                         <h1>Game Over</h1>
                         <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
                         <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
                     `;
-          canvas.parentNode.appendChild(gameOverPopup);
-        }
+        canvas.parentNode.appendChild(gameOverPopup);
       }
     }
-  
-    if (enemies.length === 0) {
-      //Check if all enemies have been defeated, then spawn the next wave
-      if (wave < 10) {
-        wave++;
-        spawnEnemy(wave);
-      } else {
-        //stop the animation loop
-        //Display the congratulations popup if all waves have been cleared
-        cancelAnimationFrame(animId);
-        const congratulationsPopup = document.createElement("div");
-        congratulationsPopup.classList.add("congratulations-popup");
-        congratulationsPopup.style.position = "absolute";
-        congratulationsPopup.style.top = canvas.height / 2 + "px";
-        congratulationsPopup.style.left = canvas.width / 2 + "px";
-        congratulationsPopup.style.transform = "translate(-50%, -50%)";
-        congratulationsPopup.style.fontSize = "48px";
-        congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
-        congratulationsPopup.style.color = "white";
-        congratulationsPopup.style.webkitTextStroke = "1px black";
-        congratulationsPopup.style.alignItems = "center";
-        congratulationsPopup.style.textAlign = "center";
-        congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-        congratulationsPopup.style.padding = "20px";
-        congratulationsPopup.innerHTML = `
+  }
+
+  if (enemies.length === 0) {
+    //Check if all enemies have been defeated, then spawn the next wave
+    if (wave < 10) {
+      wave++;
+      spawnEnemy(wave);
+    } else {
+      //stop the animation loop
+      //Display the congratulations popup if all waves have been cleared
+      cancelAnimationFrame(animId);
+      const congratulationsPopup = document.createElement("div");
+      congratulationsPopup.classList.add("congratulations-popup");
+      congratulationsPopup.style.position = "absolute";
+      congratulationsPopup.style.top = canvas.height / 2 + "px";
+      congratulationsPopup.style.left = canvas.width / 2 + "px";
+      congratulationsPopup.style.transform = "translate(-50%, -50%)";
+      congratulationsPopup.style.fontSize = "48px";
+      congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
+      congratulationsPopup.style.color = "white";
+      congratulationsPopup.style.webkitTextStroke = "1px black";
+      congratulationsPopup.style.alignItems = "center";
+      congratulationsPopup.style.textAlign = "center";
+      congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+      congratulationsPopup.style.padding = "20px";
+      congratulationsPopup.innerHTML = `
           <h1>Congratulations!</h1>
           <p>You have cleared the level.</p>
           <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level4.html'"">Next Level</button>
           <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
         `;
-        canvas.parentNode.appendChild(congratulationsPopup);
-      }
+      canvas.parentNode.appendChild(congratulationsPopup);
     }
-  
-    //update the placement tiles
-    placementTilesArr.forEach((placementTile) => {
-      placementTile.update();
+  }
+
+  //update the placement tiles
+  placementTilesArr.forEach((placementTile) => {
+    placementTile.update();
+  });
+
+  defenders.forEach((defender) => {
+    // Loop through the defenders array and update each defender
+    defender.update();
+    defender.target = null;
+
+    // Loop through the enemies array and check if the defender is in range of an enemy
+    const validTargets = enemies.filter((enemy) => {
+      const xDistance = enemy.center.x - defender.center.x;
+      const yDistance = enemy.center.y - defender.center.y;
+      const distance = Math.hypot(xDistance, yDistance);
+      return distance < enemy.radius + defender.radius;
     });
-  
-    defenders.forEach((defender) => {
-      // Loop through the defenders array and update each defender
-      defender.update();
-      defender.target = null;
-  
-      // Loop through the enemies array and check if the defender is in range of an enemy
-      const validTargets = enemies.filter((enemy) => {
-        const xDistance = enemy.center.x - defender.center.x;
-        const yDistance = enemy.center.y - defender.center.y;
-        const distance = Math.hypot(xDistance, yDistance);
-        return distance < enemy.radius + defender.radius;
-      });
-  
-      // Set the target of the defender to the first enemy in range
-      defender.target = validTargets[0];
-  
-      // Loop through the defender's projectiles array and update each projectile
-      if (defender.target !== null) {
-        for (let i = defender.projectiles.length - 1; i >= 0; i--) {
-          const projectile = defender.projectiles[i];
-          projectile.update();
-  
-          // Check if the projectile has hit the target
-          // If the projectile hits the target, reduce the target's health
-          // If the target's health is less than or equal to 0, remove the target from the enemies array
-          // Remove the projectile from the defender's projectiles array
-          // Add coins to the player's total
-          // If the player's total coins is less than 980, add coins based on the enemy type
-          // Remove the target from the enemies array
-          // Remove the projectile from the defender's projectiles array
-          if (projectile.target) {
-            const xDistance = projectile.target.center.x - projectile.position.x;
-            const yDistance = projectile.target.center.y - projectile.position.y;
-            const distance = Math.hypot(xDistance, yDistance);
-  
-            if (distance < projectile.target.radius + projectile.radius) {
-              if (defender.type === "Warrior") {
-                projectile.target.health -= 50;
-              } else if (defender.type === "Fairy_2") {
-                projectile.target.health -= 80;
-              } else if (defender.type === "Fairy_3") {
-                projectile.target.health -= 100;
-              }
-              const index = enemies.indexOf(projectile.target);
-              if (index !== -1 && projectile.target.health <= 0) {
-                if (coins < 940) {
-                  if (enemies[index].type === "Knight_1") {
-                    coins += 10;
-                  } else if (enemies[index].type === "Knight_2") {
-                    coins += 15;
-                  } else if (enemies[index].type === "Knight_3") {
-                    coins += 20;
-                  }
-                }
-                enemies.splice(index, 1);
-              }
-  
-              defender.projectiles.splice(i, 1);
+
+    // Set the target of the defender to the first enemy in range
+    defender.target = validTargets[0];
+
+    // Loop through the defender's projectiles array and update each projectile
+    if (defender.target !== null) {
+      for (let i = defender.projectiles.length - 1; i >= 0; i--) {
+        const projectile = defender.projectiles[i];
+        projectile.update();
+
+        // Check if the projectile has hit the target
+        // If the projectile hits the target, reduce the target's health
+        // If the target's health is less than or equal to 0, remove the target from the enemies array
+        // Remove the projectile from the defender's projectiles array
+        // Add coins to the player's total
+        // If the player's total coins is less than 980, add coins based on the enemy type
+        // Remove the target from the enemies array
+        // Remove the projectile from the defender's projectiles array
+        if (projectile.target) {
+          const xDistance = projectile.target.center.x - projectile.position.x;
+          const yDistance = projectile.target.center.y - projectile.position.y;
+          const distance = Math.hypot(xDistance, yDistance);
+
+          if (distance < projectile.target.radius + projectile.radius) {
+            if (defender.type === "Warrior") {
+              projectile.target.health -= 50;
+            } else if (defender.type === "Fairy_2") {
+              projectile.target.health -= 80;
+            } else if (defender.type === "Fairy_3") {
+              projectile.target.health -= 100;
             }
+            const index = enemies.indexOf(projectile.target);
+            if (index !== -1 && projectile.target.health <= 0) {
+              if (coins < 940) {
+                if (enemies[index].type === "Knight_1") {
+                  coins += 10;
+                } else if (enemies[index].type === "Knight_2") {
+                  coins += 15;
+                } else if (enemies[index].type === "Knight_3") {
+                  coins += 20;
+                }
+              }
+              enemies.splice(index, 1);
+            }
+
+            defender.projectiles.splice(i, 1);
           }
         }
       }
-    });
-  }
-  
-  // Define the mouse object
-  const mouse = {
-    x: undefined,
-    y: undefined,
-  };
-  
-  // Define the clicked_button_id variable
-  const html_image = document.querySelector(".def_button");
-  html_image.addEventListener("click", (event) => {
-    // Get the id of the clicked button
-    clicked_button_id = event.target.id;
+    }
   });
-  
-  // Define the belowIndex and currentIndex variables
-  let belowIndex;
-  let currentIndex;
-  
-  // Add an event listener to the canvas
-  // When the canvas is clicked, check if the active tile is occupied
-  // If the active tile is not occupied, check if the tile below the active tile is not occupied
-  // If the tile below the active tile is not occupied, create a new defender based on the clicked button id
-  // Push the newly created defender into the defenders array
-  // Update the occupied property of the active tile and the tile below the active tile
-  // Update the player's coins based on the cost of the defender
-  // Update the belowIndex and currentIndex variables
-  // Calls : placementTilesArr.findIndex()
-  //        - newDefender = new Elf_1()
-  //        - newDefender = new Elf_3()
-  //        - newDefender = new Fairy_1()
-  canvas.addEventListener("click", () => {
-    belowIndex = placementTilesArr.findIndex(
-      (tile) =>
-        tile.position.x === activeTile.position.x &&
-        tile.position.y === activeTile.position.y + 32
-    );
-    currentIndex = placementTilesArr.findIndex(
-      (tile) =>
-        tile.position.x === activeTile.position.x &&
-        tile.position.y === activeTile.position.y
-    );
-  
-    if (belowIndex != -1) {
-      // if tile below is not occupied, check if the tile to the right of the active tile and below tile is not occupied
-      if (
-        placementTilesArr[belowIndex].occupied === false &&
-        placementTilesArr[belowIndex + 1].occupied === false &&
-        placementTilesArr[currentIndex + 1].occupied === false &&
-        activeTile &&
-        !activeTile.occupied &&
-        coins >= 50
-      ) {
-        let newDefender;
-        if (clicked_button_id === "Warrior") {
-          if (coins >= 50){
+}
+
+// Define the mouse object
+const mouse = {
+  x: undefined,
+  y: undefined,
+};
+
+// Define the clicked_button_id variable
+const html_image = document.querySelector(".def_button");
+let previouslyClickedButton = null;
+html_image.addEventListener("click", (event) => {
+  // Get the id of the clicked button
+  clicked_button_id = event.target.id;
+
+  // Remove border from previously clicked button
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
+
+  // Add border to the clicked button
+  const clicked_button = document.getElementById(clicked_button_id);
+  if (clicked_button) {
+    clicked_button.style.border = "2px solid black";
+    clicked_button.style.borderRadius = "5px";
+  }
+
+  previouslyClickedButton = clicked_button;
+});
+
+const delete_button = document.getElementById("delete");
+delete_button.addEventListener("click", (event) => {
+  clicked_button_id = "delete";
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
+});
+
+// Define the belowIndex and currentIndex variables
+let belowIndex;
+let currentIndex;
+let defenderIndex;
+let defenderBelowIndex;
+
+// Add an event listener to the canvas
+// When the canvas is clicked, check if the active tile is occupied
+// If the active tile is not occupied, check if the tile below the active tile is not occupied
+// If the tile below the active tile is not occupied, create a new defender based on the clicked button id
+// Push the newly created defender into the defenders array
+// Update the occupied property of the active tile and the tile below the active tile
+// Update the player's coins based on the cost of the defender
+// Update the belowIndex and currentIndex variables
+// Calls : placementTilesArr.findIndex()
+//        - newDefender = new Elf_1()
+//        - newDefender = new Elf_3()
+//        - newDefender = new Fairy_1()
+canvas.addEventListener("click", (event) => {
+  belowIndex = placementTilesArr.findIndex(
+    (tile) =>
+      tile.position.x === activeTile.position.x &&
+      tile.position.y === activeTile.position.y + 32
+  );
+  currentIndex = placementTilesArr.findIndex(
+    (tile) =>
+      tile.position.x === activeTile.position.x &&
+      tile.position.y === activeTile.position.y
+  );
+
+  console.log(belowIndex);
+
+  if (belowIndex != -1) {
+    // if tile below is not occupied, check if the tile to the right of the active tile and below tile is not occupied
+    if (
+      placementTilesArr[belowIndex].occupied === false &&
+      placementTilesArr[belowIndex + 1].occupied === false &&
+      placementTilesArr[currentIndex + 1].occupied === false &&
+      activeTile &&
+      !activeTile.occupied
+    ) {
+      let newDefender;
+      if (clicked_button_id === "Warrior") {
+        if (coins >= 50) {
           newDefender = new Warrior({
             position: { x: activeTile.position.x, y: activeTile.position.y },
           });
@@ -391,67 +419,107 @@ function spawnEnemy(wave = 1) {
           placementTilesArr[belowIndex + 1].occupied = true;
           placementTilesArr[currentIndex + 1].occupied = true;
         }
-        } else if (clicked_button_id === "Fairy_2") {
-          if (coins >= 100) {
-            newDefender = new Fairy_2({
-              position: { x: activeTile.position.x, y: activeTile.position.y },
-            });
-            coins -= 100;
-            // Push the newly created defender into the defenders array
-            defenders.push(newDefender);
-            // Update other necessary variables
-            activeTile.occupied = true;
-            placementTilesArr[belowIndex].occupied = true;
-            placementTilesArr[belowIndex + 1].occupied = true;
-            placementTilesArr[currentIndex + 1].occupied = true;
-          }
-        } else if (clicked_button_id === "Fairy_3") {
-          if (coins >= 350) {
-            newDefender = new Fairy_3({
-              position: { x: activeTile.position.x, y: activeTile.position.y },
-            });
-            coins -= 350;
-            // Push the newly created defender into the defenders array
-            defenders.push(newDefender);
-            // Update other necessary variables
-            activeTile.occupied = true;
-            placementTilesArr[belowIndex].occupied = true;
-            placementTilesArr[belowIndex + 1].occupied = true;
-            placementTilesArr[currentIndex + 1].occupied = true;
-          }
-        } else {
-          // Handle unknown button id
-          console.log("Unknown button id:", clicked_button_id);
-          return;
+      } else if (clicked_button_id === "Fairy_2") {
+        if (coins >= 100) {
+          newDefender = new Fairy_2({
+            position: { x: activeTile.position.x, y: activeTile.position.y },
+          });
+          coins -= 100;
+          // Push the newly created defender into the defenders array
+          defenders.push(newDefender);
+          // Update other necessary variables
+          activeTile.occupied = true;
+          placementTilesArr[belowIndex].occupied = true;
+          placementTilesArr[belowIndex + 1].occupied = true;
+          placementTilesArr[currentIndex + 1].occupied = true;
         }
-
+      } else if (clicked_button_id === "Fairy_3") {
+        if (coins >= 350) {
+          newDefender = new Fairy_3({
+            position: { x: activeTile.position.x, y: activeTile.position.y },
+          });
+          coins -= 350;
+          // Push the newly created defender into the defenders array
+          defenders.push(newDefender);
+          // Update other necessary variables
+          activeTile.occupied = true;
+          placementTilesArr[belowIndex].occupied = true;
+          placementTilesArr[belowIndex + 1].occupied = true;
+          placementTilesArr[currentIndex + 1].occupied = true;
+        }
+      } else {
+        // Handle unknown button id
+        console.log("Unknown button id:", clicked_button_id);
+        return;
       }
-    }
-  });
-  
-  // Add an event listener to the window
-  // When the mouse is moved, update the mouse x and y coordinates
-  // Set the active tile to null
-  // Loop through the placement tiles array and check if the mouse is hovering over a tile
-  // If the mouse is hovering over a tile, set the active tile to that tile
-  window.addEventListener("mousemove", (e) => {
-    mouse.x = e.clientX;
-    mouse.y = e.clientY;
-  
-    activeTile = null;
-  
-    for (let i = 0; i < placementTilesArr.length; i++) {
-      const tile = placementTilesArr[i];
+    }  
+  }
+
+  if (activeTile.occupied && clicked_button_id === "delete") {
+    console.log("in the condition");
+    let defenderSelected = false;
+    for (let i = 0; i < defenders.length; i++) {
+      const curr_defender = defenders[i];
+
       if (
-        mouse.x > tile.position.x &&
-        mouse.x < tile.position.x + tile.size &&
-        mouse.y > tile.position.y &&
-        mouse.y < tile.position.y + tile.size
+        mouse.x >= curr_defender.position.x &&
+        mouse.x <= curr_defender.position.x + curr_defender.width &&
+        mouse.y >= curr_defender.position.y &&
+        mouse.y <= curr_defender.position.y + curr_defender.height
       ) {
-        activeTile = tile;
+
+        defenderIndex = placementTilesArr.findIndex((tile) => {
+          return (
+            tile.position.x === curr_defender.position.x &&
+            tile.position.y === curr_defender.position.y
+          );
+        });
+        defenderBelowIndex = placementTilesArr.findIndex((tile) => {
+          return (
+            tile.position.x === curr_defender.position.x &&
+            tile.position.y === curr_defender.position.y+32
+          );
+        });
+        defenders.splice(i, 1);
+        defenderSelected = true;
         break;
       }
     }
-  });
-  
-  animate();
+
+    if (defenderSelected) {
+      placementTilesArr[defenderIndex].occupied = false;
+      placementTilesArr[defenderIndex + 1].occupied = false;
+      placementTilesArr[defenderBelowIndex + 1].occupied = false;
+      placementTilesArr[defenderBelowIndex].occupied = false;
+    }
+  }
+
+
+});
+
+// Add an event listener to the window
+// When the mouse is moved, update the mouse x and y coordinates
+// Set the active tile to null
+// Loop through the placement tiles array and check if the mouse is hovering over a tile
+// If the mouse is hovering over a tile, set the active tile to that tile
+window.addEventListener("mousemove", (e) => {
+  mouse.x = e.clientX;
+  mouse.y = e.clientY;
+
+  activeTile = null;
+
+  for (let i = 0; i < placementTilesArr.length; i++) {
+    const tile = placementTilesArr[i];
+    if (
+      mouse.x > tile.position.x &&
+      mouse.x < tile.position.x + tile.size &&
+      mouse.y > tile.position.y &&
+      mouse.y < tile.position.y + tile.size
+    ) {
+      activeTile = tile;
+      break;
+    }
+  }
+});
+
+animate();
