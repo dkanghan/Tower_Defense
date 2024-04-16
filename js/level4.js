@@ -40,12 +40,6 @@ const enemies = [];
 let wave = 1;
 let hearts = 10;
 let coins = 350;
-
-
-// let stubwaypoints = [];
-// stubwaypoints.push(waypoint31)
-// stubwaypoints.push(waypoint32)
-// console.log(stubwaypoints)
 let waypoints = waypoint41;
 // ---------------------------------------------------------
 // Function: spawnEnemy
@@ -86,6 +80,7 @@ function spawnEnemy(wave = 1) {
       newDefender = new defenderType({
         position: { x: activeTile.position.x, y: activeTile.position.y },
       });
+      newDefender.coins = cost;
       coins -= cost;
       defenders.push(newDefender);
       activeTile.occupied = true;
@@ -444,6 +439,7 @@ upgrade_button.addEventListener("click", (event) => {
               tile.position.y === curr_defender.position.y+32
             );
           });
+          coins += 0.5 * curr_defender.coins;
           defenders.splice(i, 1);
           defenderSelected = true;
           break;
@@ -471,8 +467,7 @@ upgrade_button.addEventListener("click", (event) => {
             if (coins >= 25) {
               coins -= 25;
               curr_defender.upgrade = 1;
-              curr_defender.hit += curr_defender.hit + 20;
-              console.log(curr_defender.hit);
+              curr_defender.hit = curr_defender.hit + 20;
             }
           } else if (curr_defender.upgrade === 1) {
             if (coins >= 50) {

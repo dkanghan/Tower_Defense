@@ -30,7 +30,7 @@ class placementTiles {
   // Description: Updates the color property of the placementTiles object based on the mouse hover.
   //------------------------------------------------------------------------------------------------
   update() {
-    this.draw();
+    // this.draw();
     if (
       mouse.x > this.position.x &&
       mouse.x < this.position.x + this.size &&

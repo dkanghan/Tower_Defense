@@ -40,6 +40,7 @@ class Defenders {
     this.type = "Elf_1";
     this.imagesrc = "assets/Laser/01.png";
     this.upgrade = 0;
+    this.coins = null;
   }
 
   //------------------------------------------------------------------------------------------------
