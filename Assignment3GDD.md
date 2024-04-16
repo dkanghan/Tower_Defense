@@ -16,7 +16,7 @@ The gameplay mechanics of Defenders of the Forest V2.0 have been enhanced with t
 
 - **Level Progression**: Players must complete each level in order to unlock the next level.
 
-- **Boss Fights**: Players will encounter powerful boss enemies at the end of level-3 and level-4. Boss enemies have higher health and attack power than regular enemies, providing a greater challenge for players. 
+- **Boss Fights**: Players will encounter powerful boss enemies at the end of level-3 and level-4. Boss enemies have higher health than regular enemies, providing a greater challenge for players. 
 
 - **Varying Range of Defenders**: Defenders now have varying attack ranges, with some defenders having a longer range than others. This adds a new layer of strategy to the game, as players must consider the range of their defenders when placing them on the map.
 
