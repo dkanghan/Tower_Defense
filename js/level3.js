@@ -81,6 +81,21 @@ function spawnEnemy(wave = 1) {
 }
 spawnEnemy(wave);
 
+
+function createDefender(defenderType, cost) {
+  if (coins >= cost) {
+    newDefender = new defenderType({
+      position: { x: activeTile.position.x, y: activeTile.position.y },
+    });
+    coins -= cost;
+    defenders.push(newDefender);
+    activeTile.occupied = true;
+    placementTilesArr[belowIndex].occupied = true;
+    placementTilesArr[belowIndex + 1].occupied = true;
+    placementTilesArr[currentIndex + 1].occupied = true;
+  }
+}
+
 // Define the defenders array and activeTile variable
 const defenders = [];
 let activeTile = undefined;
@@ -298,23 +313,14 @@ function animate() {
           const distance = Math.hypot(xDistance, yDistance);
 
           if (distance < projectile.target.radius + projectile.radius) {
-            if (defender.type === "Warrior") {
-              projectile.target.health -= 50;
-            } else if (defender.type === "Fairy_2") {
-              projectile.target.health -= 80;
-            } else if (defender.type === "Fairy_3") {
-              projectile.target.health -= 100;
-            }
+            projectile.target.health -= defender.hit;
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
-              if (coins < 940) {
-                if (enemies[index].type === "Knight_1") {
-                  coins += 10;
-                } else if (enemies[index].type === "Knight_2") {
-                  coins += 15;
-                } else if (enemies[index].type === "Knight_3") {
-                  coins += 20;
-                }
+              if (coins + enemies[index].coins <= 940) {
+                coins += enemies[index].coins; 
+              }else{
+                coins = 940;
+              
               }
               enemies.splice(index, 1);
             }
@@ -405,52 +411,16 @@ canvas.addEventListener("click", (event) => {
       activeTile &&
       !activeTile.occupied
     ) {
-      let newDefender;
-      if (clicked_button_id === "Warrior") {
-        if (coins >= 50) {
-          newDefender = new Warrior({
-            position: { x: activeTile.position.x, y: activeTile.position.y },
-          });
-          coins -= 50;
-          // Push the newly created defender into the defenders array
-          defenders.push(newDefender);
-          // Update other necessary variables
-          activeTile.occupied = true;
-          placementTilesArr[belowIndex].occupied = true;
-          placementTilesArr[belowIndex + 1].occupied = true;
-          placementTilesArr[currentIndex + 1].occupied = true;
-        }
+      if (clicked_button_id === "Elf_Archer") {
+        createDefender(Elf_1, 50);
+      } else if (clicked_button_id === "Elf_Mage") {
+        createDefender(Elf_3, 100);
       } else if (clicked_button_id === "Fairy_2") {
-        if (coins >= 100) {
-          newDefender = new Fairy_2({
-            position: { x: activeTile.position.x, y: activeTile.position.y },
-          });
-          coins -= 100;
-          // Push the newly created defender into the defenders array
-          defenders.push(newDefender);
-          // Update other necessary variables
-          activeTile.occupied = true;
-          placementTilesArr[belowIndex].occupied = true;
-          placementTilesArr[belowIndex + 1].occupied = true;
-          placementTilesArr[currentIndex + 1].occupied = true;
-        }
-      } else if (clicked_button_id === "Fairy_3") {
-        if (coins >= 350) {
-          newDefender = new Fairy_3({
-            position: { x: activeTile.position.x, y: activeTile.position.y },
-          });
-          coins -= 350;
-          // Push the newly created defender into the defenders array
-          defenders.push(newDefender);
-          // Update other necessary variables
-          activeTile.occupied = true;
-          placementTilesArr[belowIndex].occupied = true;
-          placementTilesArr[belowIndex + 1].occupied = true;
-          placementTilesArr[currentIndex + 1].occupied = true;
-        }
-      } else {
-        // Handle unknown button id
-        console.log("Unknown button id:", clicked_button_id);
+        createDefender(Fairy_2, 150);
+      } else if (clicked_button_id === "Fairy_1") {
+        createDefender(Fairy_1, 350);
+      }
+       else {
         return;
       }
     }  

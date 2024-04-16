@@ -43,6 +43,8 @@ class Elf_1 extends Defenders {
     this.frameLimit = 5;
     this.type = "Elf_1";
     this.imagesrc = "assets/arrows/ELF_Arrow.png";
+    this.coins = 50;
+    this.hit = 50;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -109,6 +111,8 @@ class Elf_3 extends Defenders {
     this.elapsedTime = 0;
     this.frameLimit = 6;
     this.type = "Elf_3";
+    this.coins = 100;
+    this.hit = 75;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -156,7 +160,7 @@ class Fairy_1 extends Defenders {
     };
     this.color = "rgba(0, 0, 255, 0.2)";
     this.projectiles = [];
-    this.radius = 250;
+    this.radius = 200;
     this.target = null;
 
     this.image = new Image();
@@ -170,6 +174,8 @@ class Fairy_1 extends Defenders {
     this.frameLimit = 6;
     this.type = "Fairy_1";
     this.imagesrc = "assets/Laser/02.png";
+    this.coins = 350;
+    this.hit = 150;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -217,7 +223,7 @@ class Fairy_2 extends Defenders {
     };
     this.color = "rgba(0, 0, 255, 0.2)";
     this.projectiles = [];
-    this.radius = 250;
+    this.radius = 225;
     this.target = null;
 
     this.image = new Image();
@@ -231,6 +237,8 @@ class Fairy_2 extends Defenders {
     this.frameLimit = 5;
     this.type = "Fairy_2";
     this.imagesrc = "assets/Laser/06.png";
+    this.coins = 150;
+    this.hit = 100;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -292,6 +300,8 @@ class Fairy_3 extends Defenders {
     this.frameLimit = 5;
     this.type = "Fairy_3";
     this.imagesrc = "assets/Laser/08.png";
+    this.coins = 100;
+    this.hit = 80;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -353,6 +363,8 @@ class Warrior extends Defenders {
     this.frameLimit = 8;
     this.type = "Warrior";
     this.imagesrc = "assets/arrows/Warrior_Arrow.png";
+    this.coins = 50;
+    this.hit = 50;
   }
 
   //------------------------------------------------------------------------------------------------

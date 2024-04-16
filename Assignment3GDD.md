@@ -44,12 +44,12 @@ The gameplay mechanics of Defenders of the Forest V2.0 have been enhanced with t
             - attack power 75
             - cost 100 coins.
             - range 250
-        - Fairy-1 : 
+        - Fairy-2 : 
             - attack power 100
             - cost 150 coins.
             - range 225
-        - Fairy-2 : 
-            - attack power 100
+        - Fairy-1 : 
+            - attack power 150
             - cost 350 coins.
             - range 200
         

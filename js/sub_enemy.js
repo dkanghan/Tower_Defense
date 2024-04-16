@@ -27,7 +27,7 @@ class Orc_1 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 1.5;
     this.type = "Orc_1";
-    console.log("Orc_1 created");
+    this.coins = 10;  
   }
 
   //------------------------------------------------------------------------------------------------
@@ -74,6 +74,7 @@ class Orc_2 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 2;
     this.type = "Orc_2";
+    this.coins = 20;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -120,6 +121,7 @@ class Orc_3 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 1.5;
     this.type = "Orc_3";
+    this.coins = 30;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -166,6 +168,7 @@ class Knight_1 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 3;
     this.type = "Knight_1";
+    this.coins = 10;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -212,6 +215,7 @@ class Knight_2 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 2;
     this.type = "Knight_2";
+    this.coins = 15;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -258,6 +262,7 @@ class Knight_3 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 2.5;
     this.type = "Knight_3";
+    this.coins = 20;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -280,4 +285,145 @@ class Knight_3 extends Enemy {
   }
 }
 
-// export { Orc_1, Orc_2, Orc_3, Knight_1, Knight_2, Knight_3 };
+//---------------------------------------------------------
+// Class: Troll_1
+// Dependencies: Enemy
+// Description: This class contains the properties and methods for the Troll_1 enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: An instance of the Troll_1 class
+//---------------------------------------------------------
+class Troll_1 extends Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({ position });
+    this.wpIndex = 0;
+    this.radius = 50;
+    this.health = 200;
+    this.initialhealth = 200;
+    this.image = new Image();
+    this.image.src = "assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png";
+    this.frameIndex = 0;
+    this.frames = 9;
+    this.frameWidth = 100;
+    this.frameHeight = 100;
+    this.animationSpeed = 0.2;
+    this.elapsedTime = 0;
+    this.speed = 1.5;
+    this.type = "Troll_1";
+    this.coins = 10;
+  }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Troll_1 object's position and frame.
+  //------------------------------------------------------------------------------------------------
+  update() {
+    super.update();
+    this.elapsedTime += 1 / 60;
+    if (this.elapsedTime >= this.animationSpeed) {
+      this.frameIndex++;
+      this.elapsedTime = 0;
+    }
+    if (this.frameIndex >= this.frames) {
+      this.frameIndex = 0;
+    }
+    this.image.src = `assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_00${this.frameIndex}.png`;
+  }
+}
+
+//---------------------------------------------------------
+// Class: Troll_2
+// Dependencies: Enemy
+// Description: This class contains the properties and methods for the Troll_2 enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: An instance of the Troll_2 class
+//---------------------------------------------------------
+class Troll_2 extends Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({ position });
+    this.wpIndex = 0;
+    this.radius = 50;
+    this.health = 250;
+    this.initialhealth = 250;
+    this.image = new Image();
+    this.image.src = "assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png";
+    this.frameIndex = 0;
+    this.frames = 9;
+    this.frameWidth = 100;
+    this.frameHeight = 100;
+    this.animationSpeed = 0.2;
+    this.elapsedTime = 0;
+    this.speed = 2;
+    this.type = "Troll_2";
+    this.coins = 20;
+  }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Troll_2 object's position and frame.
+  //------------------------------------------------------------------------------------------------
+  update() {
+    super.update();
+    this.elapsedTime += 1 / 60;
+    if (this.elapsedTime >= this.animationSpeed) {
+      this.frameIndex++;
+      this.elapsedTime = 0;
+    }
+    if (this.frameIndex >= this.frames) {
+      this.frameIndex = 0;
+    }
+    this.image.src = `assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_00${this.frameIndex}.png`;
+  }
+}
+
+//---------------------------------------------------------
+// Class: Troll_3
+// Dependencies: Enemy
+// Description: This class contains the properties and methods for the Troll_3 enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: An instance of the Troll_3 class
+//---------------------------------------------------------
+class Troll_3 extends Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({ position });
+    this.wpIndex = 0;
+    this.radius = 50;
+    this.health = 400;
+    this.initialhealth = 400;
+    this.image = new Image();
+    this.image.src = "assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png";
+    this.frameIndex = 0;
+    this.frames = 9;
+    this.frameWidth = 100;
+    this.frameHeight = 100;
+    this.animationSpeed = 0.2;
+    this.elapsedTime = 0;
+    this.speed = 2;
+    this.type = "Troll_3";
+    this.coins = 25;
+  }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Troll_1 object's position and frame.
+  //------------------------------------------------------------------------------------------------
+  update() {
+    super.update();
+    this.elapsedTime += 1 / 60;
+    if (this.elapsedTime >= this.animationSpeed) {
+      this.frameIndex++;
+      this.elapsedTime = 0;
+    }
+    if (this.frameIndex >= this.frames) {
+      this.frameIndex = 0;
+    }
+    this.image.src = `assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_00${this.frameIndex}.png`;
+  }
+}
+
+
