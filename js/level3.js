@@ -355,6 +355,7 @@ html_image.addEventListener("click", (event) => {
   previouslyClickedButton = clicked_button;
 });
 
+//Add delete button
 const delete_button = document.getElementById("delete");
 delete_button.addEventListener("click", (event) => {
   clicked_button_id = "delete";

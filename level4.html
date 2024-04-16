@@ -32,6 +32,28 @@
     height: 100px;
     cursor: pointer;
   }
+  .delete_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1300px;
+    margin-top: 3rem;
+  }
+
+  .delete_button button {
+    padding: 1rem 2rem;
+    color: white;
+    background-color: #f44336; 
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    transition: background-color 0.3s ease; 
+}
+
+.delete_button button:hover {
+    background-color: #d32f2f; /* Darker background color on hover */
+}
 </style>
 <canvas></canvas>
 <div class="hidden">
@@ -44,6 +66,9 @@
   <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #034d5a;">100</p>
   <img id="Fairy_3" src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" alt="">
   <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #1d6607;">350</p>
+</div>
+<div class="delete_button">
+  <button id="delete">X</button>
 </div>
 <script src="js/waypoints1.js"></script>
 <script src="js/placement.js"></script>
