@@ -28,6 +28,8 @@ class Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/ELf/Elf_01__ATTACK_001.png";
+    this.starImage = new Image();
+    this.starImage.src = "assets/star.png";
     this.frameIndex = 1;
     this.frames = 0;
     this.frameWidth = 100;
@@ -37,6 +39,7 @@ class Defenders {
     this.frameLimit = 5;
     this.type = "Elf_1";
     this.imagesrc = "assets/Laser/01.png";
+    this.upgrade = 0;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -75,7 +78,16 @@ class Defenders {
       this.width,
       this.height
       );
-    
+    }
+
+    for (let i = 0; i < this.upgrade; i++) {
+      c.drawImage(
+        this.starImage,
+        this.position.x + i * 25,
+        this.position.y - 20,
+        16,
+        16
+      );
     }
 
   }

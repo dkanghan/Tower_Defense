@@ -14,12 +14,9 @@
     background-color: beige;
   }
 
-  .hidden {
-    display: none;
-
-  }
-
-  .def_button {
+  .def_button,
+  .delete_button,
+  .upgrade_button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -32,45 +29,61 @@
     height: 100px;
     cursor: pointer;
   }
-  .delete_button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 3rem;
-    max-width: 1300px;
-    margin-top: 3rem;
-  }
 
-  .delete_button button {
+  .delete_button button,
+  .upgrade_button button {
     padding: 1rem 2rem;
     color: white;
-    background-color: #f44336; 
     border: none;
-    border-radius: 5px; 
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease; 
-}
+    transition: background-color 0.3s ease;
+  }
 
-.delete_button button:hover {
-    background-color: #d32f2f; /* Darker background color on hover */
-}
+  .delete_button button:hover,
+  .upgrade_button button:hover {
+    background-color: #d32f2f;
+  }
+
+  .upgrade_button button {
+    background-color: #4CAF50;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1300px;
+  }
+
+  .delete_button,
+  .upgrade_button {
+    display: inline-block;
+    margin-right: 10px;
+
+  }
+
+  .upgrade_button button:hover {
+    background-color: #45a049;
+  }
 </style>
 <canvas></canvas>
-<div class="hidden">
-  <img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" id="knight_1"></img>
+<div class="def_button">
+  <img id="Elf_Archer" src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #352c05;">50</p>
+  <img id="Elf_Mage" src="assets/defenders/ELf/Elf_03__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #352c05;">100</p>
+  <img id="Fairy_2" src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #034d5a;">150</p>
+  <img id="Fairy_1" src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="">
+  <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #1d6607;">350</p>
 </div>
-  <div class="def_button">
-    <img id="Elf_Archer" src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="">
-    <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #352c05;">50</p>
-    <img id="Elf_Mage" src="assets/defenders/ELf/Elf_03__ATTACK_000.png" alt="">
-    <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #352c05;">100</p>
-    <img id="Fairy_2" src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" alt="">
-    <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #034d5a;">150</p>
-    <img id="Fairy_1" src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="">
-    <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #1d6607;">350</p>
+<div class="button-container">
+  <div class="delete_button">
+    <button id="delete" style="background-color: #ff1100;">X</button>
   </div>
-<div class="delete_button">
-  <button id="delete">X</button>
+  <div class="upgrade_button">
+    <button id="upgrade" style="background-color: #4CAF50;">Upgrade</button>
+  </div>
 </div>
 <script src="js/waypoints1.js"></script>
 <script src="js/placement.js"></script>

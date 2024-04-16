@@ -353,6 +353,15 @@ delete_button.addEventListener("click", (event) => {
     previouslyClickedButton.style.border = "none";
   }
 });
+
+//Add upgrade button
+const upgrade_button = document.getElementById("upgrade");
+upgrade_button.addEventListener("click", (event) => {
+  clicked_button_id = "upgrade";
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
+});
   
   // Define the belowIndex and currentIndex variables
   let belowIndex;
@@ -412,7 +421,6 @@ delete_button.addEventListener("click", (event) => {
     }
 
     if (activeTile.occupied && clicked_button_id === "delete") {
-      console.log("in the condition");
       let defenderSelected = false;
       for (let i = 0; i < defenders.length; i++) {
         const curr_defender = defenders[i];
@@ -448,6 +456,35 @@ delete_button.addEventListener("click", (event) => {
         placementTilesArr[defenderBelowIndex + 1].occupied = false;
         placementTilesArr[defenderBelowIndex].occupied = false;
       }
+    }
+
+    if(activeTile.occupied && clicked_button_id === "upgrade") {
+      for (let i = 0; i < defenders.length; i++) {
+        const curr_defender = defenders[i];
+        if (
+          mouse.x >= curr_defender.position.x &&
+          mouse.x <= curr_defender.position.x + curr_defender.width &&
+          mouse.y >= curr_defender.position.y &&
+          mouse.y <= curr_defender.position.y + curr_defender.height
+        ) {
+          if (curr_defender.upgrade === 0) {
+            if (coins >= 25) {
+              coins -= 25;
+              curr_defender.upgrade = 1;
+              curr_defender.hit += curr_defender.hit + 20;
+              console.log(curr_defender.hit);
+            }
+          } else if (curr_defender.upgrade === 1) {
+            if (coins >= 50) {
+              coins -= 50;
+              curr_defender.upgrade = 2;
+              curr_defender.radius = curr_defender.radius * 1.1;
+            }
+          }
+          break;
+        }
+      }
+  
     }
   });
   
