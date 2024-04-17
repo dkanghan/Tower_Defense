@@ -41,6 +41,7 @@ placementTiles12D.forEach((row, y) => {
 // initialize the wave, waypoints, hearts, and coins
 const enemies = [];
 let wave = 1;
+let nextwave = 1;
 let hearts = 10;
 let coins = 100;
 const waypoints = waypoints1;
@@ -79,7 +80,6 @@ function spawnEnemy(wave = 1) {
   }
 }
 
-spawnEnemy(wave);
 
 function createDefender(defenderType, cost) {
   if (coins >= cost) {
@@ -92,6 +92,12 @@ function createDefender(defenderType, cost) {
     placementTilesArr[belowIndex].occupied = true;
     placementTilesArr[belowIndex + 1].occupied = true;
     placementTilesArr[currentIndex + 1].occupied = true;
+    clicked_button_id = undefined;
+    previouslyClickedButton.style.border = "none";
+  }
+  else{
+    clicked_button_id = undefined;
+    previouslyClickedButton.style.border = "none";
   }
 }
 
@@ -101,6 +107,7 @@ let activeTile = undefined;
 let clicked_button_id = undefined;
 let radius;
 let previouslyClickedButton = null; 
+let wave_button = null;
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
@@ -122,6 +129,17 @@ html_image.addEventListener("click", (event) => {
   previouslyClickedButton = clicked_button;
 });
 
+wave_button = document.getElementById("wave");
+
+wave_button.addEventListener("click", () => {
+  if (enemies.length === 0 && wave <= 5) {
+    wave = nextwave;
+    spawnEnemy(wave);
+    wave_button.style.backgroundColor = 'green';
+    nextwave++;
+  }  
+  
+});
 //---------------------------------------------------------
 // Function: animate
 // Description: Main animation loop for the game.
@@ -267,11 +285,10 @@ function animate() {
   // Check if all enemies have been defeated
 
   if (enemies.length === 0) {
+
+    wave_button.style.backgroundColor = 'red';
     // If all enemies have been defeated, spawn the next wave
-    if (wave < 6) {
-      wave++;
-      spawnEnemy(wave);
-    } else {
+    if (nextwave > 5) {
       // Stop the animation loop
       //If all waves are cleared, display the congratulations popup
       cancelAnimationFrame(animId);
@@ -422,22 +439,15 @@ canvas.addEventListener("click", () => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied &&
-      coins >= 50
+      !activeTile.occupied 
     ) {
 
       if (clicked_button_id === "Elf_1") {
         createDefender(Elf_1, 50);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       } else if (clicked_button_id === "Elf_3") {
         createDefender(Elf_3, 100);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       }  else if (clicked_button_id === "Fairy_1") {
         createDefender(Fairy_1, 150);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       }
        else {
         return;

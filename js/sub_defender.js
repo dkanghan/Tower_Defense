@@ -102,7 +102,7 @@ class Elf_3 extends Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/ELf/Elf_03__ATTACK_001.png";
-    this.frameIndex = 1;
+    this.frameIndex = 0;
     this.frames = 0;
     this.frameWidth = 100;
     this.frameHeight = 100;
@@ -133,7 +133,7 @@ class Elf_3 extends Defenders {
       this.elapsedTime = 0;
     }
     if (this.frameIndex >= this.frameLimit) {
-      this.frameIndex = 1;
+      this.frameIndex = 0;
     }
     this.image.src = `assets/defenders/ELf/Elf_03__ATTACK_00${this.frameIndex}.png`;
   }
@@ -163,7 +163,7 @@ class Fairy_1 extends Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/Fairy/Fairy_01__ATTACK_000.png";
-    this.frameIndex = 1;
+    this.frameIndex = 0;
     this.frames = 0;
     this.frameWidth = 100;
     this.frameHeight = 100;
@@ -195,7 +195,7 @@ class Fairy_1 extends Defenders {
       this.elapsedTime = 0;
     }
     if (this.frameIndex >= this.frameLimit) {
-      this.frameIndex = 1;
+      this.frameIndex = 0;
     }
     this.image.src = `assets/defenders/Fairy/Fairy_01__ATTACK_00${this.frameIndex}.png`;
   }
@@ -225,7 +225,7 @@ class Fairy_2 extends Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/Fairy/Fairy_02__ATTACK_000.png";
-    this.frameIndex = 1;
+    this.frameIndex = 0;
     this.frames = 0;
     this.frameWidth = 100;
     this.frameHeight = 100;
@@ -257,7 +257,7 @@ class Fairy_2 extends Defenders {
       this.elapsedTime = 0;
     }
     if (this.frameIndex >= this.frameLimit) {
-      this.frameIndex = 1;
+      this.frameIndex = 0;
     }
     this.image.src = `assets/defenders/Fairy/Fairy_02__ATTACK_00${this.frameIndex}.png`;
   }
@@ -287,7 +287,7 @@ class Fairy_3 extends Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/Fairy/Fairy_03__ATTACK_000.png";
-    this.frameIndex = 1;
+    this.frameIndex = 0;
     this.frames = 0;
     this.frameWidth = 100;
     this.frameHeight = 100;
@@ -319,7 +319,7 @@ class Fairy_3 extends Defenders {
       this.elapsedTime = 0;
     }
     if (this.frameIndex >= this.frameLimit) {
-      this.frameIndex = 1;
+      this.frameIndex = 0;
     }
     this.image.src = `assets/defenders/Fairy/Fairy_03__ATTACK_00${this.frameIndex}.png`;
   }
@@ -349,7 +349,7 @@ class Warrior extends Defenders {
 
     this.image = new Image();
     this.image.src = "assets/defenders/Warrior/Warrior_03__ATTACK_000.png";
-    this.frameIndex = 1;
+    this.frameIndex = 0;
     this.frames = 0;
     this.frameWidth = 100;
     this.frameHeight = 100;
@@ -381,7 +381,7 @@ class Warrior extends Defenders {
       this.elapsedTime = 0;
     }
     if (this.frameIndex >= this.frameLimit) {
-      this.frameIndex = 1;
+      this.frameIndex = 0;
     }
     this.image.src = `assets/defenders/Warrior/Warrior_03__ATTACK_00${this.frameIndex}.png`;
   }

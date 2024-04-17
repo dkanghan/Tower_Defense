@@ -5,7 +5,6 @@
 <style>
   body {
     background-color: beige;
-
     height: 100vh;
     margin: 0;
   }
@@ -16,7 +15,8 @@
 
   .def_button,
   .delete_button,
-  .upgrade_button {
+  .upgrade_button,
+  .start_wave {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -31,7 +31,8 @@
   }
 
   .delete_button button,
-  .upgrade_button button {
+  .upgrade_button button,
+  .start_wave button {
     padding: 1rem 2rem;
     color: white;
     border: none;
@@ -41,7 +42,8 @@
   }
 
   .delete_button button:hover,
-  .upgrade_button button:hover {
+  .upgrade_button button:hover,
+  .start_wave button:hover {
     background-color: #d32f2f;
   }
 
@@ -56,7 +58,8 @@
   }
 
   .delete_button,
-  .upgrade_button {
+  .upgrade_button,
+  .start_wave {
     display: inline-block;
     margin-right: 10px;
 
@@ -78,6 +81,9 @@
   <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #1d6607;">350</p>
 </div>
 <div class="button-container">
+  <div class="start_wave">
+    <button id="wave" style="background-color: #ff1100;">Start Wave</button>
+  </div>
   <div class="delete_button">
     <button id="delete" style="background-color: #ff1100;">X</button>
   </div>

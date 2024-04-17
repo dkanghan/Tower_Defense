@@ -14,7 +14,30 @@
     background-color: beige;
   }
 
- 
+  .button-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1300px;
+  }
+
+  .start_wave {
+    display: inline-block;
+    margin-right: 10px;
+
+  }
+  .start_wave button:hover {
+    background-color: #d32f2f;
+  }
+
+  .start_wave button {
+    padding: 1rem 2rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
 
   .def_button {
     display: flex;
@@ -38,6 +61,12 @@
   <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #033d88;">100</p>
   <img id="Fairy_1" src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="">
   <p style="font-family: 'Alfa Slab One', 'Workbench', sans-serif; font-size: 24px; color: #441616;">150</p>
+</div>
+
+<div class="button-container">
+  <div class="start_wave">
+    <button id="wave" style="background-color: #ff1100;">Start Wave</button>
+  </div>
 </div>
 <script src="js/waypoints1.js"></script>
 <script src="js/placement.js"></script>

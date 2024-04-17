@@ -38,6 +38,7 @@ placementTiles12D.forEach((row, y) => {
 // initialize the wave, waypoints, hearts, and coins
 const enemies = [];
 let wave = 1;
+let nextwave = 1;
 let hearts = 10;
 let coins = 350;
 let waypoints = waypoint41;
@@ -73,20 +74,25 @@ function spawnEnemy(wave = 1) {
       enemies.push(new trollType({ position: knightPosition }));
   }
 }
-  spawnEnemy(wave);
 
   function createDefender(defenderType, cost) {
     if (coins >= cost) {
       newDefender = new defenderType({
         position: { x: activeTile.position.x, y: activeTile.position.y },
       });
-      newDefender.coins = cost;
       coins -= cost;
+      newDefender.coins = cost;
       defenders.push(newDefender);
       activeTile.occupied = true;
       placementTilesArr[belowIndex].occupied = true;
       placementTilesArr[belowIndex + 1].occupied = true;
       placementTilesArr[currentIndex + 1].occupied = true;
+      clicked_button_id = undefined;
+      previouslyClickedButton.style.border = "none";
+    }
+    else{
+      clicked_button_id = undefined;
+      previouslyClickedButton.style.border = "none";
     }
   }
   
@@ -134,6 +140,16 @@ function spawnEnemy(wave = 1) {
     if (previouslyClickedButton) {
       previouslyClickedButton.style.border = "none";
     }
+  });
+
+  wave_button = document.getElementById("wave");
+  wave_button.addEventListener("click", () => {
+    if (enemies.length === 0 && wave <= 10) {
+      wave = nextwave;
+      spawnEnemy(wave);
+      wave_button.style.backgroundColor = 'green';
+      nextwave++;
+    }  
   });
   //---------------------------------------------------------
   // Function: animate
@@ -275,11 +291,9 @@ function spawnEnemy(wave = 1) {
     }
   
     if (enemies.length === 0) {
+      wave_button.style.backgroundColor = 'red';
       //Check if all enemies have been defeated, then spawn the next wave
-      if (wave < 10) {
-        wave++;
-        spawnEnemy(wave);
-      } else {
+      if (nextwave > 10) {
         //stop the animation loop
         //Display the congratulations popup if all waves have been cleared
         cancelAnimationFrame(animId);
@@ -440,20 +454,12 @@ function spawnEnemy(wave = 1) {
       ) {
         if (clicked_button_id === "Elf_Archer") {
           createDefender(Elf_1, 50);
-          clicked_button_id = undefined;
-          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Elf_Mage") {
           createDefender(Elf_3, 100);
-          clicked_button_id = undefined;
-          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Fairy_2") {
           createDefender(Fairy_2, 150);
-          clicked_button_id = undefined;
-          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Fairy_1") {
           createDefender(Fairy_1, 350);
-          clicked_button_id = undefined;
-          previouslyClickedButton.style.border = "none";
         }
         else {
           return;

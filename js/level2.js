@@ -41,6 +41,7 @@ placementTiles12D.forEach((row, y) => {
 // initialize the wave, waypoints, hearts, and coins
 const enemies = [];
 let wave = 1;
+let nextwave = 1;
 let hearts = 10;
 let coins = 100;
 let waypoints = waypoints2;
@@ -73,7 +74,6 @@ function spawnEnemy(wave = 1) {
       enemies.push(new knightType({ position: knightPosition }));
   }
 }
-spawnEnemy(wave);
 
 function createDefender(defenderType, cost) {
   if (coins >= cost) {
@@ -86,6 +86,12 @@ function createDefender(defenderType, cost) {
     placementTilesArr[belowIndex].occupied = true;
     placementTilesArr[belowIndex + 1].occupied = true;
     placementTilesArr[currentIndex + 1].occupied = true;
+    clicked_button_id = undefined;
+    previouslyClickedButton.style.border = "none";
+  }
+  else{
+    clicked_button_id = undefined;
+    previouslyClickedButton.style.border = "none";
   }
 }
 
@@ -94,7 +100,8 @@ const defenders = [];
 let activeTile = undefined;
 let clicked_button_id = undefined;
 let radius;
-let previouslyClickedButton = null; 
+let previouslyClickedButton = null;
+let wave_button = null; 
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
@@ -116,6 +123,16 @@ html_image.addEventListener("click", (event) => {
   previouslyClickedButton = clicked_button;
 });
 
+wave_button = document.getElementById("wave");
+wave_button.addEventListener("click", () => {
+  if (enemies.length === 0 && wave <= 10) {
+    wave = nextwave;
+    spawnEnemy(wave);
+    wave_button.style.backgroundColor = 'green';
+    nextwave++;
+  }  
+  
+});
 
 
 //---------------------------------------------------------
@@ -258,11 +275,10 @@ function animate() {
   }
 
   if (enemies.length === 0) {
+    wave_button.style.backgroundColor = 'red';
     //Check if all enemies have been defeated, then spawn the next wave
-    if (wave < 10) {
-      wave++;
-      spawnEnemy(wave);
-    } else {
+    if (nextwave > 10) {
+      
       //stop the animation loop
       //Display the congratulations popup if all waves have been cleared
       cancelAnimationFrame(animId);
@@ -417,19 +433,11 @@ canvas.addEventListener("click", () => {
     ) {
       if (clicked_button_id === "Warrior") {
         createDefender(Warrior, 50);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       } else if (clicked_button_id === "Fairy_3") {
         createDefender(Fairy_3, 100);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       } else if (clicked_button_id === "Fairy_2") {
         createDefender(Fairy_2, 350);
-        clicked_button_id = undefined;
-        previouslyClickedButton.style.border = "none";
       }  else {
-        // Handle unknown button id
-        console.log("Unknown button id:", clicked_button_id);
         return;
       }
 
