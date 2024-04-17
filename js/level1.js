@@ -98,6 +98,29 @@ function createDefender(defenderType, cost) {
 // Define the defenders array and active tile
 const defenders = [];
 let activeTile = undefined;
+let clicked_button_id = undefined;
+let radius;
+let previouslyClickedButton = null; 
+// Define the clicked_button_id variable
+const html_image = document.querySelector(".def_button");
+html_image.addEventListener("click", (event) => {
+  // Get the id of the clicked button
+  clicked_button_id = event.target.id;
+
+  // Remove border from previously clicked button
+  if (previouslyClickedButton) {
+    previouslyClickedButton.style.border = "none";
+  }
+
+  // Add border to the clicked button
+  const clicked_button = document.getElementById(clicked_button_id);
+  if (clicked_button) {
+    clicked_button.style.border = "2px solid black";
+    clicked_button.style.borderRadius = "5px";
+  }
+
+  previouslyClickedButton = clicked_button;
+});
 
 //---------------------------------------------------------
 // Function: animate
@@ -335,6 +358,25 @@ function animate() {
       }
     }
   });
+
+  if (clicked_button_id === "Elf_1") {
+    radius = 250;
+  } else if (clicked_button_id === "Elf_3") {
+    radius = 250;
+  }  else if (clicked_button_id === "Fairy_1") {
+    radius = 200;
+  }
+
+  if(clicked_button_id != undefined && clicked_button_id != 'delete' && clicked_button_id != 'upgrade'){
+    c.beginPath();
+    c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
+    c.fillStyle = "rgba(255, 0, 0, 0)";
+    c.fill();
+    c.lineWidth = 2;
+    c.strokeStyle = "grey";
+    c.stroke();
+    c.closePath();
+  }
 }
 
 // Define the mouse object
@@ -343,13 +385,7 @@ const mouse = {
   y: undefined,
 };
 
-clicked_button_id = undefined;
-// Define the clicked_button_id variable
-const html_image = document.querySelector(".def_button");
-html_image.addEventListener("click", (event) => {
-  // if the clicked button is an image, get the id of the image
-  clicked_button_id = event.target.id;
-});
+
 
 // Define the belowIndex and currentIndex variables
 let belowIndex;
@@ -392,10 +428,16 @@ canvas.addEventListener("click", () => {
 
       if (clicked_button_id === "Elf_1") {
         createDefender(Elf_1, 50);
+        clicked_button_id = undefined;
+        previouslyClickedButton.style.border = "none";
       } else if (clicked_button_id === "Elf_3") {
         createDefender(Elf_3, 100);
+        clicked_button_id = undefined;
+        previouslyClickedButton.style.border = "none";
       }  else if (clicked_button_id === "Fairy_1") {
         createDefender(Fairy_1, 150);
+        clicked_button_id = undefined;
+        previouslyClickedButton.style.border = "none";
       }
        else {
         return;

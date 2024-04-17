@@ -93,7 +93,48 @@ function spawnEnemy(wave = 1) {
   // Define the defenders array and activeTile variable
   const defenders = [];
   let activeTile = undefined;
+  let clicked_button_id = undefined;
+  let radius;
   
+  // Define the clicked_button_id variable
+  const html_image = document.querySelector(".def_button");
+  let previouslyClickedButton = null;
+  html_image.addEventListener("click", (event) => {
+    // Get the id of the clicked button
+    clicked_button_id = event.target.id;
+
+    // Remove border from previously clicked button
+    if (previouslyClickedButton) {
+      previouslyClickedButton.style.border = "none";
+    }
+
+    // Add border to the clicked button
+    const clicked_button = document.getElementById(clicked_button_id);
+    if (clicked_button) {
+      clicked_button.style.border = "2px solid black";
+      clicked_button.style.borderRadius = "5px";
+    }
+
+    previouslyClickedButton = clicked_button;
+  });
+
+  //Add delete button
+  const delete_button = document.getElementById("delete");
+  delete_button.addEventListener("click", (event) => {
+    clicked_button_id = "delete";
+    if (previouslyClickedButton) {
+      previouslyClickedButton.style.border = "none";
+    }
+  });
+
+  //Add upgrade button
+  const upgrade_button = document.getElementById("upgrade");
+  upgrade_button.addEventListener("click", (event) => {
+    clicked_button_id = "upgrade";
+    if (previouslyClickedButton) {
+      previouslyClickedButton.style.border = "none";
+    }
+  });
   //---------------------------------------------------------
   // Function: animate
   // Description: Main animation loop for the game.
@@ -325,6 +366,28 @@ function spawnEnemy(wave = 1) {
         }
       }
     });
+
+    if (clicked_button_id === "Elf_Archer") {
+      radius = 250;
+    } else if (clicked_button_id === "Elf_Mage") {
+      radius = 250;
+    } else if (clicked_button_id === "Fairy_2") {
+      radius = 225;
+    } else if (clicked_button_id === "Fairy_1") {
+      radius = 200;
+    }
+  
+    
+    if(clicked_button_id != undefined && clicked_button_id != 'delete' && clicked_button_id != 'upgrade'){
+      c.beginPath();
+      c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
+      c.fillStyle = "rgba(255, 0, 0, 0)";
+      c.fill();
+      c.lineWidth = 2;
+      c.strokeStyle = "grey";
+      c.stroke();
+      c.closePath();
+    }
   }
   
   // Define the mouse object
@@ -333,30 +396,6 @@ function spawnEnemy(wave = 1) {
     y: undefined,
   };
   
-  // Define the clicked_button_id variable
-  const html_image = document.querySelector(".def_button");
-  html_image.addEventListener("click", (event) => {
-    // Get the id of the clicked button
-    clicked_button_id = event.target.id;
-  });
-
-  //Add delete button
-const delete_button = document.getElementById("delete");
-delete_button.addEventListener("click", (event) => {
-  clicked_button_id = "delete";
-  if (previouslyClickedButton) {
-    previouslyClickedButton.style.border = "none";
-  }
-});
-
-//Add upgrade button
-const upgrade_button = document.getElementById("upgrade");
-upgrade_button.addEventListener("click", (event) => {
-  clicked_button_id = "upgrade";
-  if (previouslyClickedButton) {
-    previouslyClickedButton.style.border = "none";
-  }
-});
   
   // Define the belowIndex and currentIndex variables
   let belowIndex;
@@ -401,12 +440,20 @@ upgrade_button.addEventListener("click", (event) => {
       ) {
         if (clicked_button_id === "Elf_Archer") {
           createDefender(Elf_1, 50);
+          clicked_button_id = undefined;
+          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Elf_Mage") {
           createDefender(Elf_3, 100);
+          clicked_button_id = undefined;
+          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Fairy_2") {
           createDefender(Fairy_2, 150);
+          clicked_button_id = undefined;
+          previouslyClickedButton.style.border = "none";
         } else if (clicked_button_id === "Fairy_1") {
           createDefender(Fairy_1, 350);
+          clicked_button_id = undefined;
+          previouslyClickedButton.style.border = "none";
         }
         else {
           return;
