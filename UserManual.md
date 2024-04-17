@@ -3,7 +3,6 @@
 Welcome to the user manual for Defenders of the Forest. This document will guide you through the game mechanics, controls, and strategies to help you defend the forest against the enemies.
 
 ## **Table of Contents**
-
 1. [Game Overview](#game-overview)
 2. [How to Play](#how-to-play)
 3. [Defenders](#defenders)
