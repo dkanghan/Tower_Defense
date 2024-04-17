@@ -410,7 +410,7 @@ class Troll_3 extends Enemy {
   // update()
   // Inputs: None
   // Expected Output: None
-  // Description: Updates the Troll_1 object's position and frame.
+  // Description: Updates the Troll_3 object's position and frame.
   //------------------------------------------------------------------------------------------------
   update() {
     super.update();
@@ -426,4 +426,107 @@ class Troll_3 extends Enemy {
   }
 }
 
+//---------------------------------------------------------
+// Class: Golem_1
+// Dependencies: Enemy
+// Description: This class contains the properties and methods for the Golem_1 enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: An instance of the Golem_1 class
+//---------------------------------------------------------
+class Golem_2 extends Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({ position });
+    this.wpIndex = 0;
+    this.radius = 50;
+    this.health = 900;
+    this.initialhealth = 500;
+    this.image = new Image();
+    this.image.src = "assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png";
+    this.frameIndex = 0;
+    this.frames = 23;
+    this.frameWidth = 100;
+    this.frameHeight = 100;
+    this.animationSpeed = 0.2;
+    this.elapsedTime = 0;
+    this.speed = 1.5;
+    this.type = "Troll_3";
+    this.coins = 25;
+  }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Golem_1 object's position and frame.
+  //------------------------------------------------------------------------------------------------
+  update() {
+    super.update();
+    this.elapsedTime += 1 / 60;
+    if (this.elapsedTime >= this.animationSpeed) {
+      this.frameIndex++;
+      this.elapsedTime = 0;
+    }
+    if (this.frameIndex >= this.frames) {
+      this.frameIndex = 0;
+    }
+    if(this.frameIndex<10){
+      this.image.src = `assets/attackers/Golem/Golem-2/0_Golem_Walking_00${this.frameIndex}.png`;
+    }
+    else{
+      this.image.src = `assets/attackers/Golem/Golem-2/0_Golem_Walking_0${this.frameIndex}.png`;
+    }
+  }
+}
+
+//---------------------------------------------------------
+// Class: Golem_1
+// Dependencies: Enemy
+// Description: This class contains the properties and methods for the Golem_1 enemy in the game.
+// Expected Inputs: position
+// Expected Outputs: An instance of the Golem_1 class
+//---------------------------------------------------------
+class Golem_3 extends Enemy {
+  constructor({ position = { x: 0, y: 0 } }) {
+    super({ position });
+    this.wpIndex = 0;
+    this.radius = 50;
+    this.health = 1200;
+    this.initialhealth = 750;
+    this.image = new Image();
+    this.image.src = "assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png";
+    this.frameIndex = 0;
+    this.frames = 23;
+    this.frameWidth = 100;
+    this.frameHeight = 100;
+    this.animationSpeed = 0.2;
+    this.elapsedTime = 0;
+    this.speed = 2;
+    this.type = "Troll_3";
+    this.coins = 25;
+  }
+
+  //------------------------------------------------------------------------------------------------
+  // update()
+  // Inputs: None
+  // Expected Output: None
+  // Description: Updates the Golem_1 object's position and frame.
+  //------------------------------------------------------------------------------------------------
+  update() {
+    super.update();
+    this.elapsedTime += 1 / 60;
+    if (this.elapsedTime >= this.animationSpeed) {
+      this.frameIndex++;
+      this.elapsedTime = 0;
+    }
+    if (this.frameIndex >= this.frames) {
+      this.frameIndex = 0;
+    }
+    if(this.frameIndex<10){
+      this.image.src = `assets/attackers/Golem/Golem-3/0_Golem_Walking_00${this.frameIndex}.png`;
+    }
+    else{
+      this.image.src = `assets/attackers/Golem/Golem-3/0_Golem_Walking_0${this.frameIndex}.png`;
+    }
+  }
+}
 

@@ -64,6 +64,10 @@ function spawnEnemy(wave = 1) {
       if (wave >= 6 && i >= 10) knightTypeIndex = 2;
       if (wave >= 7 && i >= 8) knightTypeIndex = 1;
       if (wave >= 8 && i >= 5) knightTypeIndex = 2;
+      if (wave >= 9 && i >= 4) knightTypeIndex = 1;
+      if (wave >= 10 && i >= 3) knightTypeIndex = 2;
+      if (wave >= 11 && i >= 2) knightTypeIndex = 1;
+      if (wave >= 12 && i >= 1) knightTypeIndex = 2;
     }
 
     const knightType = knightTypes[knightTypeIndex];
@@ -73,7 +77,12 @@ function spawnEnemy(wave = 1) {
       y: 2.3 * waypoints[0].y,
     };
     enemies.push(new knightType({ position: knightPosition }));
+    
   }
+  if(wave === 12){
+    enemies.push(new Golem_2({ position: { x: 2.5 * waypoints[0].x - 150, y: 2.3 * waypoints[0].y } }));
+  }
+ 
 }
 
 function createDefender(defenderType, cost) {
@@ -146,7 +155,7 @@ upgrade_button.addEventListener("click", (event) => {
 
 wave_button = document.getElementById("wave");
 wave_button.addEventListener("click", () => {
-  if (enemies.length === 0 && wave <= 10) {
+  if (enemies.length === 0 && wave <= 12) {
     wave = nextwave;
     spawnEnemy(wave);
     wave_button.style.backgroundColor = 'green';
@@ -262,8 +271,15 @@ function animate() {
       //Check if the enemy has reached the end of the path
       //Remove the enemy from the enemies array
       //Decrement the hearts variable
-      enemies.splice(i, 1);
-      hearts--;
+      if(enemy instanceof Golem_2 || enemy instanceof Golem_3){
+        hearts = 0;
+
+      }
+      else{
+        enemies.splice(i, 1);
+        hearts--;
+      }
+      
       if (hearts === 0) {
         //stop the animation loop if the hearts reach 0
         cancelAnimationFrame(animId);
@@ -296,7 +312,7 @@ function animate() {
   if (enemies.length === 0) {
     wave_button.style.backgroundColor = 'red';
     //Check if all enemies have been defeated, then spawn the next wave
-    if (nextwave > 10) {
+    if (nextwave > 12) {
       //stop the animation loop
       //Display the congratulations popup if all waves have been cleared
       cancelAnimationFrame(animId);
