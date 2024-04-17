@@ -344,7 +344,7 @@ class Troll_2 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 250;
+    this.health = 300;
     this.initialhealth = 250;
     this.image = new Image();
     this.image.src = "assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png";

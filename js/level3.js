@@ -89,7 +89,6 @@ function spawnEnemy(wave = 1) {
       if (wave >= 9 && i >= 18) enemyTypeIndex = 4;
 
       if (wave >= 10 && i >= 0) enemyTypeIndex = 4;
-      if (wave >= 10 && i >= 20) enemyTypeIndex = 5;
 
     }
 
