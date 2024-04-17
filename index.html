@@ -48,12 +48,20 @@
             <h2>User Manual</h2>
             <p>Click on the Play button to start playing the game. You can select a level from the list of levels
                 available.</p>
+            <p>Each level has a different map and set of enemies. You can place defenders on the map to defend your base
+                from the enemies.</p>
+            <p> Place defenders on the map to defend your base from the enemies and click on the Start Wave button to
+                start the wave of enemies.</p>
             <p>Enemies will appear on the left side of the screen and move towards the right side. You can place
                 defenders on the screen to attack the enemies.</p>
             <p>Defenders will attack the enemies automatically when they are in range. You can place defenders by
                 clicking on the defender icons at the bottom of the screen and then clicking on the desired location on
                 the screen.</p>
-            <p>Defenders have different attack powers and costs. You can view the details of the enemies and defenders
+            <p> You can upgrade defenders by clicking on the upgrade button to upgrade your defender. Upgrading a
+                defender will increase its attack power and range. 1st upgrad cost 25 coins (increses attack by 20) and 2nd upgrade cost 50 coins(increases range by 10%).</p>
+            <p> You can remove defenders by clicking on the remove button and then clicking on the defender you want to
+                remove.You will receive 50% of the cost back.</p>
+            <p>Defenders have different attack powers, range and costs. You can view the details of the enemies and defenders
                 in the Enemies and Defenders tabs below.</p>
             <p>Defend your base and defeat all the enemies to win the game!</p>
             <h3>Enemies and Defenders</h3>
@@ -70,7 +78,8 @@
                         <tr>
                             <th>Enemies</th>
                             <th>Health</th>
-                            <th>Amount Gained</th>
+                            <th>Coins Gained</th>
+                            <th>Speed</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -78,35 +87,70 @@
                             <td><img src="assets/attackers/Orcs/ORK1/WALK_000.png" alt="" width="50" height="50"></td>
                             <td>100</td>
                             <td>10</td>
+                            <td>1.5</td>
                         </tr>
                         <tr>
                             <td><img src="assets/attackers/Orcs/ORK2/WALK_000.png" alt="" width="50" height="50"></td>
                             <td>150</td>
                             <td>20</td>
+                            <td>2</td>
                         </tr>
                         <tr>
                             <td><img src="assets/attackers/Orcs/ORK3/WALK_000.png" alt="" width="50" height="50"></td>
                             <td>200</td>
                             <td>30</td>
+                            <td>1.5</td>
                         </tr>
                         <tr>
                             <td><img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" alt="" width="50" height="50">
                             </td>
                             <td>100</td>
                             <td>10</td>
+                            <td>3</td>
                         </tr>
                         <tr>
                             <td><img src="assets/attackers/Knight/KNIGHT2/_WALK_000.png" alt="" width="50" height="50">
                             </td>
                             <td>150</td>
                             <td>15</td>
+                            <td>2</td>
                         </tr>
                         <tr>
                             <td><img src="assets/attackers/Knight/KNIGHT3/_WALK_000.png" alt="" width="50" height="50">
                             </td>
                             <td>350</td>
                             <td>20</td>
+                            <td>2.5</td>
                         </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>200</td>
+                            <td>10</td>
+                            <td>2.5</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>300</td>
+                            <td>20</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td>400</td>
+                            <td>25</td>
+                            <td>2.2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" alt="" width="50" height="50" ></td>
+                            <td>1200</td>
+                            <td>N/A</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><img src="assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" alt="" width="50" height="50" ></td>
+                            <td>1500</td>
+                            <td>N/A</td>
+                            <td>2.5</td>
                     </tbody>
                 </table>
             </div>
@@ -117,6 +161,7 @@
                         <tr>
                             <th>Defenders</th>
                             <th>Attack Power</th>
+                            <th>Range</th>
                             <th>Cost</th>
                         </tr>
                     </thead>
@@ -125,37 +170,43 @@
                             <td><img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" alt="" width="50" height="50">
                             </td>
                             <td>50</td>
+                            <td>250</td>
                             <td>50</td>
                         </tr>
                         <tr>
                             <td><img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" alt="" width="50" height="50">
                             </td>
                             <td>75</td>
+                            <td>250</td>
                             <td>100</td>
                         </tr>
                         <tr>
                             <td><img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" alt="" width="50"
                                     height="50"></td>
-                            <td>100</td>
                             <td>150</td>
+                            <td>200</td>
+                            <td>150/350</td>
                         </tr>
                         <tr>
                             <td><img src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" alt="" width="50"
                                     height="50"></td>
                             <td>50</td>
+                            <td>250</td>
                             <td>50</td>
                         </tr>
                         <tr>
                             <td><img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" alt="" width="50"
                                     height="50"></td>
-                            <td>80</td>
                             <td>100</td>
+                            <td>225</td>
+                            <td>350/150</td>
                         </tr>
                         <tr>
                             <td><img src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" alt="" width="50"
                                     height="50"></td>
+                            <td>80</td>
+                            <td>250</td>
                             <td>100</td>
-                            <td>350</td>
                         </tr>
                     </tbody>
                 </table>

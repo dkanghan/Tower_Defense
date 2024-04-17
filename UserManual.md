@@ -61,7 +61,7 @@ Defenders are characters that you can place on the map to defend against enemies
 | Defenders                                                                  | Attack Power | Cost | radius |
 | -------------------------------------------------------------------------- | ------------ | ---- | ------ |
 | <img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">         | 50           | 50   | 250  |
-| <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">         | 75           | 100  | 350  |
+| <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">         | 75           | 100  | 250  |
 | <img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50">     | 150          | 150/350  | 200  |
 | <img src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" width="50"> | 50           | 50   | 250  |
 | <img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50">     | 100           | 350/150  | 225  |
