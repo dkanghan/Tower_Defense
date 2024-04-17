@@ -60,19 +60,43 @@ function spawnEnemy(wave = 1) {
       waypoints = randomWaypoint;
       let trollTypeIndex = 0;
       if (wave >= 2) {
-          if (i >= 5) trollTypeIndex = 1;
-          if (wave >= 4 && i >= 8) trollTypeIndex = 2;
-          if (wave >= 5 && i >= 12) trollTypeIndex = 2;
-          if (wave >= 6 && i >= 10) trollTypeIndex = 2;
-          if (wave >= 7 && i >= 8) trollTypeIndex = 1;
-          if (wave >= 8 && i >= 5) trollTypeIndex = 2;
-          if (wave >= 9 && i >= 10) trollTypeIndex = 2;
-          if (wave >= 10 && i >= 8) trollTypeIndex = 1;
-          if (wave >= 11 && i >= 6) trollTypeIndex = 2;
-          if (wave >= 12 && i >= 4) trollTypeIndex = 1;
-          if (wave >= 13 && i >= 2) trollTypeIndex = 2;
-          if (wave >= 14 && i >= 1) trollTypeIndex = 1;
-          if (wave >= 15 && i >= 0) trollTypeIndex = 2;
+        if (i >= 4) trollTypeIndex = 1;
+        if (wave >= 3) {
+          if (i >= 8) trollTypeIndex = 1;
+        }
+
+        if (wave >= 4) {
+          if (i >= 8) trollTypeIndex = 1;
+        }
+
+        if (wave >= 5) {
+          if (i >= 6) trollTypeIndex = 1;
+          if (i >= 12) trollTypeIndex = 2;
+        }
+
+        if (wave >= 6) {
+          if (i >= 6) trollTypeIndex = 1;
+          if (i >= 18) trollTypeIndex = 2;
+        }
+
+        if (wave >= 7) {
+          if (i >= 7) trollTypeIndex = 1;
+          if (i >= 15) trollTypeIndex = 2;
+        }
+
+        if (wave >= 8) {
+          if (i >= 7) trollTypeIndex = 1;
+          if (i >= 20) trollTypeIndex = 2;
+        }
+
+        if (wave >= 9) {
+          if (i >= 1) trollTypeIndex = 1;
+          if (i >= 15) trollTypeIndex = 2;
+        }
+        if (wave >= 10) {
+           trollTypeIndex = 2;
+        }
+
       }
       
       const trollType = trollTypes[trollTypeIndex];
@@ -80,7 +104,7 @@ function spawnEnemy(wave = 1) {
       const knightPosition = { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y };
       enemies.push(new trollType({ position: knightPosition }));
   }
-  if(wave === 15){
+  if(wave === 10){
     enemies.push(new Golem_3({ position: { x: 2.5 * waypoints[0].x, y: 2.3 * waypoints[0].y } }));
   }
   
@@ -155,7 +179,7 @@ function spawnEnemy(wave = 1) {
 
   wave_button = document.getElementById("wave");
   wave_button.addEventListener("click", () => {
-    if (enemies.length === 0 && wave <= 15) {
+    if (enemies.length === 0 && wave <= 10) {
       wave = nextwave;
       spawnEnemy(wave);
       wave_button.style.backgroundColor = 'green';
@@ -309,7 +333,7 @@ function spawnEnemy(wave = 1) {
     if (enemies.length === 0) {
       wave_button.style.backgroundColor = 'red';
       //Check if all enemies have been defeated, then spawn the next wave
-      if (nextwave > 15) {
+      if (nextwave > 10) {
         //stop the animation loop
         //Display the congratulations popup if all waves have been cleared
         cancelAnimationFrame(animId);

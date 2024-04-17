@@ -90,7 +90,7 @@ Defenders of the Forest V2.0 features two new levels with different maps and ene
 - Level-3: The Dark Forest
     - Map: A dark and mysterious forest with multiple roads for enemies to travel on.
     - Enemies: Orcs, Knights and Golem as boss enemy (new enemy type).
-    - Number of Waves: 12
+    - Number of Waves: 10
         - Number of Enemies: increases with multiple of 4.
     - Defenders : 
         - Fairy-1  
@@ -106,7 +106,7 @@ Defenders of the Forest V2.0 features two new levels with different maps and ene
 - Level-4: The Ashen Wasteland
     - Map: A barren wasteland with grey skies and multiple roads for enemies to travel on.
     - Enemies: Trolls(new enemy type) and Golem as boss enemy.
-    - Number of Waves: 15
+    - Number of Waves: 10
         - Number of Enemies: increases with multiple of 5.
     - Defenders : 
         - Fairy-1  

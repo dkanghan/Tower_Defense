@@ -52,34 +52,57 @@ let waypoints = waypoint31;
 
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
-  const knightTypes = [Knight_1, Knight_2, Knight_3];
+  const enemyTypes = [Knight_1, Orc_1,Knight_2,Orc_2,Knight_3,Orc_3];
 
   for (let i = 0; i < count; i++) {
     waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
-    let knightTypeIndex = 0;
+    let enemyTypeIndex = 0;
     if (wave >= 2) {
-      if (i >= 3) knightTypeIndex = 1;
-      if (wave >= 4 && i >= 8) knightTypeIndex = 2;
-      if (wave >= 5 && i >= 12) knightTypeIndex = 2;
-      if (wave >= 6 && i >= 10) knightTypeIndex = 2;
-      if (wave >= 7 && i >= 8) knightTypeIndex = 1;
-      if (wave >= 8 && i >= 5) knightTypeIndex = 2;
-      if (wave >= 9 && i >= 4) knightTypeIndex = 1;
-      if (wave >= 10 && i >= 3) knightTypeIndex = 2;
-      if (wave >= 11 && i >= 2) knightTypeIndex = 1;
-      if (wave >= 12 && i >= 1) knightTypeIndex = 2;
+      if (i >= 4) enemyTypeIndex = 1;
+      if (wave >= 3 && i >= 6) enemyTypeIndex = 1;
+      if(wave >= 3 && i >= 8) enemyTypeIndex = 2;
+
+      if (wave >= 4 && i >= 3) enemyTypeIndex = 1;
+      if (wave >= 4 && i >= 8) enemyTypeIndex = 2;
+      if(wave >=4 && i >= 10) enemyTypeIndex = 3;
+
+      if(wave >= 5 && i >= 2) enemyTypeIndex = 1;
+      if (wave >= 5 && i >= 6) enemyTypeIndex = 2;
+      if(wave >= 5 && i >= 8) enemyTypeIndex = 3;
+      if(wave >= 5 && i >= 15) enemyTypeIndex = 4;
+
+      if (wave >= 6 && i >= 2) enemyTypeIndex = 1;
+      if (wave >= 6 && i >= 7) enemyTypeIndex = 2;
+      if(wave >= 6 && i >= 9) enemyTypeIndex = 3;
+      if(wave >= 6 && i >= 18) enemyTypeIndex = 4;
+
+      if (wave >= 7 && i >= 1) enemyTypeIndex = 2;
+      if(wave >= 7 && i >= 10) enemyTypeIndex = 3;
+      if(wave >= 7 && i >= 14) enemyTypeIndex = 4;
+
+      if (wave >= 8 && i >= 0) enemyTypeIndex = 2;
+      if (wave >= 8 && i >= 9) enemyTypeIndex = 3;
+      if(wave >= 8 && i >= 18) enemyTypeIndex = 4;
+
+      if (wave >= 9 && i >= 0) enemyTypeIndex = 2;
+      if (wave >= 9 && i >= 10) enemyTypeIndex = 3;
+      if (wave >= 9 && i >= 18) enemyTypeIndex = 4;
+
+      if (wave >= 10 && i >= 0) enemyTypeIndex = 4;
+      if (wave >= 10 && i >= 20) enemyTypeIndex = 5;
+
     }
 
-    const knightType = knightTypes[knightTypeIndex];
+    const enemyType = enemyTypes[enemyTypeIndex];
     const xOff = i * 150;
-    const knightPosition = {
+    const enemyPosition = {
       x: 2.5 * waypoints[0].x - xOff,
       y: 2.3 * waypoints[0].y,
     };
-    enemies.push(new knightType({ position: knightPosition }));
+    enemies.push(new enemyType({ position: enemyPosition }));
     
   }
-  if(wave === 12){
+  if(wave === 10){
     enemies.push(new Golem_2({ position: { x: 2.5 * waypoints[0].x - 150, y: 2.3 * waypoints[0].y } }));
   }
  
@@ -155,7 +178,7 @@ upgrade_button.addEventListener("click", (event) => {
 
 wave_button = document.getElementById("wave");
 wave_button.addEventListener("click", () => {
-  if (enemies.length === 0 && wave <= 12) {
+  if (enemies.length === 0 && wave <= 10) {
     wave = nextwave;
     spawnEnemy(wave);
     wave_button.style.backgroundColor = 'green';
@@ -312,7 +335,7 @@ function animate() {
   if (enemies.length === 0) {
     wave_button.style.backgroundColor = 'red';
     //Check if all enemies have been defeated, then spawn the next wave
-    if (nextwave > 12) {
+    if (nextwave > 10) {
       //stop the animation loop
       //Display the congratulations popup if all waves have been cleared
       cancelAnimationFrame(animId);

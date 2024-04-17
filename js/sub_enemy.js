@@ -307,7 +307,7 @@ class Troll_1 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 1.5;
+    this.speed = 2.5;
     this.type = "Troll_1";
     this.coins = 10;
   }
@@ -401,7 +401,7 @@ class Troll_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 2;
+    this.speed = 2.2;
     this.type = "Troll_3";
     this.coins = 25;
   }
@@ -438,8 +438,8 @@ class Golem_2 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 900;
-    this.initialhealth = 500;
+    this.health = 1200;
+    this.initialhealth = 1200;
     this.image = new Image();
     this.image.src = "assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png";
     this.frameIndex = 0;
@@ -448,7 +448,7 @@ class Golem_2 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 1.5;
+    this.speed = 2;
     this.type = "Troll_3";
     this.coins = 25;
   }
@@ -490,8 +490,8 @@ class Golem_3 extends Enemy {
     super({ position });
     this.wpIndex = 0;
     this.radius = 50;
-    this.health = 1200;
-    this.initialhealth = 750;
+    this.health = 1500;
+    this.initialhealth = 1500;
     this.image = new Image();
     this.image.src = "assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png";
     this.frameIndex = 0;
@@ -500,7 +500,7 @@ class Golem_3 extends Enemy {
     this.frameHeight = 100;
     this.animationSpeed = 0.2;
     this.elapsedTime = 0;
-    this.speed = 2;
+    this.speed = 2.5;
     this.type = "Troll_3";
     this.coins = 25;
   }
