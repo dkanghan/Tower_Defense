@@ -39,7 +39,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_name`, `password`) VALUES
-('dharmit', 'password');
+('admin', 'admin');
 
 --
 -- Indexes for dumped tables
