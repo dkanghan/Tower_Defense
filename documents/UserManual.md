@@ -3,6 +3,7 @@
 Welcome to the user manual for Defenders of the Forest. This document will guide you through the game mechanics, controls, and strategies to help you defend the forest against the enemies.
 
 ## **Table of Contents**
+
 1. [Game Overview](#game-overview)
 2. [How to Play](#how-to-play)
 3. [Defenders](#defenders)
@@ -32,24 +33,22 @@ To play Defenders of the Forest, follow these steps:
 2. Select defenders from the available options.
 3. Place defenders on the map to defend against enemies.
 4. Click on the `Start Wave` button to begin the wave of enemies.
-3. Defenders will automatically attack enemies within their range.
-5. Earn coins by defeating enemies and use them to add more defenders.
-6. Enemies will move along the path towards your base. Defeat them before they reach the end.
-7. Progress through the waves of enemies and complete the level to move to the next one.
+5. Defenders will automatically attack enemies within their range.
+6. Earn coins by defeating enemies and use them to add more defenders.
+7. Enemies will move along the path towards your base. Defeat them before they reach the end.
+8. Progress through the waves of enemies and complete the level to move to the next one.
 
 - You can remove defenders from the map by clicking on the 'X' button and then clicking on the defender you want to remove.
 - You can also pause the game by clicking on the `Pause` button and resume by clicking on the `Resume` button on the top left.
 - You can also upgrade the defenders by clicking on the `Upgrade` button and then clicking on the defender you want to upgrade.
-> **Note:** If an enemy reaches your base, you will lose a life. If you lose all your lives, the game is over.
- 
+
+  > **Note:** If an enemy reaches your base, you will lose a life. If you lose all your lives, the game is over.
+
 - A general map of the game looks like this:
 
-  <img src="assets/usermanual-1.png" width="300">
+  <img src="../assets/usermanual-1.png" width="300">
 
 > **Note:** Only Level 3 and 4 gives players the option to upgrade defenders to increase their attack power or range as well as remove defenders from the map.
-
-
-
 
 <div style="page-break-after: always;"></div>
 
@@ -57,14 +56,14 @@ To play Defenders of the Forest, follow these steps:
 
 Defenders are characters that you can place on the map to defend against enemies. Each defender has different attack stats that can help you in your defense. Here are the defenders available in the game:
 
-| Defenders                                                                  | Attack Power | Cost | radius |
-| -------------------------------------------------------------------------- | ------------ | ---- | ------ |
-| <img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">         | 50           | 50   | 250  |
-| <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">         | 75           | 100  | 250  |
-| <img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50">     | 150          | 150/350  | 200  |
-| <img src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" width="50"> | 50           | 50   | 250  |
-| <img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50">     | 100           | 350/150  | 225  |
-| <img src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" width="50">     | 80          | 100  | 250  |
+| Defenders                                                                     | Attack Power | Cost    | radius |
+| ----------------------------------------------------------------------------- | ------------ | ------- | ------ |
+| <img src="../assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">         | 50           | 50      | 250    |
+| <img src="../assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">         | 75           | 100     | 250    |
+| <img src="../assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50">     | 150          | 150/350 | 200    |
+| <img src="../assets/defenders/Warrior/Warrior_03__ATTACK_000.png" width="50"> | 50           | 50      | 250    |
+| <img src="../assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50">     | 100          | 350/150 | 225    |
+| <img src="../assets/defenders/Fairy/Fairy_03__ATTACK_000.png" width="50">     | 80           | 100     | 250    |
 
 <div style="page-break-after: always;"></div>
 
@@ -72,19 +71,19 @@ Defenders are characters that you can place on the map to defend against enemies
 
 Enemies are creatures that will try to invade the forest and reach your base. Each enemy has different health points and speed. You must strategically place defenders to defeat them before they reach the end of the path. Here are the enemies you will encounter in the game:
 
-| Enemies                                                                | Health Points | Speed |
-| ---------------------------------------------------------------------- | ------------- | ----- |
-| <img src="assets/attackers/Orcs/ORK1/WALK_000.png" width = "50">       | 100           | 1.5    |
-| <img src="assets/attackers/Orcs/ORK2/WALK_000.png" width = "50">       | 150           | 2    |
-| <img src="assets/attackers/Orcs/ORK3/WALK_000.png" width = "50">       | 200           | 1.5    |
-| <img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50"> | 100           | 3    |
-| <img src="assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50"> | 150           | 2    |
-| <img src="assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50"> | 350           | 2.5    |
-| <img src="assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" width = "50"> | 200           | 2.5    |
-| <img src="assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" width = "50"> | 300           | 2    |
-| <img src="assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" width = "50"> | 400           | 2.2    |
-| <img src="assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" width = "75"> | 1200           | 2    |
-| <img src="assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" width = "75"> | 1500           | 2.5    |
+| Enemies                                                                            | Health Points | Speed |
+| ---------------------------------------------------------------------------------- | ------------- | ----- |
+| <img src="../assets/attackers/Orcs/ORK1/WALK_000.png" width = "50">                | 100           | 1.5   |
+| <img src="../assets/attackers/Orcs/ORK2/WALK_000.png" width = "50">                | 150           | 2     |
+| <img src="../assets/attackers/Orcs/ORK3/WALK_000.png" width = "50">                | 200           | 1.5   |
+| <img src="../assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50">          | 100           | 3     |
+| <img src="../assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50">          | 150           | 2     |
+| <img src="../assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50">          | 350           | 2.5   |
+| <img src="../assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" width = "50"> | 200           | 2.5   |
+| <img src="../assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" width = "50"> | 300           | 2     |
+| <img src="../assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" width = "50"> | 400           | 2.2   |
+| <img src="../assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" width = "75"> | 1200          | 2     |
+| <img src="../assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" width = "75"> | 1500          | 2.5   |
 
 <div style="page-break-after: always;"></div>
 
@@ -99,24 +98,24 @@ Defenders of the Forest consists of four levels, each with multiple waves of ene
 - Earn coins by defeating enemies and use them to add more defenders.
 - Level 1 looks like this:
 
-  -<img src="assets/Level1/towerdefense1.png" width="300">
+  -<img src="../assets/Level1/towerdefense1.png" width="300">
 
 - Level 1 has the following defenders available:
 
-  | Defenders                                                              | Images | 
-  | ---------------------------------------------------------------------- | ------------ | 
-  |Elf Archer | <img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">     |          
-  |Elf Mage | <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">     | 
-  |Fairy 1| <img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> | 
+  | Defenders  | Images                                                                    |
+  | ---------- | ------------------------------------------------------------------------- |
+  | Elf Archer | <img src="../assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">     |
+  | Elf Mage   | <img src="../assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">     |
+  | Fairy 1    | <img src="../assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> |
 
 <div style="page-break-after: always;"></div>
 
 - Attackers in level 1 are:
   | Enemies | Images |
   |---------|---------------|
-  |Orc-1|<img src="assets/attackers/Orcs/ORK1/WALK_000.png" width = "50"> | 
-  |Orc-2|<img src="assets/attackers/Orcs/ORK2/WALK_000.png" width = "50"> |  
-  |Orc-3|<img src="assets/attackers/Orcs/ORK3/WALK_000.png" width = "50"> |  
+  |Orc-1|<img src="../assets/attackers/Orcs/ORK1/WALK_000.png" width = "50"> |
+  |Orc-2|<img src="../assets/attackers/Orcs/ORK2/WALK_000.png" width = "50"> |  
+  |Orc-3|<img src="../assets/attackers/Orcs/ORK3/WALK_000.png" width = "50"> |
 
 ### **Level 2**
 
@@ -125,25 +124,25 @@ Defenders of the Forest consists of four levels, each with multiple waves of ene
 - Use your strategic skills to defend against all waves of enemies.
 - Level 2 looks like this:
 
-  -<img src="assets/Level2/level2map.png" width="300">
+  -<img src="../assets/Level2/level2map.png" width="300">
 
 - Level 2 has the following defenders available:
 
-  |Defenders| Image                                                                  |
-  |----------| -------------------------------------------------------------------------- |
-  |Human Warrior| <img src="assets/defenders/Warrior/Warrior_03__ATTACK_000.png" width="50"> |
-  |Fairy 2| <img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50">     |
-  |Fairy 3| <img src="assets/defenders/Fairy/Fairy_03__ATTACK_000.png" width="50">     |
+  | Defenders     | Image                                                                         |
+  | ------------- | ----------------------------------------------------------------------------- |
+  | Human Warrior | <img src="../assets/defenders/Warrior/Warrior_03__ATTACK_000.png" width="50"> |
+  | Fairy 2       | <img src="../assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50">     |
+  | Fairy 3       | <img src="../assets/defenders/Fairy/Fairy_03__ATTACK_000.png" width="50">     |
 
   <div style="page-break-after: always;"></div>
 
 - Attackers in level 2 are:
 
-    |Enemies| Image                                                            |
-    |---|----------------------------------------------------------------------|
-    |Knight-1| <img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50"> |
-    |Knight-2| <img src="assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50"> |
-    |Knight-3| <img src="assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50"> |
+  | Enemies  | Image                                                                     |
+  | -------- | ------------------------------------------------------------------------- |
+  | Knight-1 | <img src="../assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50"> |
+  | Knight-2 | <img src="../assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50"> |
+  | Knight-3 | <img src="../assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50"> |
 
 ### **Level 3**
 
@@ -151,28 +150,28 @@ Defenders of the Forest consists of four levels, each with multiple waves of ene
 - Enemies will be more challenging in this level.
 - Level 3 looks like this:
 
-  -<img src="assets/Level3/map3.png" width="300">
+  -<img src="../assets/Level3/map3.png" width="300">
 
 - Level 3 has the following defenders available:
-  
-    |Defenders| Image                                                                  |
-    |----------| -------------------------------------------------------------------------- |
-    |Elf Archer| <img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50"> |
-    |Elf Mage| <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50"> |
-    |Fairy 2| <img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50"> |
-    |Fairy 1| <img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> |
+
+  | Defenders  | Image                                                                     |
+  | ---------- | ------------------------------------------------------------------------- |
+  | Elf Archer | <img src="../assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">     |
+  | Elf Mage   | <img src="../assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">     |
+  | Fairy 2    | <img src="../assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50"> |
+  | Fairy 1    | <img src="../assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> |
 
 - Attackers in level 3 are:
 
-    |Enemies| Image                                                            |
-    |---|----------------------------------------------------------------------|
-    |Orc-1| <img src="assets/attackers/Orcs/ORK1/WALK_000.png" width = "50"> |
-    |Orc-2| <img src="assets/attackers/Orcs/ORK2/WALK_000.png" width = "50"> |
-    |Orc-3| <img src="assets/attackers/Orcs/ORK3/WALK_000.png" width = "50"> |
-    |Knight-1| <img src="assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50"> |
-    |Knight-2| <img src="assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50"> |
-    |Knight-3| <img src="assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50"> |
-    |Golem| <img src="assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" width = "75"> |
+  | Enemies  | Image                                                                              |
+  | -------- | ---------------------------------------------------------------------------------- |
+  | Orc-1    | <img src="../assets/attackers/Orcs/ORK1/WALK_000.png" width = "50">                |
+  | Orc-2    | <img src="../assets/attackers/Orcs/ORK2/WALK_000.png" width = "50">                |
+  | Orc-3    | <img src="../assets/attackers/Orcs/ORK3/WALK_000.png" width = "50">                |
+  | Knight-1 | <img src="../assets/attackers/Knight/KNIGHT1/_WALK_000.png" width = "50">          |
+  | Knight-2 | <img src="../assets/attackers/Knight/KNIGHT2/_WALK_000.png" width = "50">          |
+  | Knight-3 | <img src="../assets/attackers/Knight/KNIGHT3/_WALK_000.png" width = "50">          |
+  | Golem    | <img src="../assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" width = "75"> |
 
 ### **Level 4**
 
@@ -181,27 +180,25 @@ Defenders of the Forest consists of four levels, each with multiple waves of ene
 
 - Level 4 looks like this:
 
-  -<img src="assets/Level4/map4.png" width="300">
+  -<img src="../assets/Level4/map4.png" width="300">
 
 - Level 4 has the following defenders available:
-  
-    |Defenders| Image                                                                  |
-    |----------| -------------------------------------------------------------------------- |
-    |Elf Archer| <img src="assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50"> |
-    |Elf Mage| <img src="assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50"> |
-    |Fairy 2| <img src="assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50"> |
-    |Fairy 1| <img src="assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> |
-  
+
+  | Defenders  | Image                                                                     |
+  | ---------- | ------------------------------------------------------------------------- |
+  | Elf Archer | <img src="../assets/defenders/ELf/Elf_01__ATTACK_001.png" width="50">     |
+  | Elf Mage   | <img src="../assets/defenders/ELf/Elf_03__ATTACK_001.png" width="50">     |
+  | Fairy 2    | <img src="../assets/defenders/Fairy/Fairy_02__ATTACK_000.png" width="50"> |
+  | Fairy 1    | <img src="../assets/defenders/Fairy/Fairy_01__ATTACK_000.png" width="50"> |
+
 - Attackers in level 4 are:
 
-    |Enemies| Image                                                            |
-    |---|----------------------------------------------------------------------|
-    |Troll-1| <img src="assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" width = "50"> |
-    |Troll-2| <img src="assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" width = "50"> |
-    |Troll-3| <img src="assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" width = "50"> |
-    |Golem| <img src="assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" width = "75"> |
-
-
+  | Enemies | Image                                                                              |
+  | ------- | ---------------------------------------------------------------------------------- |
+  | Troll-1 | <img src="../assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" width = "50"> |
+  | Troll-2 | <img src="../assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" width = "50"> |
+  | Troll-3 | <img src="../assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" width = "50"> |
+  | Golem   | <img src="../assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" width = "75"> |
 
   <div style="page-break-after: always;"></div>
 
@@ -209,8 +206,6 @@ Defenders of the Forest consists of four levels, each with multiple waves of ene
 
 - Place defenders strategically to cover the entire path and maximize their effectiveness.
 - Manage your coins wisely and invest in defenders that complement each other.
-
-
 
 ## **References**
 

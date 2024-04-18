@@ -4,7 +4,7 @@
 
 Defenders of the Forest V2.0 is an upgraded version of the original game. The new version features additional levels, boss fights, an upgrade system as well as ability to remove defenders from the map. With new mechanics and features, Defenders of the Forest V2.0 aims to provide a more engaging and challenging gameplay experience for players.
 
-The new version also includes player login and registration system. 
+The new version also includes player login and registration system.
 
 ## Main Objectives
 
@@ -15,7 +15,6 @@ The main objective of the game remains the same as the original version, which i
 The gameplay mechanics of Defenders of the Forest V2.0 have been enhanced with the following new features:
 
 - **Player Login and Registration**: Players can now create an account and login to start the game.
-
 
 - **Boss Fights**: Players will encounter powerful boss enemies at the end of level-3 and level-4. Boss enemies have higher health than regular enemies, providing a greater challenge for players.
 
@@ -101,19 +100,21 @@ The gameplay mechanics of Defenders of the Forest V2.0 have been enhanced with t
 
 Defenders of the Forest V2.0 features two new levels with different maps and enemy waves. The new levels are designed to provide a more challenging experience for players.
 
-- Level-3: The Dark Forest - Map: A dark and mysterious forest with multiple roads for enemies to travel on. - Enemies: Orcs, Knights and Golem as boss enemy (new enemy type). - Number of Waves: 10 - Number of Enemies: increases with multiple of 4. - Defenders : - Fairy-1  
-   - Elf Archer - Elf Mage - Fairy-2
+- Level-3: The Dark Forest - Map: A dark and mysterious forest with multiple roads for enemies to travel on. - Enemies: Orcs, Knights and Golem as boss enemy (new enemy type). - Number of Waves: 10 - Number of Enemies: increases with multiple of 4. - Defenders : - Fairy-1
 
-      - Level-3 looks like this:
+  - Elf Archer - Elf Mage - Fairy-2
 
-  ![Level-3](./assets/gameMap/rawDraft3.png)
+    - Level-3 looks like this:
 
-- Level-4: The Ashen Wasteland - Map: A barren wasteland with grey skies and multiple roads for enemies to travel on. - Enemies: Trolls(new enemy type) and Golem as boss enemy. - Number of Waves: 10 - Number of Enemies: increases with multiple of 5. - Defenders : - Fairy-1  
-   - Elf Archer - Elf Mage - Fairy-2
+  ![Level-3](../assets/gameMap/rawDraft3.png)
 
-      - Level-4 looks like this:
+- Level-4: The Ashen Wasteland - Map: A barren wasteland with grey skies and multiple roads for enemies to travel on. - Enemies: Trolls(new enemy type) and Golem as boss enemy. - Number of Waves: 10 - Number of Enemies: increases with multiple of 5. - Defenders : - Fairy-1
 
-  ![Level-4](./assets/gameMap/rawDraft4.png)
+  - Elf Archer - Elf Mage - Fairy-2
+
+    - Level-4 looks like this:
+
+  ![Level-4](../assets/gameMap/rawDraft4.png)
 
 - Player can earn coins by defeating enemies and use them to add other stronger defenders.
 - Initially player will have 350 coins to start with for both the levels.
