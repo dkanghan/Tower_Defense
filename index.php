@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+// If user is not logged in, redirect to login page
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
+$maxLevel = $_SESSION["maxLevel"];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,10 +46,10 @@
             <p>Click Play to Start Playing.</p>
             <button id="play-button">Play</button>
             <div id="buttonContainer" style="display: none;">
-                <button class="level-button" data-level="1">Level 1</button>
-                <button class="level-button" data-level="2">Level 2</button>
-                <button class="level-button" data-level="3">Level 3</button>
-                <button class="level-button" data-level="4">Level 4</button>
+            <button class="level-button" data-level="1" >Level 1</button>
+    <button class="level-button" data-level="2" >Level 2</button>
+    <button class="level-button" data-level="3" >Level 3</button>
+    <button class="level-button" data-level="4" >Level 4</button>
             </div>
             <button id="manual-button">User Manual</button>
         </div>
@@ -229,9 +242,11 @@
             document.getElementById(tabName).style.display = "block";
             event.currentTarget.className += " active";
         }
-    </script>
+    
 
-    <script>
+    
+
+
         // Function to toggle the display of the popup
         function togglePopup() {
             var popup = document.getElementById('manualPopup');
@@ -273,6 +288,7 @@
             }
         };
     </script>
+
 
 </body>
 

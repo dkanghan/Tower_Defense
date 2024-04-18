@@ -289,6 +289,7 @@ function animate() {
     wave_button.style.backgroundColor = 'red';
     // If all enemies have been defeated, spawn the next wave
     if (nextwave > 5) {
+      
       // Stop the animation loop
       //If all waves are cleared, display the congratulations popup
       cancelAnimationFrame(animId);
