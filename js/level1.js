@@ -58,28 +58,29 @@ const waypoints = waypoints1;
 function spawnEnemy(wave = 1) {
   let count = wave * 3;
   const orcTypes = [Orc_1, Orc_2, Orc_3];
-  
+
   for (let i = 0; i < count; i++) {
-      let orcTypeIndex = 0;
-      
-      if (wave >= 2) {
-          if (i >= 3) orcTypeIndex = 1;
-          if (wave >= 3 && i >= 6) orcTypeIndex = 2;
-          if (wave >= 4 && i >= 5) orcTypeIndex = 2;
-      }
-      
-      const orcType = orcTypes[orcTypeIndex];
-      const xOff = i * 150;
-      
-      enemies.push(new orcType({ 
-          position: { 
-              x: 2.5 * waypoints[0].x - xOff, 
-              y: 2.3 * waypoints[0].y 
-          } 
-      }));
+    let orcTypeIndex = 0;
+
+    if (wave >= 2) {
+      if (i >= 3) orcTypeIndex = 1;
+      if (wave >= 3 && i >= 6) orcTypeIndex = 2;
+      if (wave >= 4 && i >= 5) orcTypeIndex = 2;
+    }
+
+    const orcType = orcTypes[orcTypeIndex];
+    const xOff = i * 150;
+
+    enemies.push(
+      new orcType({
+        position: {
+          x: 2.5 * waypoints[0].x - xOff,
+          y: 2.3 * waypoints[0].y,
+        },
+      })
+    );
   }
 }
-
 
 function createDefender(defenderType, cost) {
   if (coins >= cost) {
@@ -94,8 +95,7 @@ function createDefender(defenderType, cost) {
     placementTilesArr[currentIndex + 1].occupied = true;
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
-  }
-  else{
+  } else {
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
   }
@@ -106,7 +106,7 @@ const defenders = [];
 let activeTile = undefined;
 let clicked_button_id = undefined;
 let radius;
-let previouslyClickedButton = null; 
+let previouslyClickedButton = null;
 let wave_button = null;
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
@@ -135,10 +135,9 @@ wave_button.addEventListener("click", () => {
   if (enemies.length === 0 && wave <= 5) {
     wave = nextwave;
     spawnEnemy(wave);
-    wave_button.style.backgroundColor = 'green';
+    wave_button.style.backgroundColor = "green";
     nextwave++;
-  }  
-  
+  }
 });
 //---------------------------------------------------------
 // Function: animate
@@ -275,7 +274,7 @@ function animate() {
         gameOverPopup.innerHTML = `
                     <h1>Game Over</h1>
                     <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
-                    <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+                    <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
                 `;
         canvas.parentNode.appendChild(gameOverPopup);
       }
@@ -285,11 +284,9 @@ function animate() {
   // Check if all enemies have been defeated
 
   if (enemies.length === 0) {
-
-    wave_button.style.backgroundColor = 'red';
+    wave_button.style.backgroundColor = "red";
     // If all enemies have been defeated, spawn the next wave
     if (nextwave > 5) {
-      
       // Stop the animation loop
       //If all waves are cleared, display the congratulations popup
       cancelAnimationFrame(animId);
@@ -311,7 +308,7 @@ function animate() {
       <h1>Congratulations!</h1>
       <p>You have cleared the level.</p>
       <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './level2.html'"">Next Level</button>
-      <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+      <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
     `;
       canvas.parentNode.appendChild(congratulationsPopup);
     }
@@ -362,10 +359,9 @@ function animate() {
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
               if (coins + enemies[index].coins <= 940) {
-                coins += enemies[index].coins; 
-              }else{
+                coins += enemies[index].coins;
+              } else {
                 coins = 940;
-              
               }
               enemies.splice(index, 1);
             }
@@ -381,11 +377,15 @@ function animate() {
     radius = 250;
   } else if (clicked_button_id === "Elf_3") {
     radius = 250;
-  }  else if (clicked_button_id === "Fairy_1") {
+  } else if (clicked_button_id === "Fairy_1") {
     radius = 200;
   }
 
-  if(clicked_button_id != undefined && clicked_button_id != 'delete' && clicked_button_id != 'upgrade'){
+  if (
+    clicked_button_id != undefined &&
+    clicked_button_id != "delete" &&
+    clicked_button_id != "upgrade"
+  ) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
     c.fillStyle = "rgba(255, 0, 0, 0)";
@@ -402,8 +402,6 @@ const mouse = {
   x: undefined,
   y: undefined,
 };
-
-
 
 // Define the belowIndex and currentIndex variables
 let belowIndex;
@@ -440,17 +438,15 @@ canvas.addEventListener("click", () => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied 
+      !activeTile.occupied
     ) {
-
       if (clicked_button_id === "Elf_1") {
         createDefender(Elf_1, 50);
       } else if (clicked_button_id === "Elf_3") {
         createDefender(Elf_3, 100);
-      }  else if (clicked_button_id === "Fairy_1") {
+      } else if (clicked_button_id === "Fairy_1") {
         createDefender(Fairy_1, 150);
-      }
-       else {
+      } else {
         return;
       }
     }
@@ -479,7 +475,7 @@ window.addEventListener("mousemove", (e) => {
       activeTile = tile;
       break;
     }
-}
+  }
 });
 
 try {

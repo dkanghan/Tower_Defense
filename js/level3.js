@@ -52,7 +52,7 @@ let waypoints = waypoint31;
 
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
-  const enemyTypes = [Knight_1, Orc_1,Knight_2,Orc_2,Knight_3,Orc_3];
+  const enemyTypes = [Knight_1, Orc_1, Knight_2, Orc_2, Knight_3, Orc_3];
 
   for (let i = 0; i < count; i++) {
     waypoints = Math.random() < 0.5 ? waypoint32 : waypoint31;
@@ -60,36 +60,35 @@ function spawnEnemy(wave = 1) {
     if (wave >= 2) {
       if (i >= 4) enemyTypeIndex = 1;
       if (wave >= 3 && i >= 6) enemyTypeIndex = 1;
-      if(wave >= 3 && i >= 8) enemyTypeIndex = 2;
+      if (wave >= 3 && i >= 8) enemyTypeIndex = 2;
 
       if (wave >= 4 && i >= 3) enemyTypeIndex = 1;
       if (wave >= 4 && i >= 8) enemyTypeIndex = 2;
-      if(wave >=4 && i >= 10) enemyTypeIndex = 3;
+      if (wave >= 4 && i >= 10) enemyTypeIndex = 3;
 
-      if(wave >= 5 && i >= 2) enemyTypeIndex = 1;
+      if (wave >= 5 && i >= 2) enemyTypeIndex = 1;
       if (wave >= 5 && i >= 6) enemyTypeIndex = 2;
-      if(wave >= 5 && i >= 8) enemyTypeIndex = 3;
-      if(wave >= 5 && i >= 15) enemyTypeIndex = 4;
+      if (wave >= 5 && i >= 8) enemyTypeIndex = 3;
+      if (wave >= 5 && i >= 15) enemyTypeIndex = 4;
 
       if (wave >= 6 && i >= 2) enemyTypeIndex = 1;
       if (wave >= 6 && i >= 7) enemyTypeIndex = 2;
-      if(wave >= 6 && i >= 9) enemyTypeIndex = 3;
-      if(wave >= 6 && i >= 18) enemyTypeIndex = 4;
+      if (wave >= 6 && i >= 9) enemyTypeIndex = 3;
+      if (wave >= 6 && i >= 18) enemyTypeIndex = 4;
 
       if (wave >= 7 && i >= 1) enemyTypeIndex = 2;
-      if(wave >= 7 && i >= 10) enemyTypeIndex = 3;
-      if(wave >= 7 && i >= 14) enemyTypeIndex = 4;
+      if (wave >= 7 && i >= 10) enemyTypeIndex = 3;
+      if (wave >= 7 && i >= 14) enemyTypeIndex = 4;
 
       if (wave >= 8 && i >= 0) enemyTypeIndex = 2;
       if (wave >= 8 && i >= 9) enemyTypeIndex = 3;
-      if(wave >= 8 && i >= 18) enemyTypeIndex = 4;
+      if (wave >= 8 && i >= 18) enemyTypeIndex = 4;
 
       if (wave >= 9 && i >= 0) enemyTypeIndex = 2;
       if (wave >= 9 && i >= 10) enemyTypeIndex = 3;
       if (wave >= 9 && i >= 18) enemyTypeIndex = 4;
 
       if (wave >= 10 && i >= 0) enemyTypeIndex = 4;
-
     }
 
     const enemyType = enemyTypes[enemyTypeIndex];
@@ -99,12 +98,14 @@ function spawnEnemy(wave = 1) {
       y: 2.3 * waypoints[0].y,
     };
     enemies.push(new enemyType({ position: enemyPosition }));
-    
   }
-  if(wave === 10){
-    enemies.push(new Golem_2({ position: { x: 2.5 * waypoints[0].x - 150, y: 2.3 * waypoints[0].y } }));
+  if (wave === 10) {
+    enemies.push(
+      new Golem_2({
+        position: { x: 2.5 * waypoints[0].x - 150, y: 2.3 * waypoints[0].y },
+      })
+    );
   }
- 
 }
 
 function createDefender(defenderType, cost) {
@@ -121,8 +122,7 @@ function createDefender(defenderType, cost) {
     placementTilesArr[currentIndex + 1].occupied = true;
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
-  }
-  else{
+  } else {
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
   }
@@ -180,9 +180,9 @@ wave_button.addEventListener("click", () => {
   if (enemies.length === 0 && wave <= 10) {
     wave = nextwave;
     spawnEnemy(wave);
-    wave_button.style.backgroundColor = 'green';
+    wave_button.style.backgroundColor = "green";
     nextwave++;
-  }  
+  }
 });
 
 //---------------------------------------------------------
@@ -293,15 +293,13 @@ function animate() {
       //Check if the enemy has reached the end of the path
       //Remove the enemy from the enemies array
       //Decrement the hearts variable
-      if(enemy instanceof Golem_2 || enemy instanceof Golem_3){
+      if (enemy instanceof Golem_2 || enemy instanceof Golem_3) {
         hearts = 0;
-
-      }
-      else{
+      } else {
         enemies.splice(i, 1);
         hearts--;
       }
-      
+
       if (hearts === 0) {
         //stop the animation loop if the hearts reach 0
         cancelAnimationFrame(animId);
@@ -324,7 +322,7 @@ function animate() {
         gameOverPopup.innerHTML = `
                         <h1>Game Over</h1>
                         <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
-                        <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+                        <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
                     `;
         canvas.parentNode.appendChild(gameOverPopup);
       }
@@ -332,7 +330,7 @@ function animate() {
   }
 
   if (enemies.length === 0) {
-    wave_button.style.backgroundColor = 'red';
+    wave_button.style.backgroundColor = "red";
     //Check if all enemies have been defeated, then spawn the next wave
     if (nextwave > 10) {
       //stop the animation loop
@@ -356,7 +354,7 @@ function animate() {
           <h1>Congratulations!</h1>
           <p>You have cleared the level.</p>
           <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level4.html'"">Next Level</button>
-          <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+          <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
         `;
       canvas.parentNode.appendChild(congratulationsPopup);
     }
@@ -407,10 +405,9 @@ function animate() {
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
               if (coins + enemies[index].coins <= 940) {
-                coins += enemies[index].coins; 
-              }else{
+                coins += enemies[index].coins;
+              } else {
                 coins = 940;
-              
               }
               enemies.splice(index, 1);
             }
@@ -419,7 +416,7 @@ function animate() {
           }
         }
       }
-    }    
+    }
   });
 
   if (clicked_button_id === "Elf_Archer") {
@@ -432,8 +429,11 @@ function animate() {
     radius = 200;
   }
 
-  
-  if(clicked_button_id != undefined && clicked_button_id != 'delete' && clicked_button_id != 'upgrade'){
+  if (
+    clicked_button_id != undefined &&
+    clicked_button_id != "delete" &&
+    clicked_button_id != "upgrade"
+  ) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
     c.fillStyle = "rgba(255, 0, 0, 0)";
@@ -450,7 +450,6 @@ const mouse = {
   x: undefined,
   y: undefined,
 };
-
 
 // Define the belowIndex and currentIndex variables
 let belowIndex;
@@ -499,11 +498,10 @@ canvas.addEventListener("click", (event) => {
         createDefender(Fairy_2, 150);
       } else if (clicked_button_id === "Fairy_1") {
         createDefender(Fairy_1, 350);
-      }
-       else {
+      } else {
         return;
       }
-    }  
+    }
   }
 
   if (activeTile.occupied && clicked_button_id === "delete") {
@@ -517,7 +515,6 @@ canvas.addEventListener("click", (event) => {
         mouse.y >= curr_defender.position.y &&
         mouse.y <= curr_defender.position.y + curr_defender.height
       ) {
-
         defenderIndex = placementTilesArr.findIndex((tile) => {
           return (
             tile.position.x === curr_defender.position.x &&
@@ -527,7 +524,7 @@ canvas.addEventListener("click", (event) => {
         defenderBelowIndex = placementTilesArr.findIndex((tile) => {
           return (
             tile.position.x === curr_defender.position.x &&
-            tile.position.y === curr_defender.position.y+32
+            tile.position.y === curr_defender.position.y + 32
           );
         });
         coins += 0.5 * curr_defender.coins;
@@ -543,9 +540,9 @@ canvas.addEventListener("click", (event) => {
       placementTilesArr[defenderBelowIndex + 1].occupied = false;
       placementTilesArr[defenderBelowIndex].occupied = false;
     }
-  } 
-  
-  if(activeTile.occupied && clicked_button_id === "upgrade") {
+  }
+
+  if (activeTile.occupied && clicked_button_id === "upgrade") {
     for (let i = 0; i < defenders.length; i++) {
       const curr_defender = defenders[i];
       if (
@@ -570,9 +567,7 @@ canvas.addEventListener("click", (event) => {
         break;
       }
     }
-
   }
-
 });
 
 // Add an event listener to the window

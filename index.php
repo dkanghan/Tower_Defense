@@ -7,8 +7,6 @@ if (!isset($_SESSION["username"])) {
     exit();
 }
 
-$maxLevel = $_SESSION["maxLevel"];
-
 ?>
 
 <!DOCTYPE html>
@@ -21,11 +19,6 @@ $maxLevel = $_SESSION["maxLevel"];
     <title>Defenders of the Forest</title>
     <link rel="stylesheet" href="css/styles.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-        }
-
         #container {
             max-width: 600px;
             margin: 0 auto;
@@ -46,17 +39,17 @@ $maxLevel = $_SESSION["maxLevel"];
             <p>Click Play to Start Playing.</p>
             <button id="play-button">Play</button>
             <div id="buttonContainer" style="display: none;">
-            <button class="level-button" data-level="1" >Level 1</button>
-    <button class="level-button" data-level="2" >Level 2</button>
-    <button class="level-button" data-level="3" >Level 3</button>
-    <button class="level-button" data-level="4" >Level 4</button>
+                <button class="level-button" data-level="1">Level 1</button>
+                <button class="level-button" data-level="2">Level 2</button>
+                <button class="level-button" data-level="3">Level 3</button>
+                <button class="level-button" data-level="4">Level 4</button>
             </div>
             <button id="manual-button">User Manual</button>
         </div>
     </div>
 
-    <div id="manualPopup" class="popup" >
-        <div class="popup-content" >
+    <div id="manualPopup" class="popup">
+        <div class="popup-content">
             <span class="close">&times;</span>
             <h2>User Manual</h2>
             <p>Click on the Play button to start playing the game. You can select a level from the list of levels
@@ -71,10 +64,12 @@ $maxLevel = $_SESSION["maxLevel"];
                 clicking on the defender icons at the bottom of the screen and then clicking on the desired location on
                 the screen.</p>
             <p> You can upgrade defenders by clicking on the upgrade button to upgrade your defender. Upgrading a
-                defender will increase its attack power and range. 1st upgrad cost 25 coins (increses attack by 20) and 2nd upgrade cost 50 coins(increases range by 10%).</p>
+                defender will increase its attack power and range. 1st upgrad cost 25 coins (increses attack by 20) and
+                2nd upgrade cost 50 coins(increases range by 10%).</p>
             <p> You can remove defenders by clicking on the remove button and then clicking on the defender you want to
                 remove.You will receive 50% of the cost back.</p>
-            <p>Defenders have different attack powers, range and costs. You can view the details of the enemies and defenders
+            <p>Defenders have different attack powers, range and costs. You can view the details of the enemies and
+                defenders
                 in the Enemies and Defenders tabs below.</p>
             <p>Defend your base and defeat all the enemies to win the game!</p>
             <h3>Enemies and Defenders</h3>
@@ -136,31 +131,36 @@ $maxLevel = $_SESSION["maxLevel"];
                             <td>2.5</td>
                         </tr>
                         <tr>
-                            <td><img src="assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td><img src="assets/attackers/Trolls/TROLL1/Troll_01_1_WALK_000.png" alt="" width="50"
+                                    height="50"></td>
                             <td>200</td>
                             <td>10</td>
                             <td>2.5</td>
                         </tr>
                         <tr>
-                            <td><img src="assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td><img src="assets/attackers/Trolls/TROLL2/Troll_02_1_WALK_000.png" alt="" width="50"
+                                    height="50"></td>
                             <td>300</td>
                             <td>20</td>
                             <td>2</td>
                         </tr>
                         <tr>
-                            <td><img src="assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" alt="" width="50" height="50"></td>
+                            <td><img src="assets/attackers/Trolls/TROLL3/Troll_03_1_WALK_000.png" alt="" width="50"
+                                    height="50"></td>
                             <td>400</td>
                             <td>25</td>
                             <td>2.2</td>
                         </tr>
                         <tr>
-                            <td><img src="assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" alt="" width="50" height="50" ></td>
+                            <td><img src="assets/attackers/Golem/Golem-2/0_Golem_Walking_000.png" alt="" width="50"
+                                    height="50"></td>
                             <td>1200</td>
                             <td>N/A</td>
                             <td>2</td>
                         </tr>
                         <tr>
-                            <td><img src="assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" alt="" width="50" height="50" ></td>
+                            <td><img src="assets/attackers/Golem/Golem-3/0_Golem_Walking_000.png" alt="" width="50"
+                                    height="50"></td>
                             <td>1500</td>
                             <td>N/A</td>
                             <td>2.5</td>
@@ -229,6 +229,7 @@ $maxLevel = $_SESSION["maxLevel"];
     </div>
 
     <script>
+
         function openTab(event, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -242,10 +243,6 @@ $maxLevel = $_SESSION["maxLevel"];
             document.getElementById(tabName).style.display = "block";
             event.currentTarget.className += " active";
         }
-    
-
-    
-
 
         // Function to toggle the display of the popup
         function togglePopup() {
@@ -256,6 +253,7 @@ $maxLevel = $_SESSION["maxLevel"];
         // Event listener for the "Play" button
         document.getElementById('play-button').addEventListener('click', function () {
             document.getElementById('play-button').style.display = 'none';
+            document.getElementById('manual-button').style.display = 'none';
             // Show the level buttons container
             document.getElementById('buttonContainer').style.display = 'flex';
 

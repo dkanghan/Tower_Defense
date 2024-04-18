@@ -56,22 +56,25 @@ let waypoints = waypoints2;
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
   const knightTypes = [Knight_1, Knight_2, Knight_3];
-  
+
   for (let i = 0; i < count; i++) {
-      let knightTypeIndex = 0;
-      if (wave >= 2) {
-          if (i >= 3) knightTypeIndex = 1;
-          if (wave >= 4 && i >= 8) knightTypeIndex = 2;
-          if (wave >= 5 && i >= 12) knightTypeIndex = 2;
-          if (wave >= 6 && i >= 10) knightTypeIndex = 2;
-          if (wave >= 7 && i >= 8) knightTypeIndex = 1;
-          if (wave >= 8 && i >= 5) knightTypeIndex = 2;
-      }
-      
-      const knightType = knightTypes[knightTypeIndex];
-      const xOff = i * 150;
-      const knightPosition = { x: 2.5 * waypoints[0].x - xOff, y: 2.3 * waypoints[0].y };
-      enemies.push(new knightType({ position: knightPosition }));
+    let knightTypeIndex = 0;
+    if (wave >= 2) {
+      if (i >= 3) knightTypeIndex = 1;
+      if (wave >= 4 && i >= 8) knightTypeIndex = 2;
+      if (wave >= 5 && i >= 12) knightTypeIndex = 2;
+      if (wave >= 6 && i >= 10) knightTypeIndex = 2;
+      if (wave >= 7 && i >= 8) knightTypeIndex = 1;
+      if (wave >= 8 && i >= 5) knightTypeIndex = 2;
+    }
+
+    const knightType = knightTypes[knightTypeIndex];
+    const xOff = i * 150;
+    const knightPosition = {
+      x: 2.5 * waypoints[0].x - xOff,
+      y: 2.3 * waypoints[0].y,
+    };
+    enemies.push(new knightType({ position: knightPosition }));
   }
 }
 
@@ -88,8 +91,7 @@ function createDefender(defenderType, cost) {
     placementTilesArr[currentIndex + 1].occupied = true;
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
-  }
-  else{
+  } else {
     clicked_button_id = undefined;
     previouslyClickedButton.style.border = "none";
   }
@@ -101,7 +103,7 @@ let activeTile = undefined;
 let clicked_button_id = undefined;
 let radius;
 let previouslyClickedButton = null;
-let wave_button = null; 
+let wave_button = null;
 // Define the clicked_button_id variable
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
@@ -128,12 +130,10 @@ wave_button.addEventListener("click", () => {
   if (enemies.length === 0 && wave <= 10) {
     wave = nextwave;
     spawnEnemy(wave);
-    wave_button.style.backgroundColor = 'green';
+    wave_button.style.backgroundColor = "green";
     nextwave++;
-  }  
-  
+  }
 });
-
 
 //---------------------------------------------------------
 // Function: animate
@@ -267,7 +267,7 @@ function animate() {
         gameOverPopup.innerHTML = `
                       <h1>Game Over</h1>
                       <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
-                      <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+                      <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
                   `;
         canvas.parentNode.appendChild(gameOverPopup);
       }
@@ -275,10 +275,9 @@ function animate() {
   }
 
   if (enemies.length === 0) {
-    wave_button.style.backgroundColor = 'red';
+    wave_button.style.backgroundColor = "red";
     //Check if all enemies have been defeated, then spawn the next wave
     if (nextwave > 10) {
-      
       //stop the animation loop
       //Display the congratulations popup if all waves have been cleared
       cancelAnimationFrame(animId);
@@ -300,7 +299,7 @@ function animate() {
         <h1>Congratulations!</h1>
         <p>You have cleared the level.</p>
         <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level3.html'"">Next Level</button>
-        <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.html'">Home</button>
+        <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);
     }
@@ -351,10 +350,9 @@ function animate() {
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
               if (coins + enemies[index].coins <= 940) {
-                coins += enemies[index].coins; 
-              }else{
+                coins += enemies[index].coins;
+              } else {
                 coins = 940;
-              
               }
               enemies.splice(index, 1);
             }
@@ -374,7 +372,11 @@ function animate() {
     radius = 225;
   }
 
-  if(clicked_button_id != undefined && clicked_button_id != 'delete' && clicked_button_id != 'upgrade'){
+  if (
+    clicked_button_id != undefined &&
+    clicked_button_id != "delete" &&
+    clicked_button_id != "upgrade"
+  ) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
     c.fillStyle = "rgba(255, 0, 0, 0)";
@@ -391,7 +393,6 @@ const mouse = {
   x: undefined,
   y: undefined,
 };
-
 
 // Define the belowIndex and currentIndex variables
 let belowIndex;
@@ -437,10 +438,9 @@ canvas.addEventListener("click", () => {
         createDefender(Fairy_3, 100);
       } else if (clicked_button_id === "Fairy_2") {
         createDefender(Fairy_2, 350);
-      }  else {
+      } else {
         return;
       }
-
     }
   }
 });
