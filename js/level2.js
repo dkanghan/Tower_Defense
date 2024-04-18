@@ -206,35 +206,35 @@ function animate() {
   c.fillText("Wave: " + wave, 90, 60);
   c.strokeText("Wave: " + wave, 90, 60);
 
- // Add a pause button if it doesn't exist
- if (!document.getElementById("pauseButton")) {
-  const pauseButton = document.createElement("button");
-  pauseButton.id = "pauseButton";
-  pauseButton.title = "Pause";
-  pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+  // Add a pause button if it doesn't exist
+  if (!document.getElementById("pauseButton")) {
+    const pauseButton = document.createElement("button");
+    pauseButton.id = "pauseButton";
+    pauseButton.title = "Pause";
+    pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
       <rect x="6" y="4" width="4" height="16"></rect>
       <rect x="14" y="4" width="4" height="16"></rect>
       </svg>`;
-  pauseButton.addEventListener("click", () => {
-    if (animId) {
-      cancelAnimationFrame(animId);
-      animId = null;
-      pauseButton.style.backgroundColor = "#4CAF50";
-      pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
+    pauseButton.addEventListener("click", () => {
+      if (animId) {
+        cancelAnimationFrame(animId);
+        animId = null;
+        pauseButton.style.backgroundColor = "#4CAF50";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
           <polygon points="5 3 19 12 5 21 5 3"></polygon>
           </svg>`;
-    } else {
-      animId = requestAnimationFrame(animate);
-      pauseButton.style.backgroundColor = "#f1c40f";
-      pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
+      } else {
+        animId = requestAnimationFrame(animate);
+        pauseButton.style.backgroundColor = "#f1c40f";
+        pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
           <rect x="6" y="4" width="4" height="16"></rect>
           <rect x="14" y="4" width="4" height="16"></rect>
           </svg>`;
-    }
-  });
-  pauseButton.style.borderRadius = "5px"; // round edges
-  canvas.parentNode.appendChild(pauseButton);
-}
+      }
+    });
+    pauseButton.style.borderRadius = "5px"; // round edges
+    canvas.parentNode.appendChild(pauseButton);
+  }
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     // Loop through the enemies array and update each enemy
@@ -256,22 +256,23 @@ function animate() {
         // Display the game over popup
         const gameOverPopup = document.createElement("div");
         gameOverPopup.classList.add("game-over-popup");
-         gameOverPopup.style.top = canvas.height / 2 + "px";
-         gameOverPopup.style.left = canvas.width / 2 + "px";
+        gameOverPopup.style.top = canvas.height / 2 + "px";
+        gameOverPopup.style.left = canvas.width / 2 + "px";
         gameOverPopup.innerHTML = `
             <h1>Game Over</h1>
             <button class="play-again-btn">Play Again</button>
             <button class="home-btn">Home</button>
         `;
         canvas.parentNode.appendChild(gameOverPopup);
-        document.querySelector(".play-again-btn").addEventListener("click", () => {
-          window.location.reload();
-        });
+        document
+          .querySelector(".play-again-btn")
+          .addEventListener("click", () => {
+            window.location.reload();
+          });
 
         document.querySelector(".home-btn").addEventListener("click", () => {
           window.location.href = "./index.php";
         });
-        
       }
     }
   }
@@ -294,13 +295,15 @@ function animate() {
           <button class="home-btn">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);
-      
-      document.querySelector(".next-level-btn").addEventListener("click", () => {
+
+      document
+        .querySelector(".next-level-btn")
+        .addEventListener("click", () => {
           window.location.href = "./level3.html";
-      });
-      
+        });
+
       document.querySelector(".home-btn").addEventListener("click", () => {
-          window.location.href = "./index.php";
+        window.location.href = "./index.php";
       });
     }
   }

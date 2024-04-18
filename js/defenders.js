@@ -7,7 +7,7 @@
 //------------------------------------------------------------------------------------------------
 class Defenders {
   //------------------------------------------------------------------------------------------------
-  //Defenders class
+  // Defenders class
   // Inputs: position
   // Expected Output: None
   // Description: Constructor function for the Defenders class. Initializes the properties of a defender object.
@@ -51,7 +51,6 @@ class Defenders {
   //            - If the target is to the left of the defender, the defender is flipped horizontally.
   //------------------------------------------------------------------------------------------------
   draw() {
-
     c.beginPath();
     c.arc(this.center.x, this.center.y, this.radius, 0, Math.PI * 2, false);
     c.fillStyle = "rgba(255, 0, 0, 0.1)";
@@ -64,20 +63,20 @@ class Defenders {
       c.save();
       c.scale(-1, 1);
       c.drawImage(
-      this.image,
-      -(this.position.x + this.width),
-      this.position.y,
-      this.width,
-      this.height
+        this.image,
+        -(this.position.x + this.width),
+        this.position.y,
+        this.width,
+        this.height
       );
       c.restore();
-    }else {
+    } else {
       c.drawImage(
-      this.image,
-      this.position.x,
-      this.position.y,
-      this.width,
-      this.height
+        this.image,
+        this.position.x,
+        this.position.y,
+        this.width,
+        this.height
       );
     }
 
@@ -90,7 +89,6 @@ class Defenders {
         16
       );
     }
-
   }
 
   //------------------------------------------------------------------------------------------------
@@ -108,8 +106,9 @@ class Defenders {
     if (this.frames % 100 === 0 && this.target) {
       this.projectiles.push(
         new Projectile(
-          { position: { x: this.center.x, y: this.center.y }},
-          this.target,this.imagesrc
+          { position: { x: this.center.x, y: this.center.y } },
+          this.target,
+          this.imagesrc
         )
       );
     }

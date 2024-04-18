@@ -98,7 +98,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             Description: Form to enter username and password for login
             Input: Username and Password
             Output: Redirect to index page if login is successful
-        -->   
+        -->
         <div id="Login" class="tabcontent">
             <h2>Login</h2>
             <form action="login.php" method="post">

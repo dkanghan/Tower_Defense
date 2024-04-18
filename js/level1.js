@@ -260,17 +260,19 @@ function animate() {
         // Display the game over popup
         const gameOverPopup = document.createElement("div");
         gameOverPopup.classList.add("game-over-popup");
-         gameOverPopup.style.top = canvas.height / 2 + "px";
-         gameOverPopup.style.left = canvas.width / 2 + "px";
+        gameOverPopup.style.top = canvas.height / 2 + "px";
+        gameOverPopup.style.left = canvas.width / 2 + "px";
         gameOverPopup.innerHTML = `
             <h1>Game Over</h1>
             <button class="play-again-btn">Play Again</button>
             <button class="home-btn">Home</button>
         `;
         canvas.parentNode.appendChild(gameOverPopup);
-        document.querySelector(".play-again-btn").addEventListener("click", () => {
-          window.location.reload();
-        });
+        document
+          .querySelector(".play-again-btn")
+          .addEventListener("click", () => {
+            window.location.reload();
+          });
 
         document.querySelector(".home-btn").addEventListener("click", () => {
           window.location.href = "./index.php";
@@ -299,13 +301,15 @@ function animate() {
           <button class="home-btn">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);
-      
-      document.querySelector(".next-level-btn").addEventListener("click", () => {
+
+      document
+        .querySelector(".next-level-btn")
+        .addEventListener("click", () => {
           window.location.href = "./level2.html";
-      });
-      
+        });
+
       document.querySelector(".home-btn").addEventListener("click", () => {
-          window.location.href = "./index.php";
+        window.location.href = "./index.php";
       });
     }
   }

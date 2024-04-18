@@ -20,9 +20,6 @@ class placementTiles {
     c.fillRect(this.position.x, this.position.y, this.size, this.size);
   }
 
-
-
-
   //------------------------------------------------------------------------------------------------
   //update()
   // Input: None.

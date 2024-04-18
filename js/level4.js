@@ -313,17 +313,19 @@ function animate() {
         //Display the game over popup
         const gameOverPopup = document.createElement("div");
         gameOverPopup.classList.add("game-over-popup");
-         gameOverPopup.style.top = canvas.height / 2 + "px";
-         gameOverPopup.style.left = canvas.width / 2 + "px";
+        gameOverPopup.style.top = canvas.height / 2 + "px";
+        gameOverPopup.style.left = canvas.width / 2 + "px";
         gameOverPopup.innerHTML = `
             <h1>Game Over</h1>
             <button class="play-again-btn">Play Again</button>
             <button class="home-btn">Home</button>
         `;
         canvas.parentNode.appendChild(gameOverPopup);
-        document.querySelector(".play-again-btn").addEventListener("click", () => {
-          window.location.reload();
-        });
+        document
+          .querySelector(".play-again-btn")
+          .addEventListener("click", () => {
+            window.location.reload();
+          });
 
         document.querySelector(".home-btn").addEventListener("click", () => {
           window.location.href = "./index.php";
@@ -350,13 +352,15 @@ function animate() {
           <button class="home-btn">Home</button>
       `;
       canvas.parentNode.appendChild(congratulationsPopup);
-      
-      document.querySelector(".play-again-btn").addEventListener("click", () => {
-        window.location.reload();
-      });
-      
+
+      document
+        .querySelector(".play-again-btn")
+        .addEventListener("click", () => {
+          window.location.reload();
+        });
+
       document.querySelector(".home-btn").addEventListener("click", () => {
-          window.location.href = "./index.php";
+        window.location.href = "./index.php";
       });
     }
   }
@@ -405,7 +409,7 @@ function animate() {
             projectile.target.health -= defender.hit;
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
-                            // If the coin total is less than 980, add coins based on the enemy type
+              // If the coin total is less than 980, add coins based on the enemy type
               // else set the coin total to 940
               if (coins + enemies[index].coins <= 940) {
                 coins += enemies[index].coins;
@@ -422,7 +426,7 @@ function animate() {
     }
   });
 
-    // set the radius of the defender based on the clicked button id
+  // set the radius of the defender based on the clicked button id
   if (clicked_button_id === "Elf_Archer") {
     radius = 250;
   } else if (clicked_button_id === "Elf_Mage") {
@@ -433,7 +437,7 @@ function animate() {
     radius = 200;
   }
 
-    // Draw the radius of the defender on mouse hover
+  // Draw the radius of the defender on mouse hover
   if (
     clicked_button_id != undefined &&
     clicked_button_id != "delete" &&
@@ -496,7 +500,7 @@ canvas.addEventListener("click", () => {
       !activeTile.occupied &&
       coins >= 50
     ) {
-            // Create a new defender based on the clicked button id
+      // Create a new defender based on the clicked button id
       if (clicked_button_id === "Elf_Archer") {
         createDefender(Elf_1, 50);
       } else if (clicked_button_id === "Elf_Mage") {
@@ -534,8 +538,8 @@ canvas.addEventListener("click", () => {
             tile.position.y === curr_defender.position.y + 32
           );
         });
-        if(coins + 0.5 * curr_defender.coins <= 940){
-        coins += 0.5 * curr_defender.coins;
+        if (coins + 0.5 * curr_defender.coins <= 940) {
+          coins += 0.5 * curr_defender.coins;
         } else {
           coins = 940;
         }
@@ -612,4 +616,3 @@ try {
 } catch (error) {
   console.error("An error occurred while running the animation:", error);
 }
-

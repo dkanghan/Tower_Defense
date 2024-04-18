@@ -27,7 +27,7 @@ class Orc_1 extends Enemy {
     this.elapsedTime = 0;
     this.speed = 1.5;
     this.type = "Orc_1";
-    this.coins = 10;  
+    this.coins = 10;
   }
 
   //------------------------------------------------------------------------------------------------
@@ -427,9 +427,9 @@ class Troll_3 extends Enemy {
 }
 
 //---------------------------------------------------------
-// Class: Golem_1
+// Class: Golem_2
 // Dependencies: Enemy
-// Description: This class contains the properties and methods for the Golem_1 enemy in the game.
+// Description: This class contains the properties and methods for the Golem_2 enemy in the game.
 // Expected Inputs: position
 // Expected Outputs: An instance of the Golem_1 class
 //---------------------------------------------------------
@@ -457,7 +457,7 @@ class Golem_2 extends Enemy {
   // update()
   // Inputs: None
   // Expected Output: None
-  // Description: Updates the Golem_1 object's position and frame.
+  // Description: Updates the Golem_2 object's position and frame.
   //------------------------------------------------------------------------------------------------
   update() {
     super.update();
@@ -469,19 +469,18 @@ class Golem_2 extends Enemy {
     if (this.frameIndex >= this.frames) {
       this.frameIndex = 0;
     }
-    if(this.frameIndex<10){
+    if (this.frameIndex < 10) {
       this.image.src = `assets/attackers/Golem/Golem-2/0_Golem_Walking_00${this.frameIndex}.png`;
-    }
-    else{
+    } else {
       this.image.src = `assets/attackers/Golem/Golem-2/0_Golem_Walking_0${this.frameIndex}.png`;
     }
   }
 }
 
 //---------------------------------------------------------
-// Class: Golem_1
+// Class: Golem_3
 // Dependencies: Enemy
-// Description: This class contains the properties and methods for the Golem_1 enemy in the game.
+// Description: This class contains the properties and methods for the Golem_3 enemy in the game.
 // Expected Inputs: position
 // Expected Outputs: An instance of the Golem_1 class
 //---------------------------------------------------------
@@ -509,7 +508,7 @@ class Golem_3 extends Enemy {
   // update()
   // Inputs: None
   // Expected Output: None
-  // Description: Updates the Golem_1 object's position and frame.
+  // Description: Updates the Golem_3 object's position and frame.
   //------------------------------------------------------------------------------------------------
   update() {
     super.update();
@@ -521,12 +520,10 @@ class Golem_3 extends Enemy {
     if (this.frameIndex >= this.frames) {
       this.frameIndex = 0;
     }
-    if(this.frameIndex<10){
+    if (this.frameIndex < 10) {
       this.image.src = `assets/attackers/Golem/Golem-3/0_Golem_Walking_00${this.frameIndex}.png`;
-    }
-    else{
+    } else {
       this.image.src = `assets/attackers/Golem/Golem-3/0_Golem_Walking_0${this.frameIndex}.png`;
     }
   }
 }
-
