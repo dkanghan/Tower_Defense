@@ -90,12 +90,11 @@ Enemies are creatures that will try to invade the forest and reach your base. Ea
 
 ## **Levels and Progression**
 
-Defenders of the Forest consists of two levels, each with multiple waves of enemies. To progress through the game, you must complete each level by defeating all waves of enemies. Here is an overview of the levels and progression system:
+Defenders of the Forest consists of four levels, each with multiple waves of enemies. To progress through the game, you must complete each level by defeating all waves of enemies. Here is an overview of the levels and progression system:
 
 ### **Level 1**
 
 - There are 5 waves of enemies in level 1.
-- Defeat all enemies in level 1 to progress to level 2.
 - Enemies will increase in difficulty with each wave.
 - Earn coins by defeating enemies and use them to add more defenders.
 - Level 1 looks like this:
@@ -122,7 +121,6 @@ Defenders of the Forest consists of two levels, each with multiple waves of enem
 ### **Level 2**
 
 - There are 10 waves of enemies in level 2.
-- Defeat all enemies in level 2 to complete the game.
 - Enemies will be more challenging but less rewarding in this level.
 - Use your strategic skills to defend against all waves of enemies.
 - Level 2 looks like this:
@@ -150,7 +148,6 @@ Defenders of the Forest consists of two levels, each with multiple waves of enem
 ### **Level 3**
 
 - There are 10 waves of enemies in level 3.
-- Defeat all enemies in level 3 to progress to level 4.
 - Enemies will be more challenging in this level.
 - Level 3 looks like this:
 

@@ -1,3 +1,10 @@
+<!-- 
+    index.php
+    Description: Main page of the game with options to play, view user manual, and view enemies and defenders details.
+    Input: User clicks on Play button, User Manual button, or tabs for Enemies and Defenders details.
+    Output: Redirect to the game page, display user manual, or display enemies and defenders details.
+ -->
+
 <?php
 session_start();
 
@@ -31,13 +38,17 @@ if (!isset($_SESSION["username"])) {
 </head>
 
 <body>
-
+    <!-- 
+        Initialize the game container with a title, play button, and user manual button.
+     -->
     <div id="container">
-
         <div id="content">
             <h1>Defenders of the Forest</h1>
             <p>Click Play to Start Playing.</p>
             <button id="play-button">Play</button>
+            <!-- 
+                Add a container for the level buttons. Initially, it is hidden and will be displayed when the Play button is clicked.
+             -->
             <div id="buttonContainer" style="display: none;">
                 <button class="level-button" data-level="1">Level 1</button>
                 <button class="level-button" data-level="2">Level 2</button>
@@ -48,6 +59,9 @@ if (!isset($_SESSION["username"])) {
         </div>
     </div>
 
+    <!-- 
+        Create a popup for the user manual with details on how to play the game, enemies, and defenders.
+     -->
     <div id="manualPopup" class="popup">
         <div class="popup-content">
             <span class="close">&times;</span>
@@ -64,7 +78,7 @@ if (!isset($_SESSION["username"])) {
                 clicking on the defender icons at the bottom of the screen and then clicking on the desired location on
                 the screen.</p>
             <p> You can upgrade defenders by clicking on the upgrade button to upgrade your defender. Upgrading a
-                defender will increase its attack power and range. 1st upgrad cost 25 coins (increses attack by 20) and
+                defender will increase its attack power and range. 1st upgrade cost 25 coins (increses attack by 20) and
                 2nd upgrade cost 50 coins(increases range by 10%).</p>
             <p> You can remove defenders by clicking on the remove button and then clicking on the defender you want to
                 remove.You will receive 50% of the cost back.</p>
@@ -73,6 +87,9 @@ if (!isset($_SESSION["username"])) {
                 in the Enemies and Defenders tabs below.</p>
             <p>Defend your base and defeat all the enemies to win the game!</p>
             <h3>Enemies and Defenders</h3>
+            <!-- 
+                Create tabs for Enemies and Defenders details.
+             -->
             <div class="tab">
                 <button class="tablinks" onclick="openTab(event, 'enemies')">Enemies</button>
                 <button class="tablinks" onclick="openTab(event, 'defenders')">Defenders</button>
@@ -224,12 +241,14 @@ if (!isset($_SESSION["username"])) {
                     </tbody>
                 </table>
             </div>
-
         </div>
     </div>
 
     <script>
 
+        // Function to switch between Enemies and Defenders tabs
+        // Input : Event, Tab Name
+        // Output : Display the selected tab and hide the other tab
         function openTab(event, tabName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
@@ -250,16 +269,16 @@ if (!isset($_SESSION["username"])) {
             popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
         }
 
-        // Event listener for the "Play" button
+        // Display the level buttons when the "Play" button is clicked
+        // Hide the "Play" and "User Manual" buttons
         document.getElementById('play-button').addEventListener('click', function () {
             document.getElementById('play-button').style.display = 'none';
             document.getElementById('manual-button').style.display = 'none';
-            // Show the level buttons container
             document.getElementById('buttonContainer').style.display = 'flex';
 
         });
 
-        // Event listener for level buttons
+        // Redirect to the selected level page when a level button is clicked
         document.getElementById('buttonContainer').addEventListener('click', function (event) {
             if (event.target.classList.contains('level-button')) {
                 var level = event.target.dataset.level;
@@ -267,9 +286,8 @@ if (!isset($_SESSION["username"])) {
             }
         });
 
-        // Event listener for the "User Manual" button
+        // Show the user manual popup when the button is clicked
         document.getElementById('manual-button').addEventListener('click', function () {
-            // Show the user manual popup when the button is clicked
             togglePopup();
         });
 

@@ -1,0 +1,122 @@
+#pauseButton {
+    background-color: #f1c40f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    position: absolute;
+    top: 10px;
+  }
+  
+  #pauseButton:hover {
+    background-color: #e67e22;
+  }
+  
+  .game-over-popup,
+  .congratulations-popup {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 48px;
+      font-family: "Alfa Slab One", serif;
+      color: white;
+      -webkit-text-stroke: 1px black;
+      align-items: center;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 20px;
+  }
+  
+  .game-over-popup button,
+  .congratulations-popup button {
+      font-size: 36px;
+      border: none;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      margin: 4px 2px;
+      cursor: pointer;
+  }
+  
+  .game-over-popup button.home-btn,
+  .congratulations-popup button.home-btn {
+      background-color: #f44336;
+  }
+  
+  .congratulations-popup button.next-level-btn {
+      background-color: #4CAF50;
+      color: white;
+  }
+  
+  body {
+    background-color: beige;
+    height: 100vh;
+    margin: 0;
+  }
+
+  canvas {
+    background-color: beige;
+  }
+
+  .def_button,
+  .delete_button,
+  .upgrade_button,
+  .start_wave {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    max-width: 1300px;
+  }
+
+  .def_button img {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+
+  .delete_button button,
+  .upgrade_button button,
+  .start_wave button {
+    padding: 1rem 2rem;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete_button button:hover,
+  .upgrade_button button:hover,
+  .start_wave button:hover {
+    background-color: #d32f2f;
+  }
+
+  .upgrade_button button {
+    background-color: #4CAF50;
+  }
+
+  .button-container {
+    display: flex;
+    justify-content: center;
+    max-width: 1300px;
+  }
+
+  .delete_button,
+  .upgrade_button,
+  .start_wave {
+    display: inline-block;
+    margin-right: 10px;
+
+  }
+
+  .upgrade_button button:hover {
+    background-color: #45a049;
+  }

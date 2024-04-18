@@ -4,7 +4,7 @@
 
 Defenders of the Forest V2.0 is an upgraded version of the original game. The new version features additional levels, boss fights, an upgrade system as well as ability to remove defenders from the map. With new mechanics and features, Defenders of the Forest V2.0 aims to provide a more engaging and challenging gameplay experience for players.
 
-The new version also includes player login and registration system to save the progress of the player. Player won't be able to begin a new level without completing the previous level.
+The new version also includes player login and registration system. 
 
 ## Main Objectives
 
@@ -14,9 +14,8 @@ The main objective of the game remains the same as the original version, which i
 
 The gameplay mechanics of Defenders of the Forest V2.0 have been enhanced with the following new features:
 
-- **Player Login and Registration**: Players can now create an account and login to save their progress in the game.
+- **Player Login and Registration**: Players can now create an account and login to start the game.
 
-- **Level Progression**: Players must complete each level in order to unlock the next level.
 
 - **Boss Fights**: Players will encounter powerful boss enemies at the end of level-3 and level-4. Boss enemies have higher health than regular enemies, providing a greater challenge for players.
 

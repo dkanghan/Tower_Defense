@@ -42,14 +42,14 @@ let nextwave = 1;
 let hearts = 10;
 let coins = 350;
 let waypoints = waypoint31;
+
 // ---------------------------------------------------------
 // Function: spawnEnemy
 // Description: Spawns enemies based on the wave number.
 // Expected Inputs: wave
 // Expected Outputs: None
-// Calls: new Knight_1, new Knight_2, new Knight_3
+// Calls: new Knight_1, new Knight_2, new Knight_3, new Orc_1, new Orc_2, new Orc_3, new Golem_2
 // ---------------------------------------------------------
-
 function spawnEnemy(wave = 1) {
   let count = wave * 4;
   const enemyTypes = [Knight_1, Orc_1, Knight_2, Orc_2, Knight_3, Orc_3];
@@ -108,6 +108,19 @@ function spawnEnemy(wave = 1) {
   }
 }
 
+// ---------------------------------------------------------
+// Function: createDefender
+// Description : Create a new defender based on the defender type and cost
+// If the player has enough coins, create a new defender
+// Deduct the cost of the defender from the player's coins
+// Push the new defender into the defenders array
+// Update the occupied property of the active tile and the tiles below the active tile
+// Set the clicked button id to undefined
+// Expected Inputs: defenderType, cost
+// Expected Outputs: Instance of Defender
+// Calls: Defender()
+//        - newDefender = new Defender()
+// ---------------------------------------------------------
 function createDefender(defenderType, cost) {
   if (coins >= cost) {
     newDefender = new defenderType({
@@ -247,42 +260,32 @@ function animate() {
   if (!document.getElementById("pauseButton")) {
     const pauseButton = document.createElement("button");
     pauseButton.id = "pauseButton";
+    pauseButton.title = "Pause";
     pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
-      <rect x="6" y="4" width="4" height="16"></rect>
-      <rect x="14" y="4" width="4" height="16"></rect>
-      </svg>`;
-    pauseButton.style.backgroundColor = "#f1c40f";
-    pauseButton.style.color = "white";
-    pauseButton.style.border = "none";
-    pauseButton.style.padding = "10px 20px";
-    pauseButton.style.textAlign = "center";
-    pauseButton.style.textDecoration = "none";
-    pauseButton.style.display = "inline-block";
-    pauseButton.style.margin = "10px";
-    pauseButton.style.cursor = "pointer";
-    pauseButton.style.borderRadius = "5px";
-    pauseButton.style.position = "absolute";
-    pauseButton.style.top = "10px";
+        <rect x="6" y="4" width="4" height="16"></rect>
+        <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>`;
     pauseButton.addEventListener("click", () => {
       if (animId) {
         cancelAnimationFrame(animId);
         animId = null;
         pauseButton.style.backgroundColor = "#4CAF50";
         pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-play">
-          <polygon points="5 3 19 12 5 21 5 3"></polygon>
-          </svg>`;
+            <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>`;
       } else {
         animId = requestAnimationFrame(animate);
         pauseButton.style.backgroundColor = "#f1c40f";
         pauseButton.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pause">
-          <rect x="6" y="4" width="4" height="16"></rect>
-          <rect x="14" y="4" width="4" height="16"></rect>
-          </svg>`;
+            <rect x="6" y="4" width="4" height="16"></rect>
+            <rect x="14" y="4" width="4" height="16"></rect>
+            </svg>`;
       }
     });
     pauseButton.style.borderRadius = "5px"; // round edges
     canvas.parentNode.appendChild(pauseButton);
   }
+
 
   for (let i = enemies.length - 1; i >= 0; i--) {
     // Loop through the enemies array and update each enemy
@@ -307,24 +310,21 @@ function animate() {
         //Display the game over popup
         const gameOverPopup = document.createElement("div");
         gameOverPopup.classList.add("game-over-popup");
-        gameOverPopup.style.position = "absolute";
-        gameOverPopup.style.top = canvas.height / 2 + "px";
-        gameOverPopup.style.left = canvas.width / 2 + "px";
-        gameOverPopup.style.transform = "translate(-50%, -50%)";
-        gameOverPopup.style.fontSize = "48px";
-        gameOverPopup.style.fontFamily = "Alfa Slab One, serif";
-        gameOverPopup.style.color = "white";
-        gameOverPopup.style.webkitTextStroke = "1px black";
-        gameOverPopup.style.alignItems = "center";
-        gameOverPopup.style.textAlign = "center";
-        gameOverPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-        gameOverPopup.style.padding = "20px";
+         gameOverPopup.style.top = canvas.height / 2 + "px";
+         gameOverPopup.style.left = canvas.width / 2 + "px";
         gameOverPopup.innerHTML = `
-                        <h1>Game Over</h1>
-                        <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.reload()">Play Again</button>
-                        <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
-                    `;
+            <h1>Game Over</h1>
+            <button class="play-again-btn">Play Again</button>
+            <button class="home-btn">Home</button>
+        `;
         canvas.parentNode.appendChild(gameOverPopup);
+        document.querySelector(".play-again-btn").addEventListener("click", () => {
+          window.location.reload();
+        });
+
+        document.querySelector(".home-btn").addEventListener("click", () => {
+          window.location.href = "./index.php";
+        });
       }
     }
   }
@@ -338,25 +338,23 @@ function animate() {
       cancelAnimationFrame(animId);
       const congratulationsPopup = document.createElement("div");
       congratulationsPopup.classList.add("congratulations-popup");
-      congratulationsPopup.style.position = "absolute";
       congratulationsPopup.style.top = canvas.height / 2 + "px";
       congratulationsPopup.style.left = canvas.width / 2 + "px";
-      congratulationsPopup.style.transform = "translate(-50%, -50%)";
-      congratulationsPopup.style.fontSize = "48px";
-      congratulationsPopup.style.fontFamily = "Alfa Slab One, serif";
-      congratulationsPopup.style.color = "white";
-      congratulationsPopup.style.webkitTextStroke = "1px black";
-      congratulationsPopup.style.alignItems = "center";
-      congratulationsPopup.style.textAlign = "center";
-      congratulationsPopup.style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-      congratulationsPopup.style.padding = "20px";
       congratulationsPopup.innerHTML = `
           <h1>Congratulations!</h1>
           <p>You have cleared the level.</p>
-          <button style="font-size: 36px; background-color: #4CAF50; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;"  onclick="window.location.href = './level4.html'"">Next Level</button>
-          <button style="font-size: 36px; background-color: #f44336; color: white; border: none; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; margin: 4px 2px; cursor: pointer;" onclick="window.location.href = './index.php'">Home</button>
-        `;
+          <button class="next-level-btn">Next Level</button>
+          <button class="home-btn">Home</button>
+      `;
       canvas.parentNode.appendChild(congratulationsPopup);
+      
+      document.querySelector(".next-level-btn").addEventListener("click", () => {
+          window.location.href = "./level4.html";
+      });
+      
+      document.querySelector(".home-btn").addEventListener("click", () => {
+          window.location.href = "./index.php";
+      });
     }
   }
 
@@ -404,6 +402,8 @@ function animate() {
             projectile.target.health -= defender.hit;
             const index = enemies.indexOf(projectile.target);
             if (index !== -1 && projectile.target.health <= 0) {
+              // If the coin total is less than 980, add coins based on the enemy type
+              // else set the coin total to 940
               if (coins + enemies[index].coins <= 940) {
                 coins += enemies[index].coins;
               } else {
@@ -419,6 +419,7 @@ function animate() {
     }
   });
 
+    // set the radius of the defender based on the clicked button id
   if (clicked_button_id === "Elf_Archer") {
     radius = 250;
   } else if (clicked_button_id === "Elf_Mage") {
@@ -429,6 +430,7 @@ function animate() {
     radius = 200;
   }
 
+    // Draw the radius of the defender on mouse hover
   if (
     clicked_button_id != undefined &&
     clicked_button_id != "delete" &&
@@ -490,6 +492,7 @@ canvas.addEventListener("click", (event) => {
       activeTile &&
       !activeTile.occupied
     ) {
+            // Create a new defender based on the clicked button id
       if (clicked_button_id === "Elf_Archer") {
         createDefender(Elf_1, 50);
       } else if (clicked_button_id === "Elf_Mage") {
@@ -527,7 +530,11 @@ canvas.addEventListener("click", (event) => {
             tile.position.y === curr_defender.position.y + 32
           );
         });
-        coins += 0.5 * curr_defender.coins;
+        if(coins + 0.5 * curr_defender.coins <= 940){
+          coins += 0.5 * curr_defender.coins;
+          } else {
+            coins = 940;
+          }
         defenders.splice(i, 1);
         defenderSelected = true;
         break;

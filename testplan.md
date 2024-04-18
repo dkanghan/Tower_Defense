@@ -12,6 +12,10 @@ The purpose of this test plan document is to outline the testing approach for th
 
 | Test Item          | Description                                                             | Result           |
 |--------------------|-------------------------------------------------------------------------|------------------|
+| Login Page         | Verify that the login page is displayed with options to login if not logged in. | Successful       |
+| Login Page | Verify that the login page is not displayed if the user is already logged in. | Successful       |
+| Registration tab   | Verify that the registration tab is displayed with options to register if not registered. | Successful       |
+| Login tab           | Verify that the login tab is displayed with options to login if not logged in. | Successful       |
 | Home Page          | Verify that the home screen displays options to start the game.         | Successful       |              
 | User Manual        | Verify that the user manual is loading properly with descriptions on defenders and attackers.  | Successful       |
 | Level Selection    | Verify that the level selection screen is displayed with options to choose levels. | Successful|
@@ -40,7 +44,11 @@ The purpose of this test plan document is to outline the testing approach for th
 | Defender Removal   | Verify that the player cannot remove defenders when there are no defenders on the map. | Click on remove button | Defender is not removed | Successful |
 | Defender Removal   | Verify that the player can remove defenders multiple times. | Click on remove button and then click on different defenders  | Defenders are removed | Successful |
 | Defender Removal   | Verify that the player can remove defenders and gain back coins. | Click on remove button and then click on defender | Coins are added back to the balance | Successful |
+| Coin Limit     | Verify that the player does not get coins when the coin limit is reached. | Defeat an enemy when the coin limit is reached | Coin counter does not increase | Successful |
+| Coin Limit    | Verify that the player does not get coins when removing a defender when the coin limit is reached. | Remove a defender when the coin limit is reached | Coin counter does not increase | Successful |
+| Coin Limit   | Verify that the player don't go overlimit when defeating or removing a defender would lead to exceeding the coin limit. | Defeat an enemy or remove a defender when the coin limit would go overlimit | Coin counter goes to coin limit | Successful |
 
+<div style="page-break-after: always;"></div>
 
 ### **Progression System**
 -------------------

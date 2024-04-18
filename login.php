@@ -1,3 +1,14 @@
+<!-- 
+    login.php
+    Description : This file contains the login and registration form for the users.
+    Input : Username and Password if the user is already registered.
+            New Username and New Password if the user is registering for the first time.
+    Output: If the user is already registered, the user is redirected to the index page.
+            If the user is registering for the first time, the user is added to the database and redirected to the index page.
+            If the user enters invalid credentials, an alert is displayed and the user is redirected back to the login page. 
+ -->
+
+
 <?php
 session_start();
 
@@ -77,11 +88,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
 <body>
 
     <div class="container">
+        <!-- Create tabs for Login and Register-->
         <div class="tab">
             <button class="tablinks" onclick="openForm(event, 'Login')" id="defaultOpen">Login</button>
             <button class="tablinks" onclick="openForm(event, 'Register')">Register</button>
         </div>
 
+        <!-- Login form
+            Description: Form to enter username and password for login
+            Input: Username and Password
+            Output: Redirect to index page if login is successful
+        -->   
         <div id="Login" class="tabcontent">
             <h2>Login</h2>
             <form action="login.php" method="post">
@@ -93,6 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
             </form>
         </div>
 
+        <!-- Register form
+            Description: Form to enter new username and password for registration
+            Input: New Username and New Password
+            Output: Redirect to index page if registration is successful
+        -->
         <div id="Register" class="tabcontent">
             <h2>Register</h2>
             <form action="login.php" method="post">
@@ -106,6 +128,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["login"])) {
     </div>
 
     <script>
+        // Function to switch between Login and Register tabs
+        // Input : Event, Form Name
+        // Output: Display the selected form and hide the other form
         function openForm(evt, formName) {
             var i, tabcontent, tablinks;
             tabcontent = document.getElementsByClassName("tabcontent");
