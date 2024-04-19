@@ -153,21 +153,25 @@ const html_image = document.querySelector(".def_button");
 let previouslyClickedButton = null;
 html_image.addEventListener("click", (event) => {
   // Get the id of the clicked button
-  clicked_button_id = event.target.id;
+  if (event.target.tagName !== "P" && event.target.tagName !== "DIV") {
+    clicked_button_id = event.target.id;
 
-  // Remove border from previously clicked button
-  if (previouslyClickedButton) {
-    previouslyClickedButton.style.border = "none";
+    // Remove border from previously clicked button
+    if (previouslyClickedButton) {
+      previouslyClickedButton.style.border = "none";
+    }
+
+    // Add border to the clicked button
+    const clicked_button = document.getElementById(clicked_button_id);
+    if (clicked_button) {
+      clicked_button.style.border = "2px solid black";
+      clicked_button.style.borderRadius = "5px";
+    }
+
+    previouslyClickedButton = clicked_button;
+  } else {
+    clicked_button_id = undefined;
   }
-
-  // Add border to the clicked button
-  const clicked_button = document.getElementById(clicked_button_id);
-  if (clicked_button) {
-    clicked_button.style.border = "2px solid black";
-    clicked_button.style.borderRadius = "5px";
-  }
-
-  previouslyClickedButton = clicked_button;
 });
 
 //Add delete button

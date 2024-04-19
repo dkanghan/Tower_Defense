@@ -121,21 +121,25 @@ let wave_button = null;
 const html_image = document.querySelector(".def_button");
 html_image.addEventListener("click", (event) => {
   // Get the id of the clicked button
-  clicked_button_id = event.target.id;
+  if (event.target.tagName !== "P" && event.target.tagName !== "DIV") {
+    clicked_button_id = event.target.id;
 
-  // Remove border from previously clicked button
-  if (previouslyClickedButton) {
-    previouslyClickedButton.style.border = "none";
+    // Remove border from previously clicked button
+    if (previouslyClickedButton) {
+      previouslyClickedButton.style.border = "none";
+    }
+
+    // Add border to the clicked button
+    const clicked_button = document.getElementById(clicked_button_id);
+    if (clicked_button) {
+      clicked_button.style.border = "2px solid black";
+      clicked_button.style.borderRadius = "5px";
+    }
+
+    previouslyClickedButton = clicked_button;
+  } else {
+    clicked_button_id = undefined;
   }
-
-  // Add border to the clicked button
-  const clicked_button = document.getElementById(clicked_button_id);
-  if (clicked_button) {
-    clicked_button.style.border = "2px solid black";
-    clicked_button.style.borderRadius = "5px";
-  }
-
-  previouslyClickedButton = clicked_button;
 });
 
 wave_button = document.getElementById("wave");
@@ -367,7 +371,6 @@ function animate() {
     }
   });
 
-
   if (clicked_button_id === "Warrior") {
     radius = 250;
   } else if (clicked_button_id === "Fairy_3") {
@@ -377,9 +380,7 @@ function animate() {
   }
 
   // Draw the radius of the defender on mouse hover
-  if (
-    clicked_button_id != undefined
-  ) {
+  if (clicked_button_id != undefined) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
     c.fillStyle = "rgba(255, 0, 0, 0)";
@@ -432,7 +433,7 @@ canvas.addEventListener("click", () => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied 
+      !activeTile.occupied
     ) {
       if (clicked_button_id === "Warrior") {
         createDefender(Warrior, 50);
