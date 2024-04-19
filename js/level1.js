@@ -305,7 +305,7 @@ function animate() {
       document
         .querySelector(".next-level-btn")
         .addEventListener("click", () => {
-          window.location.href = "./level2.html";
+          window.location.href = "./level2.php";
         });
 
       document.querySelector(".home-btn").addEventListener("click", () => {

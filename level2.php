@@ -1,3 +1,18 @@
+
+<?php
+session_start();
+
+// If user is not logged in, redirect to login page
+if (!isset($_SESSION["username"])) {
+    header("Location: login.php");
+    exit();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Workbench:SCAN@-17&display=swap"
@@ -26,3 +41,5 @@
 <script src="js/sub_enemy.js"></script>
 <script src="js/sub_defender.js"></script>
 <script src="js/level2.js"></script>
+
+</html>

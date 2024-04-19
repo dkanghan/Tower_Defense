@@ -284,7 +284,7 @@ if (!isset($_SESSION["username"])) {
         document.getElementById('buttonContainer').addEventListener('click', function (event) {
             if (event.target.classList.contains('level-button')) {
                 var level = event.target.dataset.level;
-                window.location.href = 'level' + level + '.html';
+                window.location.href = 'level' + level + '.php';
             }
         });
 
