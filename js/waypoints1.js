@@ -76,6 +76,7 @@ const waypoints2 = [
   },
 ];
 
+// Description: Waypoints for the third level of the game.(first path)
 const waypoint31 = [
   {
     x: -57.5,
@@ -95,6 +96,7 @@ const waypoint31 = [
   },
 ];
 
+// Description: Waypoints for the third level of the game.(second path)
 const waypoint32 = [
   {
     x: -68,
@@ -114,6 +116,7 @@ const waypoint32 = [
   },
 ];
 
+// Description: Waypoints for the fourth level of the game.(first path)
 const waypoint41 = [
   {
     x: -60,
@@ -133,6 +136,7 @@ const waypoint41 = [
   },
 ];
 
+// Description: Waypoints for the fourth level of the game.(second path)
 const waypoint42 = [
   {
     x: -60,
@@ -152,6 +156,7 @@ const waypoint42 = [
   },
 ];
 
+// Description: Waypoints for the fourth level of the game.(third path)
 const waypoint43 = [
   {
     x: -60,

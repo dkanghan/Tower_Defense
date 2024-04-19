@@ -18,7 +18,7 @@ const image = new Image();
 image.onload = function () {
   c.drawImage(image, 0, 0, canvas.width, canvas.height);
 };
-image.src = "assets/Level1/towerdefense1.png";
+image.src = "assets/Level1/map1.png";
 
 // Define the placement tiles
 // set the placement tiles on the canvas
@@ -386,9 +386,7 @@ function animate() {
 
   // Draw the radius of the defender on mouse hover
   if (
-    clicked_button_id != undefined &&
-    clicked_button_id != "delete" &&
-    clicked_button_id != "upgrade"
+    clicked_button_id != undefined
   ) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);

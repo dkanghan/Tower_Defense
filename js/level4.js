@@ -497,8 +497,7 @@ canvas.addEventListener("click", () => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied &&
-      coins >= 50
+      !activeTile.occupied 
     ) {
       // Create a new defender based on the clicked button id
       if (clicked_button_id === "Elf_Archer") {

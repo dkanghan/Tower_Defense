@@ -244,6 +244,8 @@ if (!isset($_SESSION["username"])) {
         </div>
     </div>
 
+    <script src="js/prefetch.js"></script>
+
     <script>
 
         // Function to switch between Enemies and Defenders tabs

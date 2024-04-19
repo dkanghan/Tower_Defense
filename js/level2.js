@@ -18,7 +18,7 @@ const image = new Image();
 image.onload = function () {
   c.drawImage(image, 0, 0, canvas.width, canvas.height);
 };
-image.src = "assets/Level2/level2map.png";
+image.src = "assets/Level2/map2.png";
 
 // Define the placement tiles
 // set the placement tiles on the canvas
@@ -367,6 +367,7 @@ function animate() {
     }
   });
 
+
   if (clicked_button_id === "Warrior") {
     radius = 250;
   } else if (clicked_button_id === "Fairy_3") {
@@ -375,10 +376,9 @@ function animate() {
     radius = 225;
   }
 
+  // Draw the radius of the defender on mouse hover
   if (
-    clicked_button_id != undefined &&
-    clicked_button_id != "delete" &&
-    clicked_button_id != "upgrade"
+    clicked_button_id != undefined
   ) {
     c.beginPath();
     c.arc(mouse.x, mouse.y, radius, 0, Math.PI * 2, false);
@@ -432,8 +432,7 @@ canvas.addEventListener("click", () => {
       placementTilesArr[belowIndex + 1].occupied === false &&
       placementTilesArr[currentIndex + 1].occupied === false &&
       activeTile &&
-      !activeTile.occupied &&
-      coins >= 50
+      !activeTile.occupied 
     ) {
       if (clicked_button_id === "Warrior") {
         createDefender(Warrior, 50);
